@@ -1,0 +1,25 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Würzburg & Sennfeld & 24 & -38 & 256\\ 
+Würzburg & Gochsheim & 60 & -96 & 257\\ 
+Würzburg & Gerolzhofen & 37 & -59 & 258\\ 
+Würzburg & Prichsenstadt & 24 & -38 & 259\\ 
+Würzburg & Wiesentheid & 46 & -73 & 260\\ 
+\end{tabular}
+\newline
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Würzburg";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Würzburg}\label{lst-fz-wuerzburg}
+\end{listing}

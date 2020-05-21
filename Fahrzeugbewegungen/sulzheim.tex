@@ -1,0 +1,28 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Sulzheim & Schweinfurt & 54 & -86 & 43\\ 
+Sulzheim & Gochsheim & 3 & -4 & 44\\ 
+Sulzheim & Sennfeld & 2 & -3 & 45\\ 
+Sulzheim & Gerolzhofen & 141 & -225 & 46\\ 
+Sulzheim & Kitzingen & 2 & -3 & 47\\ 
+Sulzheim & Alitzheim & * & 510 & 48\\ 
+\end{tabular}    
+\newline
+\newline
+* Neue Verkehre um den Bahnhof zu erreichen.
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Sulzheim";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Sulzheim}\label{lst-fz-sulzheim}
+\end{listing}

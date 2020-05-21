@@ -1,0 +1,27 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Frankenwinheim & Würzburg & 6 & -9 & 95\\ 
+Frankenwinheim & Schweinfurt & 20 & -32 & 96\\ 
+Frankenwinheim & Kitzingen & 3 & -2 & 97\\ 
+Frankenwinheim & Gerolzhofen & * & 65 & 98\\ 
+Frankenwinheim & Lülsfeld & * & 8 & 99\\ 
+\end{tabular}    
+\newline
+\newline
+* Neue Verkehre um den Bahnhof zu erreichen.
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Frankenwinheim";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Frankenwinheim}\label{lst-fz-frankenwinheim}
+\end{listing}

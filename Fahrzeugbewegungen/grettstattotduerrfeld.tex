@@ -1,0 +1,27 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Grettstatt OT Dürrfeld & Würzburg, Rottendorf & 2 & -3 & 33\\ 
+Grettstatt OT Dürrfeld & Schweinfurt & 22 & -35 & 35\\ 
+Grettstatt OT Dürrfeld & Gochsheim & 27 & -43 & 37\\ 
+Grettstatt OT Dürrfeld & Gerolzhofen & 2 & -3 & 38\\ 
+Grettstatt OT Dürrfeld & Grettstatt & * & 85 & 39\\ 
+\end{tabular}       
+\newline
+\newline
+* Neue Verkehre um den Bahnhof zu erreichen.
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Grettstatt OT Dürrfeld";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Dürrfeld}\label{lst-fz-duerrfeld}
+\end{listing}

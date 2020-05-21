@@ -1,0 +1,26 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\
+Schweinfurt & Sennfeld & 0 & 0 & 1\\ 
+Schweinfurt & Gochsheim & 0 & 0 & 2\\ 
+Schweinfurt & Grettstatt & 36 & -57 & 3\\ 
+Schweinfurt & Gerolzhofen & 139 & -222 & 4\\ 
+Schweinfurt & Wiesentheid & 36 & -57 & 5\\ 
+Schweinfurt & Kitzingen & 48 & -76 & 6\\ 
+\end{tabular}
+\newline
+\newline
+\begin{listing}[htbp]
+    \begin{minted}{sql}
+    SELECT
+    `from_places`.`name` AS `Quelle`, 
+    `to_places`.`name` AS `Ziel`, 
+    `potentials`.`netto` AS `NettoPotenzial`, 
+    `potentials`.`miv-change` AS `MIV-Veränderung`, 
+    `potentials`.`id` AS `Potenzial-ID`
+    FROM `potentials`
+    LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+    LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+    WHERE `from_places`.`name` = "Schweinfurt";
+    \end{minted}
+    \caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Schweinfurt}\label{lst-fz-schweinfurt}
+\end{listing}

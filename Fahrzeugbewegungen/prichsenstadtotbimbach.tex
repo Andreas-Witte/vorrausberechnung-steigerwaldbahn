@@ -1,0 +1,31 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Prichsenstadt OT Bimbach & Bamberg, Haßfurt & 1 & -1 & 134\\ 
+Prichsenstadt OT Bimbach & Schweinfurt & 1 & -1 & 135\\ 
+Prichsenstadt OT Bimbach & Gerolzhofen & 1 & -1 & 136\\ 
+Prichsenstadt OT Bimbach & Lülsfeld & 1 & -1 & 137\\ 
+Prichsenstadt OT Bimbach & Wiesentheid & 6 & -9 & 138\\ 
+Prichsenstadt OT Bimbach & Kitzingen & 4 & -6 & 139\\ 
+Prichsenstadt OT Bimbach & Würzburg, Rottendorf & 2 & -3 & 140\\ 
+Prichsenstadt OT Bimbach & Nürnberg, Erlangen & 1 & -1 & 141\\ 
+Prichsenstadt OT Bimbach & Järkendorf & * & 43 & 142\\ 
+\end{tabular}
+\newline
+\newline
+* Neue Verkehre um den Bahnhof zu erreichen.
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Prichsenstadt OT Bimbach";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Bimbach}\label{lst-fz-bimbach}
+\end{listing}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k}{SELECT}
+\PYG{o}{`}\PYG{n}{from\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{name}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{Quelle}\PYG{o}{`}\PYG{p}{,}
+\PYG{o}{`}\PYG{n}{to\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{name}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{Ziel}\PYG{o}{`}\PYG{p}{,}
+\PYG{o}{`}\PYG{n}{potentials}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{netto}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{NettoPotenzial}\PYG{o}{`}\PYG{p}{,}
+\PYG{o}{`}\PYG{n}{potentials}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{miv}\PYG{o}{\PYGZhy{}}\PYG{n}{change}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{MIV}\PYG{o}{\PYGZhy{}}\PYG{n}{Veränderung}\PYG{o}{`}\PYG{p}{,}
+\PYG{o}{`}\PYG{n}{potentials}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{id}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{Potenzial}\PYG{o}{\PYGZhy{}}\PYG{n}{ID}\PYG{o}{`}
+\PYG{k}{FROM} \PYG{o}{`}\PYG{n}{potentials}\PYG{o}{`}
+\PYG{k}{LEFT} \PYG{k}{JOIN} \PYG{o}{`}\PYG{n}{places}\PYG{o}{`} \PYG{o}{`}\PYG{n}{from\PYGZus{}places}\PYG{o}{`} \PYG{k}{ON} \PYG{o}{`}\PYG{n}{from\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{id}\PYG{o}{`} \PYG{o}{=} \PYG{o}{`}\PYG{n}{potentials}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{from\PYGZus{}id}\PYG{o}{`}
+\PYG{k}{LEFT} \PYG{k}{JOIN} \PYG{o}{`}\PYG{n}{places}\PYG{o}{`} \PYG{o}{`}\PYG{n}{to\PYGZus{}places}\PYG{o}{`} \PYG{k}{ON} \PYG{o}{`}\PYG{n}{to\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{id}\PYG{o}{`} \PYG{o}{=} \PYG{o}{`}\PYG{n}{potentials}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{to\PYGZus{}id}\PYG{o}{`}
+\PYG{k}{WHERE} \PYG{o}{`}\PYG{n}{from\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{name}\PYG{o}{`} \PYG{o}{=} \PYG{l+s+ss}{\PYGZdq{}Prichsenstadt OT Laub\PYGZdq{}}\PYG{p}{;}
+\end{Verbatim}

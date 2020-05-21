@@ -1,0 +1,27 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Wiesentheid OT Feuerbach & Schweinfurt & 2 & -3 & 202\\ 
+Wiesentheid OT Feuerbach & Gerolzhofen & 2 & -3 & 203\\ 
+Wiesentheid OT Feuerbach & Prichsenstadt & 3 & -4 & 204\\ 
+Wiesentheid OT Feuerbach & Kleinlangheim & 1 & -1 & 205\\ 
+Wiesentheid OT Feuerbach & Kitzingen & 13 & -20 & 206\\ 
+Wiesentheid OT Feuerbach & Würzburg, Rottendorf & 4 & -6 & 207\\ 
+Wiesentheid OT Feuerbach & Nürnberg, Erlangen & 1 & -1 & 208\\ 
+\end{tabular}
+\newline
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Wiesentheid OT Feuerbach";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Feuerbach}\label{lst-fz-feuerbach}
+\end{listing}

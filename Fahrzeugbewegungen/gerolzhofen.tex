@@ -1,0 +1,32 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Gerolzhofen & Rottendorf & 4 & -6 & 72\\ 
+Gerolzhofen & Würzburg & 41 & -65 & 73\\ 
+Gerolzhofen & Haßfurt & 12 & -19 & 74\\ 
+Gerolzhofen & Bad Kissingen & 7 & -11 & 75\\ 
+Gerolzhofen & Schweinfurt & 411 & -657 & 76\\ 
+Gerolzhofen & Sennfeld & 17 & -27 & 77\\ 
+Gerolzhofen & Gochsheim & 22 & -35 & 78\\ 
+Gerolzhofen & Lülsfeld & 6 & -9 & 79\\ 
+Gerolzhofen & Prichsenstadt & 16 & -25 & 80\\ 
+Gerolzhofen & Wiesentheid & 23 & -36 & 81\\ 
+Gerolzhofen & Kitzingen & 108 & -172 & 82\\ 
+\end{tabular}
+\newline
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Gerolzhofen";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Gerolzhofen}\label{lst-fz-gerolzhofen}
+\end{listing}
+    

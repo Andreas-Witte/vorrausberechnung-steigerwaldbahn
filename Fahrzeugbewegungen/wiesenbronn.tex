@@ -1,0 +1,27 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Wiesenbronn & Schweinfurt & 3 & -4 & 240\\ 
+Wiesenbronn & Gerolzhofen & 2 & -3 & 241\\ 
+Wiesenbronn & Würzburg, Rottendorf & 8 & -12 & 242\\ 
+Wiesenbronn & Kleinlangheim & * & 13 & 243\\ 
+Wiesenbronn & Großlangheim & * & 20 & 244\\ 
+\end{tabular}
+\newline
+\newline
+* Neue Verkehre um den Bahnhof zu erreichen.
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Wiesenbronn";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Wiesenbronn}\label{lst-fz-wiesenbronn}
+\end{listing}

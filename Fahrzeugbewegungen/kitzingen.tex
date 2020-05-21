@@ -1,0 +1,27 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Kitzingen & Schweinfurt & 64 & -102 & 249\\ 
+Kitzingen & Gochsheim & 9 & -14 & 250\\ 
+Kitzingen & Gerolzhofen & 11 & -17 & 251\\ 
+Kitzingen & Prichsenstadt & 18 & -28 & 252\\ 
+Kitzingen & Wiesentheid & 49 & -78 & 253\\ 
+Kitzingen & Kleinlangheim & 10 & -16 & 254\\ 
+Kitzingen & Großlangheim & 37 & -59 & 255\\ 
+\end{tabular} 
+\newline
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Kitzingen";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Kitzingen}\label{lst-fz-kitzingen}
+\end{listing}

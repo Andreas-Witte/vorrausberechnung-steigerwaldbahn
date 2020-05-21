@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{o}{`}\PYG{n}{places}\PYG{o}{`} \PYG{p}{(}
+    \PYG{o}{`}\PYG{n}{id}\PYG{o}{`} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{)} \PYG{n}{UNSIGNED} \PYG{k}{NOT} \PYG{k}{NULL} \PYG{n}{AUTO\PYGZus{}INCREMENT}\PYG{p}{,}
+    \PYG{o}{`}\PYG{n}{name}\PYG{o}{`} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{p}{)} \PYG{k}{NOT} \PYG{k}{NULL} \PYG{k}{DEFAULT} \PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}} \PYG{k}{COLLATE} \PYG{l+s+s1}{\PYGZsq{}utf8mb4\PYGZus{}general\PYGZus{}ci\PYGZsq{}}\PYG{p}{,}
+    \PYG{o}{`}\PYG{n}{LAT}\PYG{o}{`} \PYG{n+nb}{DECIMAL}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{,}\PYG{l+m+mi}{6}\PYG{p}{)} \PYG{k}{NOT} \PYG{k}{NULL} \PYG{k}{DEFAULT} \PYG{l+s+s1}{\PYGZsq{}0.000000\PYGZsq{}}\PYG{p}{,}
+    \PYG{o}{`}\PYG{n}{LONG}\PYG{o}{`} \PYG{n+nb}{DECIMAL}\PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{,}\PYG{l+m+mi}{6}\PYG{p}{)} \PYG{k}{NOT} \PYG{k}{NULL} \PYG{k}{DEFAULT} \PYG{l+s+s1}{\PYGZsq{}0.000000\PYGZsq{}}\PYG{p}{,}
+    \PYG{o}{`}\PYG{k}{type}\PYG{o}{`} \PYG{n}{ENUM}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}city\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}smallcity\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}town\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}village\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}traffic\PYGZsq{}}\PYG{p}{)} \PYG{k}{NULL} \PYG{k}{DEFAULT} \PYG{k}{NULL} \PYG{k}{COLLATE} \PYG{l+s+s1}{\PYGZsq{}utf8mb4\PYGZus{}general\PYGZus{}ci\PYGZsq{}}\PYG{p}{,}
+    \PYG{k}{PRIMARY} \PYG{k}{KEY} \PYG{p}{(}\PYG{o}{`}\PYG{n}{id}\PYG{o}{`}\PYG{p}{)} \PYG{k}{USING} \PYG{n}{BTREE}\PYG{p}{,}
+    \PYG{k}{UNIQUE} \PYG{k}{INDEX} \PYG{o}{`}\PYG{n}{name}\PYG{o}{`} \PYG{p}{(}\PYG{o}{`}\PYG{n}{name}\PYG{o}{`}\PYG{p}{)} \PYG{k}{USING} \PYG{n}{BTREE}
+\PYG{p}{)}
+\PYG{k}{COLLATE}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}utf8mb4\PYGZus{}general\PYGZus{}ci\PYGZsq{}}
+\PYG{n}{ENGINE}\PYG{o}{=}\PYG{n}{InnoDB}\PYG{p}{;}
+\end{Verbatim}

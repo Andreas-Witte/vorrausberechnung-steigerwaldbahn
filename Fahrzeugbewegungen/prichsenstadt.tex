@@ -1,0 +1,28 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Prichsenstadt & Bamberg, Haßfurt & 3 & -4 & 118\\ 
+Prichsenstadt & Schweinfurt & 9 & -14 & 119\\ 
+Prichsenstadt & Gerolzhofen & 9 & -14 & 120\\ 
+Prichsenstadt & Lülsfeld & 13 & -20 & 121\\ 
+Prichsenstadt & Wiesentheid & 73 & -116 & 122\\ 
+Prichsenstadt & Kitzingen & 47 & -75 & 123\\ 
+Prichsenstadt & Würzburg, Rottendorf & 11 & -17 & 124\\ 
+Prichsenstadt & Nürnberg, Erlangen & 3 & -4 & 125\\ 
+\end{tabular}    
+\newline
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Prichsenstadt";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Prichsenstadt}\label{lst-fz-prichsenstadt}
+\end{listing}

@@ -1,0 +1,28 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Stadelschwarzach & Bamberg, Haßfurt & 2 & -3 & 187\\ 
+Stadelschwarzach & Schweinfurt & 5 & -8 & 188\\ 
+Stadelschwarzach & Gerolzhofen & 5 & -8 & 189\\ 
+Stadelschwarzach & Lülsfeld & 7 & -11 & 190\\ 
+Stadelschwarzach & Wiesentheid & 41 & -65 & 191\\ 
+Stadelschwarzach & Kitzingen & 26 & -41 & 192\\ 
+Stadelschwarzach & Würzburg, Rottendorf & 6 & -9 & 193\\ 
+Stadelschwarzach & Nürnberg, Erlangen & 2 & -3 & 194\\ 
+\end{tabular}    
+\newline
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Stadelschwarzach";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Stadelschwarzach}\label{lst-fz-stadelschwarzach}
+\end{listing}

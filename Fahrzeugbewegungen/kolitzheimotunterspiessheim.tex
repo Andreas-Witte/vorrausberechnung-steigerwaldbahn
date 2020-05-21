@@ -1,0 +1,26 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Unterspießheim & Lülsfeld & 1 & -1 & 65\\ 
+Unterspießheim & Wiesentheid & 1 & -1 & 66\\ 
+Unterspießheim & Kitzingen & 1 & -1 & 67\\ 
+Unterspießheim & Alitzheim & * & 8 & 68\\ 
+\end{tabular}    
+\newline
+\newline
+* Neue Verkehre um den Bahnhof zu erreichen.
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Unterspießheim";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Unterspießheim}\label{lst-fz-unterspiessheim}
+\end{listing}

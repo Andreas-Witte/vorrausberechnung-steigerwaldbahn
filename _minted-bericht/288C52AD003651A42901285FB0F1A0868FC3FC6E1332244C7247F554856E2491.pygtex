@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k}{SELECT} \PYG{k}{SUM}\PYG{p}{(}\PYG{n}{t1}\PYG{p}{.}\PYG{n}{gesamtfahrleistung}\PYG{p}{)}
+\PYG{k}{FROM}
+\PYG{p}{(}\PYG{k}{SELECT} \PYG{p}{(}\PYG{n}{potentials}\PYG{p}{.}\PYG{o}{`}\PYG{n}{miv}\PYG{o}{\PYGZhy{}}\PYG{n}{change}\PYG{o}{`} \PYG{o}{*} \PYG{n}{potentials}\PYG{p}{.}\PYG{o}{`}\PYG{k}{length}\PYG{o}{`} \PYG{o}{*} \PYG{l+m+mi}{0}\PYG{p}{.}\PYG{l+m+mi}{001}\PYG{p}{)} \PYG{k}{AS} \PYG{n}{gesamtfahrleistung}
+\PYG{k}{FROM} \PYG{n}{potentials}
+\PYG{k}{WHERE} \PYG{n}{potentials}\PYG{p}{.}\PYG{o}{`}\PYG{n}{miv}\PYG{o}{\PYGZhy{}}\PYG{n}{change}\PYG{o}{`} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0}
+\PYG{p}{)} \PYG{n}{t1}
+\end{Verbatim}

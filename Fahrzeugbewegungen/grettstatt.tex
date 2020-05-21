@@ -1,0 +1,26 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Grettstatt & Würzburg, Rottendorf & 12 & -19 & 27\\ 
+Grettstatt & Bamberg, Haßfurt & 4 & -6 & 28\\ 
+Grettstatt & Schweinfurt & 215 & -344 & 29\\ 
+Grettstatt & Sennfeld & 12 & -19 & 30\\ 
+Grettstatt & Gochsheim & 131 & -209 & 31\\ 
+Grettstatt & Gerolzhofen & 12 & -19 & 32\\ 
+\end{tabular}       
+\newline
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Grettstatt";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Grettstatt}\label{lst-fz-grettstatt}
+\end{listing}

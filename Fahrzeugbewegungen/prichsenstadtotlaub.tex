@@ -1,0 +1,31 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Prichsenstadt OT Laub & Bamberg, Haßfurt & 1 & -1 & 166\\ 
+Prichsenstadt OT Laub & Schweinfurt & 1 & -1 & 167\\ 
+Prichsenstadt OT Laub & Gerolzhofen & 1 & -1 & 168\\ 
+Prichsenstadt OT Laub & Lülsfeld & 2 & -3 & 169\\ 
+Prichsenstadt OT Laub & Kitzingen & 7 & -11 & 170\\ 
+Prichsenstadt OT Laub & Würzburg, Rottendorf & 3 & -4 & 171\\ 
+Prichsenstadt OT Laub & Nürnberg, Erlangen & 1 & -1 & 172\\ 
+Prichsenstadt OT Laub & Prichsenstadt & * & 28 & 173\\ 
+Prichsenstadt OT Laub & Stadelschwarzach & * & 13 & 174\\ 
+\end{tabular}    
+\newline
+\newline
+* Neue Verkehre um den Bahnhof zu erreichen.
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Prichsenstadt OT Laub";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Laub}\label{lst-fz-laub}
+\end{listing}

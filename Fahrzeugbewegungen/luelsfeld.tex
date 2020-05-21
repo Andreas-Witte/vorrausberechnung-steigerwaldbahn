@@ -1,0 +1,24 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Lülsfeld & Schweinfurt & 20 & -32 & 110\\ 
+Lülsfeld & Gerolzhofen & 38 & -60 & 111\\ 
+Lülsfeld & Wiesentheid & 2 & -3 & 112\\ 
+Lülsfeld & Kitzingen & 4 & -6 & 113\\ 
+\end{tabular}
+\newline
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Lülsfeld";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Lülsfeld}\label{lst-fz-luelsfeld}
+\end{listing}

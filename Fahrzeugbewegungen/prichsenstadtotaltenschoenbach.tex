@@ -1,0 +1,30 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Prichsenstadt OT Altenschönbach & Bamberg, Haßfurt & 1 & -1 & 126\\ 
+Prichsenstadt OT Altenschönbach & Schweinfurt & 2 & -3 & 127\\ 
+Prichsenstadt OT Altenschönbach & Gerolzhofen & 2 & -3 & 128\\ 
+Prichsenstadt OT Altenschönbach & Lülsfeld & 3 & -4 & 129\\ 
+Prichsenstadt OT Altenschönbach & Kitzingen & 10 & -16 & 130\\ 
+Prichsenstadt OT Altenschönbach & Würzburg, Rottendorf & 4 & -6 & 131\\ 
+Prichsenstadt OT Altenschönbach & Nürnberg, Erlangen & 1 & -1 & 132\\ 
+Prichsenstadt OT Altenschönbach & Prichsenstadt & * & 57 & 133\\ 
+\end{tabular}    
+\newline
+\newline
+* Neue Verkehre um den Bahnhof zu erreichen.
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID` 
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Prichsenstadt OT Altenschönbach";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Altenschönbach}\label{lst-fz-altenschoenbach}
+\end{listing}

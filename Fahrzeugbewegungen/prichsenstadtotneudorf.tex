@@ -1,0 +1,29 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Prichsenstadt OT Neudorf & Schweinfurt & 1 & -1 & 175\\ 
+Prichsenstadt OT Neudorf & Gerolzhofen & 1 & -1 & 176\\ 
+Prichsenstadt OT Neudorf & Lülsfeld & 1 & -1 & 177\\ 
+Prichsenstadt OT Neudorf & Wiesentheid & 5 & -8 & 178\\ 
+Prichsenstadt OT Neudorf & Kitzingen & 3 & -4 & 179\\ 
+Prichsenstadt OT Neudorf & Würzburg, Rottendorf & 1 & -1 & 180\\ 
+Prichsenstadt OT Neudorf & Stadelschwarzach & * & 30 & 181\\ 
+\end{tabular}
+\newline
+\newline
+* Neue Verkehre um den Bahnhof zu erreichen.
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Prichsenstadt OT Neudorf";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Neudorf}\label{lst-fz-neudorf}
+\end{listing}

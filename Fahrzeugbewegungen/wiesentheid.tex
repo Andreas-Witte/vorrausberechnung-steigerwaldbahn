@@ -1,0 +1,27 @@
+\begin{tabular}{ l  l  l  l  l }
+Quelle & Ziel & NettoPotenzial & MIV-Veränderung & Potenzial-ID\\ 
+Wiesentheid & Schweinfurt & 22 & -35 & 195\\ 
+Wiesentheid & Gerolzhofen & 19 & -30 & 196\\ 
+Wiesentheid & Prichsenstadt & 35 & -56 & 197\\ 
+Wiesentheid & Kleinlangheim & 7 & -11 & 198\\ 
+Wiesentheid & Kitzingen & 172 & -275 & 199\\ 
+Wiesentheid & Würzburg, Rottendorf & 52 & -83 & 200\\ 
+Wiesentheid & Nürnberg, Erlangen & 3 & -4 & 201\\ 
+\end{tabular}    
+\newline
+\newline
+\begin{listing}[htbp]
+\begin{minted}{sql}
+SELECT
+`from_places`.`name` AS `Quelle`, 
+`to_places`.`name` AS `Ziel`, 
+`potentials`.`netto` AS `NettoPotenzial`, 
+`potentials`.`miv-change` AS `MIV-Veränderung`, 
+`potentials`.`id` AS `Potenzial-ID`
+FROM `potentials`
+LEFT JOIN `places` `from_places` ON `from_places`.`id` = `potentials`.`from_id`
+LEFT JOIN `places` `to_places` ON `to_places`.`id` = `potentials`.`to_id`
+WHERE `from_places`.`name` = "Wiesentheid";
+\end{minted}
+\caption{SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quelle Wiesentheid}\label{lst-fz-wiesentheid}
+\end{listing}
