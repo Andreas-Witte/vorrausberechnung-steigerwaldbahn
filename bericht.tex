@@ -127,13 +127,16 @@ Die Relationalisierung wurde so weit wie sinnvoll vorgenommen. Zur Eingabe wurde
 
 Im folgenden werden immer die verwendeten SQL-Queries angegeben, mit denen sich ein Ergebnis nachvollziehen lässt.
 
-        \section{Modellierung der Potenziale}
-In der Schliephake-Studie sind die als \enquote{Netto-Potential} genannten Bewegungen (Hin- und Rückfahrten) relevant. Diese finden sich in dem Dokument einzeln aufgelistet, teilweise im Text mit verkehrsfachlichen Begründungen, teilweise in Tabellenform.
+\section{Modellierung der Potenziale}
+In der Schliephake-Studie sind die als \enquote{Netto-Potential} genannten Bewegungen (Hin- und Rückfahrten) relevant. Diese finden sich in dem Dokument einzeln aufgelistet, teilweise im Text mit verkehrsfachlichen Begründungen, teilweise in Tabellenform.\newline
+\newline
+Deren gemeinsames Merkmal ist, dass das Potential von einem Ort ausgeht und zu einem Ort zielt. Daher werden diese Orte in einer Tabelle erfasst.\newline
+\newline
+Die Potentiale sind verbindungen zwischen zwei Strecken, aus deren Netto-Potential wir die Veränderung des MIV ableiten und denen wir auch eine Fahrstrecke auf der Straße bezüglich Länge und Zeit zuordnen können.\newline
+\newline
+Die meisten Orte lassen sich klar zuordnen. Bei manchen Angaben aus der \enquote{Schliephake-Studie}, wie zum Beispiel \enquote{Nürnberg, Erlangen} wurden Punkte gewählt, die beiden Orten aus MIV-Sicht einen optimalen Zugang gewähren (in diesem Beispiel das Autobahnkreuz Nürnberg-Erlangen), wo diese gemeinsamen Orte nicht gegeben waren, wurde das Ziel oder die Quelle jeweils auf das mutmaßlich überwiegende Ziel oder Quelle gelegt (zum Beispiel \enquote{Haßfurt, Bamberg} wurde Bamberg zugeordnet).
 
-Deren gemeinsames Merkmal ist, dass das Potential von einem Ort ausgeht und zu einem Ort zielt. Daher werden diese Orte in einer Tabelle erfasst.
-
-Die Potentiale sind verbindungen zwischen zwei Strecken, aus deren Netto-Potential wir die Veränderung des MIV ableiten und denen wir auch eine Fahrstrecke auf der Straße bezüglich Länge und Zeit zuordnen können.
-        \subsection{Tabelle places}
+\subsection{Tabelle places}
 In der Tabelle places speichern wir die Orte, also Quelle und Ziel, und deren Koordinaten.
 
 In der Auswertung werden wir die Koordinaten brauchen um unsere Karten zu gernerieren. LAT und LONG sind Fließkommazahlen, die Notation in Minten und Sekunden wird in der Datenbank nicht angewendet.
