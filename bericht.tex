@@ -217,6 +217,18 @@ Anmerkung: Der Einsatz von Unique Indexes und Constraints stellt hierbei die Int
 
 \section{Modellierung der Straßeninfrastruktur}
 
+Die Straßenverkehrsinfrastruktur wird als einzelne Straßen abgebildet, welche zwei Orte verbinden. Die Richtung der Verbindung ist unerheblich für die Benutzung der Straßen. Orte können auch "virtuell" erfundene Orte sein, zum Beispiel Autobahnausfahrten. Diese liegen selten am Ort, nach dem Sie benannt sind.
+
+Die Betrachtung erfolgt hier nur für\newline
+- Autobahnen (Kürzel \enquote{A}); die höchste Straßenkategorie in Deutschland;\newline
+- Bundesstraßen (Kürzel \enquote{B}); meist hochwertig ausgebaute Fernstraßen für den deutschlandweiten und internationalen Verkehr, deren Baulast bei der Bundesrepublik liegt;\newline
+- Staatsstraßen (Kürzel \enquote{St}); Straßen, welche für den bayerischen Straßenverkehr vom Freistaat Bayern unterhalten werden;\newline
+- Kreisstraßen (Kürzel \enquote{WÜ} für den Landkreis Würzburg, \enquote{KT} für den Landkreis Kitzingen, \enquote{SW} für den Landkreis Schweinfurt)\newline
+\newline
+Überörtliche Ortstraßen sind ohnehin kaum betroffen und werden hier nicht weiter berücksichtigt.\newline
+\newline
+Ebenfalls unberücksichtigt bleibt der innerörtliche Verkehr, wenn keine Durchgangsstraße durch den jeweiligen Ort verläuft, weil die Auflösung des "Netto-Potenzials" aus der Studie von Dr. Konrad Schliephake bereits nicht Straßengenau erfolgt ist und dadurch sich diese Studie eine Präzision anmuten würde, die sie defakto nicht besitzt und nicht besitzen kann. Die Abbildung erfolgt in der Regel bis zum Ortsrand.
+
 \subsection{Tabelle streets}
 
 \section{Modellierung der Wege im Straßenverkehr}

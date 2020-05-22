@@ -4,60 +4,60 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {listing}{\numberline {5.1}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Schweinfurt}}{48}{listing.5.1}%
-\contentsline {listing}{\numberline {5.2}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Sennfeld}}{48}{listing.5.2}%
-\contentsline {listing}{\numberline {5.3}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Gochsheim}}{49}{listing.5.3}%
-\contentsline {listing}{\numberline {5.4}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Weyer}}{49}{listing.5.4}%
-\contentsline {listing}{\numberline {5.5}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Schwebheim}}{50}{listing.5.5}%
-\contentsline {listing}{\numberline {5.6}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Grettstatt}}{50}{listing.5.6}%
-\contentsline {listing}{\numberline {5.7}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle D\"urrfeld}}{51}{listing.5.7}%
-\contentsline {listing}{\numberline {5.8}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Donnersdorf}}{51}{listing.5.8}%
-\contentsline {listing}{\numberline {5.9}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Sulzheim}}{52}{listing.5.9}%
-\contentsline {listing}{\numberline {5.10}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Alitzheim}}{52}{listing.5.10}%
-\contentsline {listing}{\numberline {5.11}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle M\"onchstockheim}}{53}{listing.5.11}%
-\contentsline {listing}{\numberline {5.12}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle V\"ognitz}}{53}{listing.5.12}%
-\contentsline {listing}{\numberline {5.13}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Herlheim}}{54}{listing.5.13}%
-\contentsline {listing}{\numberline {5.14}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Oberspie\IeC {\ss }heim}}{54}{listing.5.14}%
-\contentsline {listing}{\numberline {5.15}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Unterspie\IeC {\ss }heim}}{55}{listing.5.15}%
-\contentsline {listing}{\numberline {5.16}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Zeilitzheim}}{55}{listing.5.16}%
-\contentsline {listing}{\numberline {5.17}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Gerolzhofen}}{56}{listing.5.17}%
-\contentsline {listing}{\numberline {5.18}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Dingolshausen}}{56}{listing.5.18}%
-\contentsline {listing}{\numberline {5.19}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Bischwind}}{57}{listing.5.19}%
-\contentsline {listing}{\numberline {5.20}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Michelau}}{57}{listing.5.20}%
-\contentsline {listing}{\numberline {5.21}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Frankenwinheim}}{58}{listing.5.21}%
-\contentsline {listing}{\numberline {5.22}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Oberschwarzach}}{58}{listing.5.22}%
-\contentsline {listing}{\numberline {5.23}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Volkach}}{59}{listing.5.23}%
-\contentsline {listing}{\numberline {5.24}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle L\"ulsfeld}}{59}{listing.5.24}%
-\contentsline {listing}{\numberline {5.25}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Schallfeld}}{60}{listing.5.25}%
-\contentsline {listing}{\numberline {5.26}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Prichsenstadt}}{60}{listing.5.26}%
-\contentsline {listing}{\numberline {5.27}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Altensch\"onbach}}{61}{listing.5.27}%
-\contentsline {listing}{\numberline {5.28}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Bimbach}}{61}{listing.5.28}%
-\contentsline {listing}{\numberline {5.29}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Br\"unnau}}{62}{listing.5.29}%
-\contentsline {listing}{\numberline {5.30}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle J\"arkendorf}}{62}{listing.5.30}%
-\contentsline {listing}{\numberline {5.31}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Kirchsch\"onbach}}{63}{listing.5.31}%
-\contentsline {listing}{\numberline {5.32}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Laub}}{63}{listing.5.32}%
-\contentsline {listing}{\numberline {5.33}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Neudorf}}{64}{listing.5.33}%
-\contentsline {listing}{\numberline {5.34}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Neuses}}{64}{listing.5.34}%
-\contentsline {listing}{\numberline {5.35}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Stadelschwarzach}}{65}{listing.5.35}%
-\contentsline {listing}{\numberline {5.36}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Wiesentheid}}{65}{listing.5.36}%
-\contentsline {listing}{\numberline {5.37}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Feuerbach}}{66}{listing.5.37}%
-\contentsline {listing}{\numberline {5.38}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Geesdorf}}{66}{listing.5.38}%
-\contentsline {listing}{\numberline {5.39}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Reupelsdorf}}{67}{listing.5.39}%
-\contentsline {listing}{\numberline {5.40}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Untersambach}}{67}{listing.5.40}%
-\contentsline {listing}{\numberline {5.41}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle R\"udenhausen}}{68}{listing.5.41}%
-\contentsline {listing}{\numberline {5.42}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Abstwind}}{68}{listing.5.42}%
-\contentsline {listing}{\numberline {5.43}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Kleinlangheim}}{69}{listing.5.43}%
-\contentsline {listing}{\numberline {5.44}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Wiesenbronn}}{69}{listing.5.44}%
-\contentsline {listing}{\numberline {5.45}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Gro\IeC {\ss }langheim}}{70}{listing.5.45}%
-\contentsline {listing}{\numberline {5.46}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Kitzingen}}{70}{listing.5.46}%
-\contentsline {listing}{\numberline {5.47}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle W\"urzburg}}{71}{listing.5.47}%
-\contentsline {listing}{\numberline {5.48}{\ignorespaces SQL-Abfrage der vermiedenen werkt\"aglichen Stra\IeC {\ss }enverkehrsleistung}}{71}{listing.5.48}%
-\contentsline {listing}{\numberline {5.49}{\ignorespaces SQL-Abfrage der neu entstehenden werkt\"aglichen Stra\IeC {\ss }enverkehrsleistung}}{71}{listing.5.49}%
-\contentsline {listing}{\numberline {5.50}{\ignorespaces SQL-Abfrage des Saldos der werkt\"aglichen Stra\IeC {\ss }enverkehrsleistung}}{71}{listing.5.50}%
-\contentsline {listing}{\numberline {5.51}{\ignorespaces SQL-Abfrage der Ver\"anderung der CO2-Emissionen}}{72}{listing.5.51}%
-\contentsline {listing}{\numberline {5.52}{\ignorespaces SQL-Abfrage der Ver\"anderung der HC-Emissionen}}{72}{listing.5.52}%
-\contentsline {listing}{\numberline {5.53}{\ignorespaces SQL-Abfrage der Ver\"anderung der NOx-Emissionen}}{73}{listing.5.53}%
-\contentsline {listing}{\numberline {5.54}{\ignorespaces SQL-Abfrage der Ver\"anderung des Eintrags von Reifenabrieb in die Umwelt}}{73}{listing.5.54}%
-\contentsline {listing}{\numberline {5.55}{\ignorespaces SQL-Abfrage der j\"ahrlichen Gesamtfahrleistung}}{74}{listing.5.55}%
-\contentsline {listing}{\numberline {5.56}{\ignorespaces SQL-Abfrage der j\"ahrlichen Gesamtfahrleistung}}{74}{listing.5.56}%
-\contentsline {listing}{\numberline {5.57}{\ignorespaces SQL-Abfrage der j\"ahrlich vermiedenen Betriebskosten}}{75}{listing.5.57}%
+\contentsline {listing}{\numberline {5.1}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Schweinfurt}}{49}{listing.5.1}%
+\contentsline {listing}{\numberline {5.2}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Sennfeld}}{49}{listing.5.2}%
+\contentsline {listing}{\numberline {5.3}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Gochsheim}}{50}{listing.5.3}%
+\contentsline {listing}{\numberline {5.4}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Weyer}}{50}{listing.5.4}%
+\contentsline {listing}{\numberline {5.5}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Schwebheim}}{51}{listing.5.5}%
+\contentsline {listing}{\numberline {5.6}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Grettstatt}}{51}{listing.5.6}%
+\contentsline {listing}{\numberline {5.7}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle D\"urrfeld}}{52}{listing.5.7}%
+\contentsline {listing}{\numberline {5.8}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Donnersdorf}}{52}{listing.5.8}%
+\contentsline {listing}{\numberline {5.9}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Sulzheim}}{53}{listing.5.9}%
+\contentsline {listing}{\numberline {5.10}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Alitzheim}}{53}{listing.5.10}%
+\contentsline {listing}{\numberline {5.11}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle M\"onchstockheim}}{54}{listing.5.11}%
+\contentsline {listing}{\numberline {5.12}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle V\"ognitz}}{54}{listing.5.12}%
+\contentsline {listing}{\numberline {5.13}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Herlheim}}{55}{listing.5.13}%
+\contentsline {listing}{\numberline {5.14}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Oberspie\IeC {\ss }heim}}{55}{listing.5.14}%
+\contentsline {listing}{\numberline {5.15}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Unterspie\IeC {\ss }heim}}{56}{listing.5.15}%
+\contentsline {listing}{\numberline {5.16}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Zeilitzheim}}{56}{listing.5.16}%
+\contentsline {listing}{\numberline {5.17}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Gerolzhofen}}{57}{listing.5.17}%
+\contentsline {listing}{\numberline {5.18}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Dingolshausen}}{57}{listing.5.18}%
+\contentsline {listing}{\numberline {5.19}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Bischwind}}{58}{listing.5.19}%
+\contentsline {listing}{\numberline {5.20}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Michelau}}{58}{listing.5.20}%
+\contentsline {listing}{\numberline {5.21}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Frankenwinheim}}{59}{listing.5.21}%
+\contentsline {listing}{\numberline {5.22}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Oberschwarzach}}{59}{listing.5.22}%
+\contentsline {listing}{\numberline {5.23}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Volkach}}{60}{listing.5.23}%
+\contentsline {listing}{\numberline {5.24}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle L\"ulsfeld}}{60}{listing.5.24}%
+\contentsline {listing}{\numberline {5.25}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Schallfeld}}{61}{listing.5.25}%
+\contentsline {listing}{\numberline {5.26}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Prichsenstadt}}{61}{listing.5.26}%
+\contentsline {listing}{\numberline {5.27}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Altensch\"onbach}}{62}{listing.5.27}%
+\contentsline {listing}{\numberline {5.28}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Bimbach}}{62}{listing.5.28}%
+\contentsline {listing}{\numberline {5.29}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Br\"unnau}}{63}{listing.5.29}%
+\contentsline {listing}{\numberline {5.30}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle J\"arkendorf}}{63}{listing.5.30}%
+\contentsline {listing}{\numberline {5.31}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Kirchsch\"onbach}}{64}{listing.5.31}%
+\contentsline {listing}{\numberline {5.32}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Laub}}{64}{listing.5.32}%
+\contentsline {listing}{\numberline {5.33}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Neudorf}}{65}{listing.5.33}%
+\contentsline {listing}{\numberline {5.34}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Neuses}}{65}{listing.5.34}%
+\contentsline {listing}{\numberline {5.35}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Stadelschwarzach}}{66}{listing.5.35}%
+\contentsline {listing}{\numberline {5.36}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Wiesentheid}}{66}{listing.5.36}%
+\contentsline {listing}{\numberline {5.37}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Feuerbach}}{67}{listing.5.37}%
+\contentsline {listing}{\numberline {5.38}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Geesdorf}}{67}{listing.5.38}%
+\contentsline {listing}{\numberline {5.39}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Reupelsdorf}}{68}{listing.5.39}%
+\contentsline {listing}{\numberline {5.40}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Untersambach}}{68}{listing.5.40}%
+\contentsline {listing}{\numberline {5.41}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle R\"udenhausen}}{69}{listing.5.41}%
+\contentsline {listing}{\numberline {5.42}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Abstwind}}{69}{listing.5.42}%
+\contentsline {listing}{\numberline {5.43}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Kleinlangheim}}{70}{listing.5.43}%
+\contentsline {listing}{\numberline {5.44}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Wiesenbronn}}{70}{listing.5.44}%
+\contentsline {listing}{\numberline {5.45}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Gro\IeC {\ss }langheim}}{71}{listing.5.45}%
+\contentsline {listing}{\numberline {5.46}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle Kitzingen}}{71}{listing.5.46}%
+\contentsline {listing}{\numberline {5.47}{\ignorespaces SQL-Abfrage der Netto-Potenziale und MIV-Ver\"anderung mit der Quelle W\"urzburg}}{72}{listing.5.47}%
+\contentsline {listing}{\numberline {5.48}{\ignorespaces SQL-Abfrage der vermiedenen werkt\"aglichen Stra\IeC {\ss }enverkehrsleistung}}{72}{listing.5.48}%
+\contentsline {listing}{\numberline {5.49}{\ignorespaces SQL-Abfrage der neu entstehenden werkt\"aglichen Stra\IeC {\ss }enverkehrsleistung}}{72}{listing.5.49}%
+\contentsline {listing}{\numberline {5.50}{\ignorespaces SQL-Abfrage des Saldos der werkt\"aglichen Stra\IeC {\ss }enverkehrsleistung}}{72}{listing.5.50}%
+\contentsline {listing}{\numberline {5.51}{\ignorespaces SQL-Abfrage der Ver\"anderung der CO2-Emissionen}}{73}{listing.5.51}%
+\contentsline {listing}{\numberline {5.52}{\ignorespaces SQL-Abfrage der Ver\"anderung der HC-Emissionen}}{73}{listing.5.52}%
+\contentsline {listing}{\numberline {5.53}{\ignorespaces SQL-Abfrage der Ver\"anderung der NOx-Emissionen}}{74}{listing.5.53}%
+\contentsline {listing}{\numberline {5.54}{\ignorespaces SQL-Abfrage der Ver\"anderung des Eintrags von Reifenabrieb in die Umwelt}}{74}{listing.5.54}%
+\contentsline {listing}{\numberline {5.55}{\ignorespaces SQL-Abfrage der j\"ahrlichen Gesamtfahrleistung}}{75}{listing.5.55}%
+\contentsline {listing}{\numberline {5.56}{\ignorespaces SQL-Abfrage der j\"ahrlichen Gesamtfahrleistung}}{75}{listing.5.56}%
+\contentsline {listing}{\numberline {5.57}{\ignorespaces SQL-Abfrage der j\"ahrlich vermiedenen Betriebskosten}}{76}{listing.5.57}%
