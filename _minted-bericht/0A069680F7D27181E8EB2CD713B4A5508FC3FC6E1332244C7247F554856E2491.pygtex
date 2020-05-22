@@ -1,11 +1,9 @@
 \begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
 \PYG{k}{SELECT}
-\PYG{n}{ROUND}\PYG{p}{(}\PYG{k}{SUM}\PYG{p}{(}\PYG{n}{t1}\PYG{p}{.}\PYG{n}{gesamtfahrleistung}\PYG{p}{)} \PYG{o}{*} \PYG{l+m+mi}{249} \PYG{o}{*} \PYG{l+m+mi}{0}\PYG{p}{.}\PYG{l+m+mi}{00055}\PYG{p}{)} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{vermiedene} \PYG{n}{Betriebskosten} \PYG{n}{an} \PYG{n}{Werktagen} \PYG{p}{[}\PYG{n}{T}\PYG{err}{€}\PYG{p}{]}\PYG{o}{`}\PYG{p}{,}
-\PYG{n}{ROUND}\PYG{p}{(}\PYG{k}{SUM}\PYG{p}{(}\PYG{n}{t1}\PYG{p}{.}\PYG{n}{gesamtfahrleistung}\PYG{p}{)} \PYG{o}{*} \PYG{l+m+mi}{0}\PYG{p}{.}\PYG{l+m+mi}{5} \PYG{o}{*} \PYG{l+m+mi}{116} \PYG{o}{*} \PYG{l+m+mi}{0}\PYG{p}{.}\PYG{l+m+mi}{00055}\PYG{p}{)} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{vermiedene} \PYG{n}{Betriebskosten}  \PYG{n}{an} \PYG{n}{Nicht}\PYG{o}{\PYGZhy{}}\PYG{n}{Werktagen} \PYG{p}{[}\PYG{n}{T}\PYG{err}{€}\PYG{p}{]}\PYG{o}{`}\PYG{p}{,}
 \PYG{n}{ROUND}\PYG{p}{(}
         \PYG{p}{(}\PYG{k}{SUM}\PYG{p}{(}\PYG{n}{t1}\PYG{p}{.}\PYG{n}{gesamtfahrleistung}\PYG{p}{)} \PYG{o}{*} \PYG{l+m+mi}{249} \PYG{o}{*} \PYG{l+m+mi}{0}\PYG{p}{.}\PYG{l+m+mi}{00055}\PYG{p}{)}
         \PYG{o}{+} \PYG{p}{(}\PYG{k}{SUM}\PYG{p}{(}\PYG{n}{t1}\PYG{p}{.}\PYG{n}{gesamtfahrleistung}\PYG{p}{)} \PYG{o}{*} \PYG{l+m+mi}{0}\PYG{p}{.}\PYG{l+m+mi}{5} \PYG{o}{*} \PYG{l+m+mi}{116} \PYG{o}{*} \PYG{l+m+mi}{0}\PYG{p}{.}\PYG{l+m+mi}{00055}\PYG{p}{)}
-\PYG{p}{)}  \PYG{k}{AS} \PYG{o}{`}\PYG{n}{vermiedene} \PYG{n}{Betriebskosten}  \PYG{n}{Ganzjährig} \PYG{p}{[}\PYG{n}{T}\PYG{err}{€}\PYG{p}{]}\PYG{o}{`}
+\PYG{p}{)}  \PYG{k}{AS} \PYG{o}{`}\PYG{n}{vermiedene} \PYG{n}{Betriebskosten}  \PYG{n}{Ganzj}\PYG{err}{\PYGZbs{}}\PYG{err}{\PYGZdq{}}\PYG{n}{ahrig} \PYG{p}{[}\PYG{n}{T}\PYG{err}{\PYGZbs{}}\PYG{n}{IeC} \PYG{err}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{texteuro} \PYG{err}{\PYGZcb{}}\PYG{p}{]}\PYG{o}{`}
 \PYG{k}{FROM}
 \PYG{p}{(}
         \PYG{k}{SELECT} \PYG{n}{potentials}\PYG{p}{.}\PYG{o}{`}\PYG{n}{miv}\PYG{o}{\PYGZhy{}}\PYG{n}{change}\PYG{o}{`} \PYG{o}{*} \PYG{n}{potentials}\PYG{p}{.}\PYG{o}{`}\PYG{k}{length}\PYG{o}{`} \PYG{o}{*} \PYG{l+m+mi}{0}\PYG{p}{.}\PYG{l+m+mi}{001} \PYG{k}{AS} \PYG{n}{gesamtfahrleistung}

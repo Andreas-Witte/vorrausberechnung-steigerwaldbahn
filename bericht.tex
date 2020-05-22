@@ -25,6 +25,9 @@
 
 \usepackage{endfloat}
 
+% Unterstriche
+\usepackage{underscore}
+
 \DeclareDelayedFloat{listing}{Listings}
 
 
@@ -131,7 +134,7 @@ Deren gemeinsames Merkmal ist, dass das Potential von einem Ort ausgeht und zu e
 
 Die Potentiale sind verbindungen zwischen zwei Strecken, aus deren Netto-Potential wir die Veränderung des MIV ableiten und denen wir auch eine Fahrstrecke auf der Straße bezüglich Länge und Zeit zuordnen können.
         \subsection{Tabelle places}
-In der Tabelle places speichern wir die Orte und deren Koordinaten.
+In der Tabelle places speichern wir die Orte, also Quelle und Ziel, und deren Koordinaten.
 
 In der Auswertung werden wir die Koordinaten brauchen um unsere Karten zu gernerieren. LAT und LONG sind Fließkommazahlen, die Notation in Minten und Sekunden wird in der Datenbank nicht angewendet.
 Um auf der Karte entsprechend einen Ort auch gemessen an seiner Wichtigkeit und Größe darzustellen, Typisieren wir nach den nachfolgenden Kategorien.
@@ -146,37 +149,79 @@ Die Kategorien haben keinerlei Einfluss auf das rechnerische Ergebnis und dienen
 \end{itemize}
 
 Die Tabelle hat also folgenden Aufbau:
-
-\begin{tabular}[h]{l|l|l|l|l}
-\hline
-id & name & LAT & LONG & type\\
-\hline
-ID des Ortes & Name des Ortes & Breitengrad & Längengrad & Typisierung des Ortes \\
-\hline
+\newline
+\newline
+\begin{tabular}[h]{|l|l|l|l|l|}
+        \hline
+        id & name & LAT & LONG & type\\
+        \hline
+        ID des Ortes & Name des Ortes & Breitengrad & Längengrad & Typisierung des Ortes \\
+        \hline
 \end{tabular}
-
+\newline
+\newline
+\newline
 Mit SQL kann diese folgenderweise erstellt werden:
 \begin{minted}{sql}
 CREATE TABLE `places` (
-    `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(100) NOT NULL DEFAULT '' COLLATE 'utf8mb4_general_ci',
-    `LAT` DECIMAL(6,6) NOT NULL DEFAULT '0.000000',
-    `LONG` DECIMAL(6,6) NOT NULL DEFAULT '0.000000',
-    `type` ENUM('city','smallcity','town','village','traffic') NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
-    PRIMARY KEY (`id`) USING BTREE,
-    UNIQUE INDEX `name` (`name`) USING BTREE
+        `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+        `name` VARCHAR(100) NOT NULL DEFAULT '' COLLATE 'utf8mb4_general_ci',
+        `LAT` VARCHAR(11) NOT NULL DEFAULT '0.0000000' COLLATE 'utf8mb4_general_ci',
+        `LONG` VARCHAR(11) NOT NULL DEFAULT '0.0000000' COLLATE 'utf8mb4_general_ci',
+        `type` ENUM('city','smallcity','town','village','traffic') NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+        PRIMARY KEY (`id`) USING BTREE,
+        UNIQUE INDEX `name` (`name`) USING BTREE
 )
 COLLATE='utf8mb4_general_ci'
 ENGINE=InnoDB;
 \end{minted}
 
-
 \subsection{Tabelle potentials}
 
+In dieser Tabelle Tragen wir die \enquote{Netto-Potenziale} aus der \enquote{Schliephake-Studie} in der Spalte \enquote{netto} ein und Errechnen daraus die Veränderung der Fahrzeugbewegungen in die Spalte \enquote{miv-change}. Die Quelle wird über die \enquote{from_id} aus der Tabelle \enquote{places} zugeordnet, das Ziel des Potenzials wird mit der \enquote{to_id} aus der Tabelle \enquote{places} zugeordnet. Das \enquote{Netto-Potenzial} wird in die Spalte \enquote{netto} übernommen. Ebenfalls Werden die Wege zu den Bahnhöfen als "Potentiale" erhoben. Die Veränderung des motorisierten Individualverkehrs wird in der Spalte \enquote{miv-change} hinterlegt. Aus Google Maps wird die Länge der Strecke entnommen und in der Spalte \enquote{length} in Metern gespeichert. Die Fahrdauer wird genau so entnommen und in der Spalte \enquote{miv-duration} in vollen Minuten gespeichert.
+
+Die Tabelle hat also folgenden Aufbau:
+\newline
+\newline
+\begin{tabular}[h]{|l|l|l|l|l|l|l|}
+        \hline
+        id & from_id & to_id & netto & miv-change & length & miv-duration\\
+        \hline
+        ID des Potentials & Quelle (aus \enquote{places}) & Ziel (aus \enquote{places}) & Netto-Potential laut Berechnung Dr. Konrad Schliephake & Daraus Errechnete Veränderung der PKW-Fahrten & Länge der Strecke in Metern & Dauer der Fahrzeit in Minuten \\
+        \hline
+\end{tabular}
+\newline
+\newline
+\newline
+Mit SQL kann diese folgenderweise erstellt werden:
+\begin{minted}{sql}
+CREATE TABLE `potentials` (
+        `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+        `from_id` INT(10) UNSIGNED NOT NULL,
+        `to_id` INT(10) UNSIGNED NOT NULL,
+        `netto` INT(10) UNSIGNED NULL DEFAULT NULL COMMENT 'Netto-Potential laut Schliephake',
+        `miv-change` INT(11) NOT NULL COMMENT 'Veränderung des MIV-Verkehrs durch Reaktivierung',
+        `length` INT(11) NULL DEFAULT NULL COMMENT 'Länge des Pfades in metern',
+        `miv-duration` INT(10) UNSIGNED NULL DEFAULT NULL COMMENT 'Fahrdauer ohne besonderen Verkehr im PKW',
+        PRIMARY KEY (`id`) USING BTREE,
+        UNIQUE INDEX `from_id_to_id` (`from_id`, `to_id`) USING BTREE,
+        INDEX `FK_potentials_places` (`to_id`) USING BTREE,
+        CONSTRAINT `FK_potentials_places` FOREIGN KEY (`to_id`) REFERENCES `schliephake-miv-berechnung3`.`places` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT,
+        CONSTRAINT `FK_potentials_places_from` FOREIGN KEY (`from_id`) REFERENCES `schliephake-miv-berechnung3`.`places` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB;        
+\end{minted}
 
 \section{Modellierung der Straßeninfrastruktur}
-        \section{Modellierung der Wege im Straßenverkehr}
-        \section{Datenbank-Dump}
+
+\subsection{Tabelle streets}
+
+\section{Modellierung der Wege im Straßenverkehr}
+
+\subsection{Tabelle routes}
+
+\section{vollständiger Datenbank-Dump}
 Der vollständige Dump inklusive aller Daten findet sich hier:
     \begin{minted}{sql}
     Später einfügen...
@@ -490,6 +535,7 @@ In diesem Abschnitt werden zur Überprüfbarkeit und Nachvollziehbarkeit die aus
                 \paragraph{Vermeidung}
 Die Reaktivierung würde werktäglich eine Straßenverkersleistung von ca. 136.797 PKW-Kilometer aus dem Straßennetz herraus nehmen.
 
+\begin{listing}[htbp]
 \begin{minted}{sql}
 SELECT SUM(t1.gesamtfahrleistung)  
 FROM
@@ -498,12 +544,15 @@ FROM potentials
 WHERE potentials.`miv-change` < 0
 ) t1
 \end{minted}
+\caption{SQL-Abfrage der vermiedenen werktäglichen Straßenverkehrsleistung}\label{lst-verm-werktaeglich}
+\end{listing}
 
 \paragraph{Neuinduktionen}
 Es entsteht eine Neubelastung von ca. 9.831 PKW-Kilometern täglich.
 
 Diese enststeht vor allem aus den Hol- und Bringverkehr zum nächsten Bahnhof für Ortschaften, welche nicht selbst direkt an der Strecke liegen.
 
+\begin{listing}[htbp]
 \begin{minted}{sql}
 SELECT SUM(t1.gesamtfahrleistung)  
 FROM
@@ -511,17 +560,22 @@ FROM
 FROM potentials
 WHERE potentials.`miv-change` > 0) t1
 \end{minted}
+\caption{SQL-Abfrage der neu entstehenden werktäglichen Straßenverkehrsleistung}\label{lst-neu-werktaeglich}
+\end{listing}
 
 \paragraph{Verkehrssaldo}
 
 Im Saldo bedeutet dies eine werktägliche Verkehrsentlastung von ca. 126.966 PKW-Kilometern auf den Straßen zwischen Bamberg, Nürnberg, Schweinfurt und Würzburg.
 
+\begin{listing}[htbp]
 \begin{minted}{sql}
 SELECT SUM(t1.gesamtfahrleistung)  
 FROM
 (SELECT (potentials.`miv-change` * potentials.`length` * 0.001 AS gesamtfahrleistung
 FROM potentials) t1
 \end{minted}
+\caption{SQL-Abfrage des Saldos der werktäglichen Straßenverkehrsleistung}\label{lst-neu-werktaeglich}
+\end{listing}
 
 \subsection{vermiedene Verkehrsemissionen}
 
@@ -542,11 +596,17 @@ Die Schliephake-Studie geht von Verkehren an normalen Werktagen aus. Die Werktag
 \newline
 \newline
 Die folgende Tabelle Zeigt die vermiedenen Emissionen an Werktagen für das gesamte Jahr, die vermiedenen Emissionen an Nicht-Werktagen für das gesamte Jahr und deren Summe für das ganze Jahr.
-\begin{tabular}{ l  l  l }
+\newline
+\newline
+\begin{tabular}{|l|l|l|}
+\hline
 CO2 Werktags [t] & CO2 Nicht-Werktags [t] & CO2 Ganzjährig [t]\\ 
+\hline
 -3.003 & -699 & -3702\\ 
+\hline
 \end{tabular}        
-        
+
+\begin{listing}[htbp]
 \begin{minted}{sql}
 SELECT 
 ROUND(SUM(t1.gesamtfahrleistung) * 0.000095 * 249) AS `CO2 Werktags [t]`, 
@@ -560,6 +620,8 @@ FROM (
         FROM potentials
 ) t1
 \end{minted}
+\caption{SQL-Abfrage der Veränderung der CO2-Emissionen}\label{lst-emmissionen-co2}
+\end{listing}
 
 \subsubsection{Emissionen an Kohlenwasserstoffen (HC)}
 Kohlenwasserstoffe sind eine Stoffgruppe, aus Kohlenstoffatomen und Wasserstoffatomen zusammen gesetzt ist. Sie entsteht bei der motorischen Verbrennung, da die reale motorische im unterschied zur idealen motorischen Verbrennung nie vollständig verläuft. Die meisten dieser unvollständig verbrannten Restprodukte verbrennen im Katalysator nach dem Motor, daher sind diese Emissionen heutzutage nicht mehr das größte Problem des Straßenverkehrs. Dies betrifft vor allem PKWs mit Fremdzünder / Ottomotor. Die Kohlenwasserstoffe gelten je nach einzelnem Stoff als Krebs-eregent, unweltschädlich und als starke Klimagase. 
@@ -575,12 +637,17 @@ Jedes Jahr könnte also die Freisetzung von knapp 4 Tonnen Kohlenwasserstoffen i
 \newline
 \newline
 Die folgende Tabelle Zeigt die vermiedenen Emissionen an Werktagen für das gesamte Jahr, die vermiedenen Emissionen an Nicht-Werktagen für das gesamte Jahr und deren Summe für das ganze Jahr.
-\begin{tabular}{ l  l  l }
+\newline
+\newline
+\begin{tabular}{|l|l|l|}
+\hline
 HC Werktags [kg] & HC Nicht-Werktags [kg] & HC Ganzjährig [kg]\\ 
+\hline
 -3161 & -736 & -3898\\ 
+\hline
 \end{tabular}
-\newline
-\newline
+
+\begin{listing}[htbp]
 \begin{minted}{sql}
 SELECT 
 ROUND(SUM(t1.gesamtfahrleistung) * 0.0001 * 249) AS `HC Werktags [kg]`, 
@@ -595,6 +662,8 @@ FROM
         FROM potentials
 ) t1
 \end{minted}
+\caption{SQL-Abfrage der Veränderung der HC-Emissionen}\label{lst-emmissionen-hc}
+\end{listing}
 
 \subsubsection{Stickstoffoxid-Emissionen (NOx)}
 
@@ -611,12 +680,17 @@ Die Festlegung eines Wertes zur Berechnung vermiedenen Emissionen erfolgt analog
 \newline
 \newline
 Die folgende Tabelle Zeigt die vermiedenen Emissionen an Werktagen für das gesamte Jahr, die vermiedenen Emissionen an Nicht-Werktagen für das gesamte Jahr und deren Summe für das ganze Jahr.
-\begin{tabular}{ l  l  l }
-NOx Werktags [kg] & NOx Nicht-Werktags [kg] & NOx Ganzjährig [kg]\\ 
--2308 & -538 & -2845\\ 
-\end{tabular}
 \newline
-\newline   
+\newline
+\begin{tabular}{|l | l | l |}
+\hline
+NOx Werktags [kg] & NOx Nicht-Werktags [kg] & NOx Ganzjährig [kg]\\ 
+\hline
+-2308 & -538 & -2845\\ 
+\hline
+\end{tabular}
+
+\begin{listing}[htbp]
 \begin{minted}{sql}
 SELECT 
 ROUND(SUM(t1.gesamtfahrleistung) * 0.000073 * 249) AS `NOx Werktags [kg]`, 
@@ -631,10 +705,12 @@ FROM
         FROM potentials
 ) t1
 \end{minted}
+\caption{SQL-Abfrage der Veränderung der NOx-Emissionen}\label{lst-emmissionen-nox}
+\end{listing}
 
 \subsubsection{Emissionen von Feinstaub-Partikeln}
 
-Deren Emissionen lassen sich zwar berechnen, werden aber gerade im ländlichen Kontext mit der weiten Verbreitung von Holzöfen von deren Emissionen saisonal stark überlagert. Eine mess- oder sogar spürbare Veränderung durch die Reaktivierung der Steigerwaldbahn ist in dieser Schadstoffklasse bestenfalls an der Mainbrücke der B286 in Schweinfurt an warmen Sommertagen nachweisbar. Dort wäre jedoch nur ein kleiner Teil des Verkehrs und dessen Emissionen, eine Gesamtberechnung erübrigt sich daher.
+Deren Emissionen lassen sich zwar berechnen, werden aber gerade im ländlichen Kontext mit der weiten Verbreitung von Holzöfen von deren Emissionen saisonal stark überlagert. Eine mess- oder sogar spürbare Veränderung durch die Reaktivierung der Steigerwaldbahn ist in dieser Schadstoffklasse bestenfalls an der Mainbrücke der B286 in Schweinfurt an warmen Sommertagen nachweisbar. Auf den 300m über den Main wird jedoch nur ein kleiner Anteil der Verkehrsleistung der hier errechneten Gesamtverkehrsleistung erbracht. Eine Gesamtberechnung der Emissionen in dieser Schadstoffklasse erübrigt sich daher.
 
 \subsubsection{Reifenabrieb / Microplastik-Eintrag entlang von Straßen}
 Beim Fahren von PKWs verschleißen die Reifen wie auch die Bremsen. Das abgefahrene Gummi und der Bremsstaub lagern sich entlang von Straßen an, zum Beispiel in Absetzbecken und Gräben. Gelangt dieser Abrieb in Fließgewässer oder sickert in das Grundwasser ein, ist es möglich, dass aus diesen Stoffen Schwermetalle und Microplastik dauerhaft und irreversibel in die Umwelt gelangen. Eine Verminderung des Straßenverkehrs bedeutet ebenso, dass die Schadstoffbelastung durch abgefahrenen Gummi und Bremsabrieb in die Gräben und die ersten Meter der Ackerflächen neben den Straßen, welche zum Teil zur Lebensmittel- und Futtermittelproduktion genutzt werden, sich ebenfalls verringert. Zwar ist durch Lebensmittelkontrollen sichergestellt, dass die Mengen, die dadurch in die Nahrungskette zu uns als Menschen zurück kommen, sehr gering sind, ist vollkommen ungeklärt, was dieses unterschätzte Problem für die Umwelt bedeutet. (https://www.springerprofessional.de/fahrwerk/schadstoffe/unterschaetzte-umweltgefahr-reifenabrieb-/15490524)
@@ -650,12 +726,17 @@ Jedes Jahr könnten im Steigerwaldvorland kanpp 3 Tonnen Reifenabrieb weniger in
 \newline
 \newline
 Die folgende Tabelle Zeigt die vermiedenen Emissionen an Werktagen für das gesamte Jahr, die vermiedenen Emissionen an Nicht-Werktagen für das gesamte Jahr und deren Summe für das ganze Jahr.
-\begin{tabular}{ l  l  l }
-Reifenabrieb an Werktagen [kg] & Reifenabrieb an Nicht-Werktagen [kg] & Reifenabrieb Ganzjährig [kg]\\ 
--2371 & -552 & -2923\\ 
+\newline
+\newline
+\begin{tabular}{|l | l | l |}
+        \hline
+        Reifenabrieb an Werktagen [kg] & Reifenabrieb an Nicht-Werktagen [kg] & Reifenabrieb Ganzjährig [kg]\\ 
+        \hline
+        -2371 & -552 & -2923\\ 
+        \hline
 \end{tabular}
-\newline
-\newline
+
+\begin{listing}[htbp]
 \begin{minted}{sql}
 SELECT 
 ROUND(SUM(t1.gesamtfahrleistung) * 0.000075 * 249) AS `Reifenabrieb an Werktagen [kg]`, 
@@ -670,6 +751,8 @@ FROM
         FROM potentials
 ) t1
 \end{minted}
+\caption{SQL-Abfrage der Veränderung des Eintrags von Reifenabrieb in die Umwelt}\label{lst-emmissionen-reifenabrieb}
+\end{listing}
 
 \subsection{vermiedene Verkehrsunfälle und Folgeschäden}
 
@@ -685,12 +768,16 @@ Die Reaktivierung der Steigerwaldbahn verlagert werktäglich 126.966 PKW-Kilomet
 Im Jahr summiert sich damit vermiedene Leistung im Straßenverkehr auf knapp 40 Mio km.
 \newline
 \newline
-\begin{tabular}{ l  l  l }
-Fahrleistung an Werktagen [km] & Fahrleistung an Nicht-Werktagen [km] & Fahrleistung Ganzjährig [km]\\ 
--31614558.900 & -7364033.8000 & -38978592.7000\\ 
+\begin{tabular}{|l | l | l |}
+        \hline
+        Fahrleistung an Werktagen [km] & Fahrleistung an Nicht-Werktagen [km] & Fahrleistung Ganzjährig [km]\\ 
+        \hline
+        -31614558.900 & -7364033.8000 & -38978592.7000\\ 
+        \hline
 \end{tabular}
 \newline
 \newline
+\begin{listing}[htbp]
 \begin{minted}{sql}
 SELECT
 SUM(t1.gesamtfahrleistung) * 249 AS `Fahrleistung an Werktagen [km]`, 
@@ -702,12 +789,14 @@ FROM
         FROM potentials
 ) t1
 \end{minted}
+\caption{SQL-Abfrage der jährlichen Gesamtfahrleistung}\label{lst-gesamtfahrleistung-jaehrlich}
+\end{listing}
 
 Daraus ergeben sich folgende statistische Zahlen im Mittel:\newline
 \newline
-- vermiedene Getötete: ~0.168 / Jahr (oder als Kehrbruch ausgelegt: wenn man die Steigerwaldbahn nicht reaktiviert, akzeptiert man, dass ca. alle 6 Jahre eine Person im Straßenverkehr im Steigerwaldvorland umkommt)\newline
-- vermiedene Unfälle mit Personenschäden: ~16 / Jahr\newline
-- vermiedene Verletzte: ~ 21 / Jahr.\newline
+- \textbf{vermiedene Getötete: ~0.168 / Jahr} (oder als Kehrbruch ausgelegt: wenn man die Steigerwaldbahn nicht reaktiviert, akzeptiert man, dass \textbf{ca. alle 6 Jahre eine Person vermeidbar im Straßenverkehr im Steigerwaldvorland umkommt})\newline
+- \textbf{vermiedene Unfälle mit Personenschäden: ~16 / Jahr}\newline
+- \textbf{vermiedene Verletzte: ~ 21 / Jahr}\newline
 \newline
 Natürlich könnten diese Zahlen deutlich höher ausfallen, wenn man die Betrachtungsweise dahingehend verändert, dass man die Veränderung des Verkehrsfluss durch einzelne Unfallschwerpunkte und deren charakteristisches Unfallbild und deren charackteristische Unfallschwere einzeln betrachtet. Dies führt jedoch im Rahmen dieser Berechnung zu weit.
 
@@ -724,12 +813,16 @@ Aus diesem Grund werde ich mit 55 cent / Kilometer rechnen.\newline
 Im Jahr summiert sich damit vermiedene Leistung im Straßenverkehr auf knapp 40 Mio km.
 \newline
 \newline
-\begin{tabular}{ l  l  l }
-Fahrleistung an Werktagen [km] & Fahrleistung an Nicht-Werktagen [km] & Fahrleistung Ganzjährig [km]\\ 
--31614558.900 & -7364033.8000 & -38978592.7000\\ 
+\begin{tabular}{| l | l | l |}
+        \hline
+        Fahrleistung an Werktagen [km] & Fahrleistung an Nicht-Werktagen [km] & Fahrleistung Ganzjährig [km]\\ 
+        \hline
+        -31614558.900 & -7364033.8000 & -38978592.7000\\ 
+        \hline
 \end{tabular}
 \newline
 \newline
+\begin{listing}[htbp]
 \begin{minted}{sql}
 SELECT
 SUM(t1.gesamtfahrleistung) * 249 AS `Fahrleistung an Werktagen [km]`, 
@@ -741,20 +834,23 @@ FROM
         FROM potentials
 ) t1
 \end{minted}
+\caption{SQL-Abfrage der jährlichen Gesamtfahrleistung}\label{lst-gesamtfahrleistung-jaehrlich}
+\end{listing}
 
-Somit ergeben sich folgende Vermiedene Betriebskosten:\newline
-\begin{tabular}{ l  l  l }
-\hline
-vermiedene Betriebskosten an Werktagen [T€] & vermiedene Betriebskosten  an Nicht-Werktagen [T€] & vermiedene Betriebskosten  Ganzjährig [T€]\\ 
-\hline
--17388 & -4050 & -21438\\ 
+Somit ergeben sich folgende Vermiedene Betriebskosten:
+\newline
+\newline
+\begin{tabular}{ | l |}
+        \hline
+        vermiedene Betriebskosten  Ganzjährig [T€]\\ 
+        \hline
+        -21438\\
+        \hline
 \end{tabular}
-\newline
-\newline
+
+\begin{listing}[htbp]
 \begin{minted}{sql}
 SELECT 
-ROUND(SUM(t1.gesamtfahrleistung) * 249 * 0.00055) AS `vermiedene Betriebskosten an Werktagen [T€]`, 
-ROUND(SUM(t1.gesamtfahrleistung) * 0.5 * 116 * 0.00055) AS `vermiedene Betriebskosten  an Nicht-Werktagen [T€]`, 
 ROUND(
         (SUM(t1.gesamtfahrleistung) * 249 * 0.00055) 
         + (SUM(t1.gesamtfahrleistung) * 0.5 * 116 * 0.00055)
@@ -765,8 +861,10 @@ FROM
         FROM potentials
 ) t1
 \end{minted}
+\caption{SQL-Abfrage der jährlich vermiedenen Betriebskosten}\label{lst-betriebskosten-jaehrlich}
+\end{listing}
 
-Abzüglich der Kosten für die Fahrkarten, stehen den Haushalten im Steigerwaldvorland also jedes Jahr ca. 21,4 Mio € zur Verfügung, welche wahrscheinlich vorwiegend lokal ausgegeben werden; zum Beispiel in der Gastronomie, für die Ausbildung der Kinder oder für Bau und/oder Unterhalt einer eigenen Immobilie (-> Handwerk). Dies entspricht einem kleinem Konjunkturprogramm für die Landkreise Kitzingen und Schweinfurt sowie die Kreisfreie Stadt Schweinfurt.
+Abzüglich der Kosten für die Fahrkarten, welche hier noch nicht gegengerechnet sind, stehen den Haushalten im Steigerwaldvorland also jedes Jahr ca. 21,4 Mio € zur Verfügung, welche wahrscheinlich vorwiegend lokal ausgegeben werden; zum Beispiel in der Gastronomie, für die Ausbildung der Kinder oder für Bau und/oder Unterhalt einer eigenen Immobilie (-> Handwerk). Dies entspricht einem kleinem Konjunkturprogramm für die Landkreise Kitzingen und Schweinfurt sowie die Kreisfreie Stadt Schweinfurt. Bei den Hauptkosten für einen PKW verbleibt die ausgegebene Kaufkraft hingegen im größeren Anteil nicht in den Landkreisen Schweinfurt und Kitzingen und kann daher als dem lokalen Wirtschaftskreislauf als größtenteils \enquote{entzogen} angesehen werden.
 
 \section{Veränderung des Straßenverkehrs auf einzelnen Straßen}
                 \subsection{Gesamtliste}
