@@ -1,7 +1,6 @@
-Zougeordnete Routen:
-\newline
-\newline
-\begin{tabular}{|l|l|l|l|l|l|l|}
+Zugeordnete Routen:
+
+\begin{longtabu}{|l|l|l|l|*2{X[l]|}}
     \hline
     id & Quelle & Ziel & Straße & Straßenbeginn & Straßenende\\ 
     \hline
@@ -55,9 +54,8 @@ Zougeordnete Routen:
     6 &  &  & B8 & Ausfahrt Kitzingen & B8/KT27 (Abzweig bei GWF)\\ 
     6 &  &  & B8 & B8/KT27 (Abzweig bei GWF) & Kitzingen\\         
     \hline
-\end{tabular}
-\newline
-\newline
+\end{longtabu}
+
 Anmerkung: Für die Abschnitte Schweinfurt-Sennfeld und Schweinfurt-Gochsheim wurde in der Schliephake-Studie angenommen, dass durch die Ortsbusse und die relative Nähe kein Bedarf und somit kein Potenzial besteht. Daher wurden hier keine Routen/Straßen zugeordnet.
 \newline
 \begin{listing}[htbp]
@@ -84,8 +82,8 @@ ORDER BY `potentials`.`id`, `routes`.`number_on_route`;
 
 
 Länge, Fahrzeiten und Google Maps:
-\newline
-\begin{tabular}{| l | l | l | l | l | l |}
+
+\begin{longtabu}{| l | l | l |*3{X[l]|}}
     \hline
     id & Quelle & Ziel & Fahrtstrecke [m] & Fahrtdauer [min] & Google-Maps Link\\ 
     \hline
@@ -101,9 +99,8 @@ Länge, Fahrzeiten und Google Maps:
     \hline
     6 & Schweinfurt & Kitzingen & 55100 & 40 & \href{https://www.google.com/maps/dir/50.0439484,10.2257843/49.7355709,10.1617438}{https://www.google.com/maps/dir/50.0439484,10.2257843/49.7355709,10.1617438}\\ 
     \hline
-\end{tabular}    
-\newline
-\newline
+\end{longtabu}
+
 \begin{listing}[htbp]
     \begin{minted}{sql}
         SELECT 
