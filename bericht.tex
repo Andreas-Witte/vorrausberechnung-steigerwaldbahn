@@ -234,7 +234,13 @@ Ebenfalls unberücksichtigt bleibt der innerörtliche Verkehr, wenn keine Durchg
 
 \subsection{Tabelle streets}
 
-\section{Modellierung der Wege im Straßenverkehr}
+\section{Modellierung der Wege aus den Potenzialen im Straßenverkehr}
+
+Ein Potenzial verläuft mindestens entlang einer Straße, wenn Ziel und Quelle mit dem Beginn und Ende der Straße zusammen fallen. Benutzten die Fahrer einer Relation mehrere Straßen nacheinander um von Ihrer Quelle zum Ziel und zurück zu kommen, müssen mehrere Straßen dem Potenzial zugeordnet werden. Gleichzeitig kann aber auch eine Straße von den Fahrzeugen mehrerer Potentiale genutzt werden, um von der Quelle zum Ziel und wieder zurück zu gelangen.\newline
+\newline
+Diese Zuordnung nennt man in relationalen Datenbanken \enquote{n:m-Beziehungen}, wobei \enquote{n:m} die Kardinalität der Beziehung spezifiziert. n:m-Beziehungen benötigen eine eigene Tabelle, welche auf die beiden Tabellen je eine Spalte mit einem Fremdschlüssel beinhaltet.\newline
+\newline
+Durch die Zuordnung von Straßen zu Potenzialen und Potenzialen zu Straßen, kann einerseits der Weg, der für die Fahrzeuge eines Potentials angenommen wurde, nachvollzogen werden; andererseits können die Potenziale und die Veränderungen im Straßenverkehr für jede Straße aus den Potenzialen aufaddiert werden. Dadurch entsteht am Ende die Fähigkeit, vorrauszusagen, wie viel Straßenverkehr auf jeder Straße durch die Reaktivierung der Steigerwaldbahn entfallen könnte.
 
 \subsection{Tabelle routes}
 
