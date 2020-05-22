@@ -116,7 +116,7 @@
 \contentsline {subsection}{\numberline {3.2.47}Kitzingen}{36}{subsection.3.2.47}%
 \contentsline {subsection}{\numberline {3.2.48}W\"urzburg}{36}{subsection.3.2.48}%
 \contentsline {chapter}{\numberline {4}Auswertung}{37}{chapter.4}%
-\contentsline {section}{\numberline {4.1}vermiedener Gesamtverkehr}{37}{section.4.1}%
+\contentsline {section}{\numberline {4.1}vermiedener Gesamtverkehr und lokale Emissionen}{37}{section.4.1}%
 \contentsline {paragraph}{\nonumberline Vermeidung}{37}{section*.2}%
 \contentsline {paragraph}{\nonumberline Neuinduktionen}{37}{section*.3}%
 \contentsline {paragraph}{\nonumberline Verkehrssaldo}{37}{section*.4}%
