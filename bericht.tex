@@ -14,7 +14,6 @@
 \usepackage{indentfirst}
 % Sourcecode
 \usepackage[newfloat]{minted}
-%\usepackage[chapter,newfloat]{minted}
 % Farben
 \usepackage[table]{xcolor}
 % Hübschere Anführungszeichen
@@ -45,7 +44,7 @@
 \renewcommand{\floatplace}[1]{% #1 = float type (e.g. figure)
    \begin{center}
      \hyperlink{#1.\csname thepost#1\endcsname}%
-        {siehe \csname #1name\endcsname~\csname thepost#1\endcsname\ - SQL-Query um dieses Ergebnis nachzuvollziehen.}
+        {siehe \csname #1name\endcsname~\csname thepost#1\endcsname\ --- SQL-Query um dieses Ergebnis nachzuvollziehen.}
       % {[\csname #1name\endcsname~\csname thepost#1\endcsname\ about here.]}
    \end{center}}
 
@@ -92,7 +91,7 @@ Der Studie können für jeden Ort Fahrgäste entnommen werden und die Studie nen
 \section{Bezugsstraßenverkehr}
 Als Bezug des Straßenverkehrs werden die Verkehrszählungen des \enquote{Bayerischen Staatsministeriums für Wohnen, Bau und Verkehr} aus dem Jahr 2015 herran gezogen. Dieses sind einerseits die neuesten Daten, korrespondieren diese Daten sehr gut mit dem Veröffentlichungszeitpunkt der \enquote{Schliephake-Studie}.
 Die Verkehrszählungen und die Lage der Messpunkte können durch die \enquote{BAYSIS Datenabfrage (Straßenverkehrszählungen)} online von jedem abgerufen werden.
-https://www.baysis.bayern.de/web/content/verkehrsdaten/SVZ/strassenverkehrszaehlungen.aspx
+\url{https://www.baysis.bayern.de/web/content/verkehrsdaten/SVZ/strassenverkehrszaehlungen.aspx}
 
 \subsection{Messstellen}
 Viele der Messstellen, insbesondere auf nachrangigeren Straßen wie Staats- und Kreisstraßen werden oft für Abschnitte über mehrere Orte verwendet. Wo dies der Fall ist werden diese Zuordnungen, die durch das bay. Staatsministerium für Wohnen Bau und Verkehr vorgenommen wurden, nicht verändert. 
@@ -105,7 +104,7 @@ Für betreffende Straßenabschnitte wird lediglich eine absolute Veränderung de
         \section{Ermittlung der Wege im Straßenverkehr}
 Bevor man die Veränderungen des MIV aufsummieren kann, ist es nötig, die Veränderungen auf die Straßen zu übertragen.
 
-Für jede dieser einzelnen Wege wurde ein Query an die Google Maps API versendet. Aktuell verlangt Google pro 1000 Requests 5,00 USD. Die Kosten für die Nutzung der API sind bei der geringen Anzahl an Einzel-Verbindungen, die im Schritt davor ausfindig gemacht wurden, doch sehr überschaubar, verglichen damit, wie viel Zeit und Aufwand man hätte aufwenden müssen, um das gleiche Ergebnis ohne eine solche API zu erzielen.
+Für jede dieser einzelnen Wege wurde ein Query an die Google Maps API versendet. Aktuell verlangt Google pro 1000 Requests 5,00 USD.\@ Die Kosten für die Nutzung der API sind bei der geringen Anzahl an Einzel-Verbindungen, die im Schritt davor ausfindig gemacht wurden, doch sehr überschaubar, verglichen damit, wie viel Zeit und Aufwand man hätte aufwenden müssen, um das gleiche Ergebnis ohne eine solche API zu erzielen.
         \section{Berechnung}
 Die Berechnung der Veränderung des Straßenverkehrs erfolgt durch Abzug der Bewegungen (Hin und Rückfahrten) aus der \enquote{Schliephake-Studie} unter der Annahme, dass ¼ der entfallenden Fahrzeuge eine zweite Person transportiert haben.
 
@@ -181,7 +180,7 @@ ENGINE=InnoDB;
 
 \subsection{Tabelle potentials}
 
-In dieser Tabelle Tragen wir die \enquote{Netto-Potenziale} aus der \enquote{Schliephake-Studie} in der Spalte \enquote{netto} ein und Errechnen daraus die Veränderung der Fahrzeugbewegungen in die Spalte \enquote{miv-change}. Die Quelle wird über die \enquote{from_id} aus der Tabelle \enquote{places} zugeordnet, das Ziel des Potenzials wird mit der \enquote{to_id} aus der Tabelle \enquote{places} zugeordnet. Das \enquote{Netto-Potenzial} wird in die Spalte \enquote{netto} übernommen. Ebenfalls Werden die Wege zu den Bahnhöfen als "Potentiale" erhoben. Die Veränderung des motorisierten Individualverkehrs wird in der Spalte \enquote{miv-change} hinterlegt. Aus Google Maps wird die Länge der Strecke entnommen und in der Spalte \enquote{length} in Metern gespeichert. Die Fahrdauer wird genau so entnommen und in der Spalte \enquote{miv-duration} in vollen Minuten gespeichert.
+In dieser Tabelle Tragen wir die \enquote{Netto-Potenziale} aus der \enquote{Schliephake-Studie} in der Spalte \enquote{netto} ein und Errechnen daraus die Veränderung der Fahrzeugbewegungen in die Spalte \enquote{miv-change}. Die Quelle wird über die \enquote{from_id} aus der Tabelle \enquote{places} zugeordnet, das Ziel des Potenzials wird mit der \enquote{to_id} aus der Tabelle \enquote{places} zugeordnet. Das \enquote{Netto-Potenzial} wird in die Spalte \enquote{netto} übernommen. Ebenfalls Werden die Wege zu den Bahnhöfen als \enquote{Potentiale} erhoben. Die Veränderung des motorisierten Individualverkehrs wird in der Spalte \enquote{miv-change} hinterlegt. Aus Google Maps wird die Länge der Strecke entnommen und in der Spalte \enquote{length} in Metern gespeichert. Die Fahrdauer wird genau so entnommen und in der Spalte \enquote{miv-duration} in vollen Minuten gespeichert.
 
 Die Tabelle hat also folgenden Aufbau:
 \newline
@@ -190,7 +189,7 @@ Die Tabelle hat also folgenden Aufbau:
         \hline
         id & from_id & to_id & netto & miv-change & length & miv-duration\\
         \hline
-        ID des Potentials & Quelle (aus \enquote{places}) & Ziel (aus \enquote{places}) & Netto-Potential laut Berechnung Dr. Konrad Schliephake & Daraus Errechnete Veränderung der PKW-Fahrten & Länge der Strecke in Metern & Dauer der Fahrzeit in Minuten \\
+        ID des Potentials & Quelle (aus \enquote{places}) & Ziel (aus \enquote{places}) & Netto-Potential laut Berechnung Dr.\ Konrad Schliephake & Daraus Errechnete Veränderung der PKW-Fahrten & Länge der Strecke in Metern & Dauer der Fahrzeit in Minuten \\
         \hline
 \end{tabular}
 \newline
@@ -220,7 +219,7 @@ Anmerkung: Der Einsatz von Unique Indexes und Constraints stellt hierbei die Int
 
 \section{Modellierung der Straßeninfrastruktur}
 
-Die Straßenverkehrsinfrastruktur wird als einzelne Straßen abgebildet, welche zwei Orte verbinden. Die Richtung der Verbindung ist unerheblich für die Benutzung der Straßen. Orte können auch "virtuell" erfundene Orte sein, zum Beispiel Autobahnausfahrten. Diese liegen selten am Ort, nach dem Sie benannt sind.\newline
+Die Straßenverkehrsinfrastruktur wird als einzelne Straßen abgebildet, welche zwei Orte verbinden. Die Richtung der Verbindung ist unerheblich für die Benutzung der Straßen. Orte können auch \enquote{virtuell} erfundene Orte sein, zum Beispiel Autobahnausfahrten. Diese liegen selten am Ort, nach dem Sie benannt sind.\newline
 \newline
 Die Betrachtung erfolgt hier nur für\newline
 - Autobahnen (Kürzel \enquote{A}); die höchste Straßenkategorie in Deutschland;\newline
@@ -230,7 +229,7 @@ Die Betrachtung erfolgt hier nur für\newline
 \newline
 Überörtliche Ortstraßen sind ohnehin kaum betroffen und werden hier nicht weiter berücksichtigt.\newline
 \newline
-Ebenfalls unberücksichtigt bleibt der innerörtliche Verkehr, wenn keine Durchgangsstraße durch den jeweiligen Ort verläuft, weil die Auflösung des "Netto-Potenzials" aus der Studie von Dr. Konrad Schliephake bereits nicht Straßengenau erfolgt ist und dadurch sich diese Studie eine Präzision anmuten würde, die sie defakto nicht besitzt und nicht besitzen kann. Die Abbildung erfolgt in der Regel bis zum Ortsrand.
+Ebenfalls unberücksichtigt bleibt der innerörtliche Verkehr, wenn keine Durchgangsstraße durch den jeweiligen Ort verläuft, weil die Auflösung des \enquote{Netto-Potenzials} aus der Studie von Dr.\ Konrad Schliephake bereits nicht Straßengenau erfolgt ist und dadurch sich diese Studie eine Präzision anmuten würde, die sie defakto nicht besitzt und nicht besitzen kann. Die Abbildung erfolgt in der Regel bis zum Ortsrand.
 
 \subsection{Tabelle streets}
 
@@ -274,7 +273,7 @@ Anmerkung: Der Einsatz von Unique Indexes und Constraints stellt hierbei die Int
 
 Ein Potenzial verläuft mindestens entlang einer Straße, wenn Ziel und Quelle mit dem Beginn und Ende der Straße zusammen fallen. Benutzten die Fahrer einer Relation mehrere Straßen nacheinander um von Ihrer Quelle zum Ziel und zurück zu kommen, müssen mehrere Straßen dem Potenzial zugeordnet werden. Gleichzeitig kann aber auch eine Straße von den Fahrzeugen mehrerer Potentiale genutzt werden, um von der Quelle zum Ziel und wieder zurück zu gelangen.\newline
 \newline
-Diese Zuordnung nennt man in relationalen Datenbanken \enquote{n:m-Beziehungen}, wobei \enquote{n:m} die Kardinalität der Beziehung spezifiziert. n:m-Beziehungen benötigen eine eigene Tabelle, welche auf die beiden Tabellen je eine Spalte mit einem Fremdschlüssel beinhaltet.\newline
+Diese Zuordnung nennt man in relationalen Datenbanken \enquote{n:m-Beziehungen}, wobei \enquote{n:m} die Kardinalität der Beziehung spezifiziert.\@ n:m-Beziehungen benötigen eine eigene Tabelle, welche auf die beiden Tabellen je eine Spalte mit einem Fremdschlüssel beinhaltet.\newline
 \newline
 Durch die Zuordnung von Straßen zu Potenzialen und Potenzialen zu Straßen, kann einerseits der Weg, der für die Fahrzeuge eines Potentials angenommen wurde, nachvollzogen werden; andererseits können die Potenziale und die Veränderungen im Straßenverkehr für jede Straße aus den Potenzialen aufaddiert werden. Dadurch entsteht am Ende die Fähigkeit, vorrauszusagen, wie viel Straßenverkehr auf jeder Straße durch die Reaktivierung der Steigerwaldbahn entfallen könnte.
 
@@ -890,9 +889,9 @@ FROM
 
 Daraus ergeben sich folgende statistische Zahlen im Mittel:\newline
 \newline
-- \textbf{vermiedene Getötete: ~0.168 / Jahr} (oder als Kehrbruch ausgelegt: wenn man die Steigerwaldbahn nicht reaktiviert, akzeptiert man, dass \textbf{ca. alle 6 Jahre eine Person vermeidbar im Straßenverkehr im Steigerwaldvorland umkommt})\newline
-- \textbf{vermiedene Unfälle mit Personenschäden: ~16 / Jahr}\newline
-- \textbf{vermiedene Verletzte: ~ 21 / Jahr}\newline
+- \textbf{vermiedene Getötete: \(\approx\) 0.168 / Jahr} (oder als Kehrbruch ausgelegt: wenn man die Steigerwaldbahn nicht reaktiviert, akzeptiert man, dass \textbf{ca.\ alle 6 Jahre eine Person vermeidbar im Straßenverkehr im Steigerwaldvorland umkommt})\newline
+- \textbf{vermiedene Unfälle mit Personenschäden: \(\approx\) 16 / Jahr}\newline
+- \textbf{vermiedene Verletzte: \(\approx\) 21 / Jahr}\newline
 \newline
 Natürlich könnten diese Zahlen deutlich höher ausfallen, wenn man die Betrachtungsweise dahingehend verändert, dass man die Veränderung des Verkehrsfluss durch einzelne Unfallschwerpunkte und deren charakteristisches Unfallbild und deren charackteristische Unfallschwere einzeln betrachtet. Dies führt jedoch im Rahmen dieser Berechnung zu weit.
 
