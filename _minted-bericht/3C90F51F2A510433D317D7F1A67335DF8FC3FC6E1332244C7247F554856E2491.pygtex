@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+    \PYG{k}{SELECT}
+\PYG{o}{`}\PYG{n}{potentials}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{id}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{id}\PYG{o}{`}\PYG{p}{,}
+\PYG{o}{`}\PYG{n}{from\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{name}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{Quelle}\PYG{o}{`}\PYG{p}{,}
+\PYG{o}{`}\PYG{n}{to\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{name}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{Ziel}\PYG{o}{`}\PYG{p}{,}
+\PYG{o}{`}\PYG{n}{streets}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{street}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{Stra}\PYG{err}{\PYGZbs{}}\PYG{n}{IeC} \PYG{err}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{ss} \PYG{err}{\PYGZcb{}}\PYG{n}{e}\PYG{o}{`}\PYG{p}{,}
+\PYG{o}{`}\PYG{n}{from\PYGZus{}street\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{name}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{Stra}\PYG{err}{\PYGZbs{}}\PYG{n}{IeC} \PYG{err}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{ss} \PYG{err}{\PYGZcb{}}\PYG{n}{enbeginn}\PYG{o}{`}\PYG{p}{,}
+   \PYG{o}{`}\PYG{n}{to\PYGZus{}street\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{name}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{Stra}\PYG{err}{\PYGZbs{}}\PYG{n}{IeC} \PYG{err}{\PYGZob{}}\PYG{err}{\PYGZbs{}}\PYG{n}{ss} \PYG{err}{\PYGZcb{}}\PYG{n}{enende}\PYG{o}{`}
+\PYG{k}{FROM} \PYG{o}{`}\PYG{n}{potentials}\PYG{o}{`}
+\PYG{k}{LEFT} \PYG{k}{JOIN} \PYG{o}{`}\PYG{n}{places}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{from\PYGZus{}places}\PYG{o}{`} \PYG{k}{ON} \PYG{o}{`}\PYG{n}{potentials}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{from\PYGZus{}id}\PYG{o}{`} \PYG{o}{=} \PYG{o}{`}\PYG{n}{from\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{id}\PYG{o}{`}
+\PYG{k}{LEFT} \PYG{k}{JOIN} \PYG{o}{`}\PYG{n}{places}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{to\PYGZus{}places}\PYG{o}{`} \PYG{k}{ON} \PYG{o}{`}\PYG{n}{potentials}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{to\PYGZus{}id}\PYG{o}{`} \PYG{o}{=} \PYG{o}{`}\PYG{n}{to\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{id}\PYG{o}{`}
+\PYG{k}{LEFT} \PYG{k}{JOIN} \PYG{o}{`}\PYG{n}{routes}\PYG{o}{`} \PYG{k}{ON} \PYG{o}{`}\PYG{n}{routes}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{potential\PYGZus{}id}\PYG{o}{`} \PYG{o}{=} \PYG{o}{`}\PYG{n}{potentials}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{id}\PYG{o}{`}
+\PYG{k}{LEFT} \PYG{k}{JOIN} \PYG{o}{`}\PYG{n}{streets}\PYG{o}{`} \PYG{k}{ON} \PYG{o}{`}\PYG{n}{streets}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{id}\PYG{o}{`} \PYG{o}{=} \PYG{o}{`}\PYG{n}{routes}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{street\PYGZus{}id}\PYG{o}{`}
+\PYG{k}{LEFT} \PYG{k}{JOIN} \PYG{o}{`}\PYG{n}{places}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{from\PYGZus{}street\PYGZus{}places}\PYG{o}{`} \PYG{k}{ON} \PYG{o}{`}\PYG{n}{streets}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{from\PYGZus{}id}\PYG{o}{`} \PYG{o}{=} \PYG{o}{`}\PYG{n}{from\PYGZus{}street\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{id}\PYG{o}{`}
+\PYG{k}{LEFT} \PYG{k}{JOIN} \PYG{o}{`}\PYG{n}{places}\PYG{o}{`} \PYG{k}{AS} \PYG{o}{`}\PYG{n}{to\PYGZus{}street\PYGZus{}places}\PYG{o}{`} \PYG{k}{ON} \PYG{o}{`}\PYG{n}{streets}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{from\PYGZus{}id}\PYG{o}{`} \PYG{o}{=} \PYG{o}{`}\PYG{n}{to\PYGZus{}street\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{id}\PYG{o}{`}
+\PYG{k}{WHERE} \PYG{o}{`}\PYG{n}{from\PYGZus{}places}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{name}\PYG{o}{`} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}Schweinfurt\PYGZsq{}}
+\PYG{k}{ORDER} \PYG{k}{BY} \PYG{o}{`}\PYG{n}{potentials}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{id}\PYG{o}{`}\PYG{p}{,} \PYG{o}{`}\PYG{n}{routes}\PYG{o}{`}\PYG{p}{.}\PYG{o}{`}\PYG{n}{number\PYGZus{}on\PYGZus{}route}\PYG{o}{`}\PYG{p}{;}
+\end{Verbatim}
