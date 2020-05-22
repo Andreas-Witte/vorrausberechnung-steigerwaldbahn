@@ -1,7 +1,7 @@
 Zugeordnete Routen:
 \newline
 \newline
-\begin{tabular}{|l|l|l|l|l|l|l|}
+\begin{longtabu}{|l|l|l|l|*2{X[l]|}}
     \hline
     id & Quelle & Ziel & Straße & Straßenbeginn & Straßenende\\ 
     \hline
@@ -55,9 +55,8 @@ Zugeordnete Routen:
     16 &  &  & B286 & B286/St2275 (Gerolzhofen bei Rügshofen) & B286/St2272 (bei Alitzheim)\\ 
     16 &  &  & St2275 & Gerolzhofen & B286/St2275 (Gerolzhofen bei Rügshofen)\\ 
     \hline
-\end{tabular}
-\newline
-\newline
+\end{longtabu}
+
 Anmerkung: Für die Abschnitte Schweinfurt-Sennfeld und Schweinfurt-Gochsheim wurde in der Schliephake-Studie angenommen, dass durch die Ortsbusse und die relative Nähe kein Bedarf und somit kein Potenzial besteht. Daher wurden hier keine Routen/Straßen zugeordnet.
 \newline
 \begin{listing}[htbp]
@@ -85,23 +84,22 @@ ORDER BY `potentials`.`id`, `routes`.`number_on_route`;
 
 Länge, Fahrzeiten und Google Maps:
 \newline
-\begin{tabular}{| l | l | l | l | l | l |}
+\begin{longtabu}{| l | *5{X[l]|}}
     \hline
     id & Quelle & Ziel & Fahrtstrecke [m] & Fahrtdauer [min] & Google-Maps Link\\ 
     \hline
-    12 & Gochsheim & Würzburg, Rottendorf & 44300 & 31 & \href{https://www.google.com/maps/dir/50.019526,10.2822383/49.7931,9.9280108}{https://www.google.com/maps/dir/50.019526,10.2822383/49.7931,9.9280108}\\ 
+    12 & Gochsheim & Würzburg, Rottendorf & 44300 & 31 & \url{https://www.google.com/maps/dir/50.019526,10.2822383/49.7931,9.9280108}\\ 
     \hline
-    13 & Gochsheim & Bamberg, Haßfurt & 52800 & 37 & \href{https://www.google.com/maps/dir/50.019526,10.2822383/49.8912678,10.8865984}{https://www.google.com/maps/dir/50.019526,10.2822383/49.8912678,10.8865984}\\ 
+    13 & Gochsheim & Bamberg, Haßfurt & 52800 & 37 & \url{https://www.google.com/maps/dir/50.019526,10.2822383/49.8912678,10.8865984}\\ 
     \hline
-    14 & Gochsheim & Bad Kissingen & 38200 & 35 & \href{https://www.google.com/maps/dir/50.019526,10.2822383/50.1990369,10.0762182}{https://www.google.com/maps/dir/50.019526,10.2822383/50.1990369,10.0762182}\\ 
+    14 & Gochsheim & Bad Kissingen & 38200 & 35 & \url{https://www.google.com/maps/dir/50.019526,10.2822383/50.1990369,10.0762182}\\ 
     \hline
-    15 & Gochsheim & Schweinfurt & 6300 & 11 & \href{https://www.google.com/maps/dir/50.019526,10.2822383/50.0439484,10.2257843}{https://www.google.com/maps/dir/50.019526,10.2822383/50.0439484,10.2257843}\\ 
+    15 & Gochsheim & Schweinfurt & 6300 & 11 & \url{https://www.google.com/maps/dir/50.019526,10.2822383/50.0439484,10.2257843}\\ 
     \hline
-    16 & Gochsheim & Gerolzhofen & 15800 & 17 & \href{https://www.google.com/maps/dir/50.019526,10.2822383/49.9010511,10.3489622}{https://www.google.com/maps/dir/50.019526,10.2822383/49.9010511,10.3489622}\\ 
+    16 & Gochsheim & Gerolzhofen & 15800 & 17 & \url{https://www.google.com/maps/dir/50.019526,10.2822383/49.9010511,10.3489622}\\ 
     \hline
-\end{tabular}    
-\newline
-\newline
+\end{longtabu}
+
 \begin{listing}[htbp]
     \begin{minted}{sql}
         SELECT 

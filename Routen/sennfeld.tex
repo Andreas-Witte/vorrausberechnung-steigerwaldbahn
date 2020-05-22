@@ -1,7 +1,7 @@
 Zugeordnete Routen:
 \newline
 \newline
-\begin{tabular}{|l|l|l|l|l|l|l|}
+\begin{longtabu}{|l|l|l|l|*2{X[l]|}}
     \hline
     id & Quelle & Ziel & Straße & Straßenbeginn & Straßenende\\ 
     7 & Sennfeld & Würzburg & St2272 & St2271/St2272 (bei Sennfeld) & Ausfahrt Gochsheim\\ 
@@ -44,9 +44,8 @@ Zugeordnete Routen:
     11 &  &  & B8 & Ausfahrt Kitzingen & B8/KT27 (Abzweig bei GWF)\\ 
     11 &  &  & B8 & B8/KT27 (Abzweig bei GWF) & Kitzingen\\ 
     \hline
-\end{tabular}
-\newline
-\newline
+\end{longtabu}
+
 Anmerkung: Für die Abschnitte Schweinfurt-Sennfeld und Schweinfurt-Gochsheim wurde in der Schliephake-Studie angenommen, dass durch die Ortsbusse und die relative Nähe kein Bedarf und somit kein Potenzial besteht. Daher wurden hier keine Routen/Straßen zugeordnet.
 \newline
 \begin{listing}[htbp]
@@ -74,21 +73,20 @@ ORDER BY `potentials`.`id`, `routes`.`number_on_route`;
 
 Länge, Fahrzeiten und Google Maps:
 \newline
-\begin{tabular}{| l | l | l | l | l | l |}
+\begin{longtabu}{| l | *5{X[l]|}}
     \hline
     id & Quelle & Ziel & Fahrtstrecke [m] & Fahrtdauer [min] & Google-Maps Link\\ 
     \hline
-    7 & Sennfeld & Würzburg & 47200 & 36 & \href{https://www.google.com/maps/dir/50.0422146,10.2609081/49.7931,9.9280108}{https://www.google.com/maps/dir/50.0422146,10.2609081/49.7931,9.9280108}\\ 
+    7 & Sennfeld & Würzburg & 47200 & 36 & \url{https://www.google.com/maps/dir/50.0422146,10.2609081/49.7931,9.9280108}\\ 
     \hline
-    8 & Sennfeld & Schweinfurt & 3900 & 7 & \href{https://www.google.com/maps/dir/50.0422146,10.2609081/50.0439484,10.2257843}{https://www.google.com/maps/dir/50.0422146,10.2609081/50.0439484,10.2257843}\\ 
+    8 & Sennfeld & Schweinfurt & 3900 & 7 & \url{https://www.google.com/maps/dir/50.0422146,10.2609081/50.0439484,10.2257843}\\ 
     \hline
-    10 & Sennfeld & Gerolzhofen & 22300 & 20 & \href{https://www.google.com/maps/dir/50.0422146,10.2609081/49.9010511,10.3489622}{https://www.google.com/maps/dir/50.0422146,10.2609081/49.9010511,10.3489622}\\ 
+    10 & Sennfeld & Gerolzhofen & 22300 & 20 & \url{https://www.google.com/maps/dir/50.0422146,10.2609081/49.9010511,10.3489622}\\ 
     \hline
-    11 & Sennfeld & Kitzingen & 55500 & 38 & \href{https://www.google.com/maps/dir/50.0422146,10.2609081/49.7355709,10.1617438}{https://www.google.com/maps/dir/50.0422146,10.2609081/49.7355709,10.1617438}\\
+    11 & Sennfeld & Kitzingen & 55500 & 38 & \url{https://www.google.com/maps/dir/50.0422146,10.2609081/49.7355709,10.1617438}\\
     \hline
-\end{tabular}    
-\newline
-\newline
+\end{longtabu}    
+
 \begin{listing}[htbp]
     \begin{minted}{sql}
         SELECT 
