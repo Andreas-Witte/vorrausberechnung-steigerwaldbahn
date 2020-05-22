@@ -234,6 +234,42 @@ Ebenfalls unberücksichtigt bleibt der innerörtliche Verkehr, wenn keine Durchg
 
 \subsection{Tabelle streets}
 
+Eine Straße (zum Beispiel die \enquote{B286}) wind in dieser Tabelle in sinnvollen Stücken (zum Beispiel Wiesentheid-Neuses; Neuses-Gerolzhofen) unterteilt, gespeichert. In dieser Tabelle tragen wir den Straßennamen in die Spalte \enquote{street} ein. Ein Straßenabschnitt ist definiert dur die beiden Punkte \enquote{from_id}, was den Beginn des Abschnitts darstellt und der \enquote{to_id}, welche das Ende des Abschnitts bildet. Beide Spalten referenzieren auf die Tabelle \enquote{places}. Weiterhin wird in der Spalte \enquote{measurement_id} die ID aus der \enquote{BAYSIS Datenabfrage (Straßenverkehrszählungen)} hinterlegt, um die Veränderung später mit dem gezählten IST-Verkehr zu einem relativem Rückgang (\enquote{in Prozent}) zu verrechnen.
+
+Die Tabelle hat also folgenden Aufbau:
+\newline
+\newline
+\begin{tabular}[h]{|l|l|l|l|l|}
+        \hline
+        id & from_id & to_id & street & measurement_id\\
+        \hline
+        ID der Straße & Beginn (aus \enquote{places}) & Ende (aus \enquote{places}) & Straßenname/Nummer & Messstellen-ID der \enquote{BAYSIS Datenabfrage (Straßenverkehrszählungen)}\\
+        \hline
+\end{tabular}
+\newline
+\newline
+\newline
+Mit SQL kann diese folgenderweise erstellt werden:
+\begin{minted}{sql}
+CREATE TABLE `streets` (
+        `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+        `from_id` INT(10) UNSIGNED NOT NULL DEFAULT '0',
+        `to_id` INT(10) UNSIGNED NOT NULL DEFAULT '0',
+        `street` VARCHAR(50) NOT NULL COLLATE 'utf8mb4_general_ci',
+        `measuremt_id` INT(10) UNSIGNED NULL DEFAULT NULL,
+        PRIMARY KEY (`id`) USING BTREE,
+        UNIQUE INDEX `from_id_to_id_street` (`from_id`, `to_id`, `street`) USING BTREE,
+        INDEX `FK_streets_to_places` (`to_id`) USING BTREE,
+        INDEX `FK_streets_from_places` (`from_id`) USING BTREE,
+        CONSTRAINT `FK_streets_from_places` FOREIGN KEY (`from_id`) REFERENCES `schliephake-miv-berechnung3`.`places` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT,
+        CONSTRAINT `FK_streets_to_places` FOREIGN KEY (`to_id`) REFERENCES `schliephake-miv-berechnung3`.`places` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+COLLATE='utf8mb4_general_ci'
+ENGINE=InnoDB;             
+\end{minted}
+
+Anmerkung: Der Einsatz von Unique Indexes und Constraints stellt hierbei die Integrität der bei der Eingabe sicher. Die Verwendung dieser Funktionen ist nicht zwingend, aber gilt als Best-Practice in der Informationstechnologie.
+
 \section{Modellierung der Wege aus den Potenzialen im Straßenverkehr}
 
 Ein Potenzial verläuft mindestens entlang einer Straße, wenn Ziel und Quelle mit dem Beginn und Ende der Straße zusammen fallen. Benutzten die Fahrer einer Relation mehrere Straßen nacheinander um von Ihrer Quelle zum Ziel und zurück zu kommen, müssen mehrere Straßen dem Potenzial zugeordnet werden. Gleichzeitig kann aber auch eine Straße von den Fahrzeugen mehrerer Potentiale genutzt werden, um von der Quelle zum Ziel und wieder zurück zu gelangen.\newline
