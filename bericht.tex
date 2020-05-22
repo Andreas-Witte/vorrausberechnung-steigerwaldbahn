@@ -21,8 +21,14 @@
 % Zeilenabstand
 \usepackage{setspace}
 \setstretch{1.15}
+% Bessere Tabellen
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{enumitem}
+\setlist{noitemsep}
+%\setlist{nosep}
 
-\usepackage{endfloat}
+\usepackage[notables,nofigures]{endfloat}
 
 % Unterstriche
 \usepackage{underscore}
@@ -127,16 +133,15 @@ Die Relationalisierung wurde so weit wie sinnvoll vorgenommen. Zur Eingabe wurde
 Im folgenden werden immer die verwendeten SQL-Queries angegeben, mit denen sich ein Ergebnis nachvollziehen lässt.
 
 \section{Modellierung der Potenziale}
-In der Schliephake-Studie sind die als \enquote{Netto-Potential} genannten Bewegungen (Hin- und Rückfahrten) relevant. Diese finden sich in dem Dokument einzeln aufgelistet, teilweise im Text mit verkehrsfachlichen Begründungen, teilweise in Tabellenform.\newline
-\newline
-Deren gemeinsames Merkmal ist, dass das Potential von einem Ort ausgeht und zu einem Ort zielt. Daher werden diese Orte in einer Tabelle erfasst.\newline
-\newline
-Die Potentiale sind verbindungen zwischen zwei Strecken, aus deren Netto-Potential wir die Veränderung des MIV ableiten und denen wir auch eine Fahrstrecke auf der Straße bezüglich Länge und Zeit zuordnen können.\newline
-\newline
+In der Schliephake-Studie sind die als \enquote{Netto-Potential} genannten Bewegungen (Hin- und Rückfahrten) relevant. Diese finden sich in dem Dokument einzeln aufgelistet, teilweise im Text mit verkehrsfachlichen Begründungen, teilweise in Tabellenform.
+
+Deren gemeinsames Merkmal ist, dass das Potential von einem Ort ausgeht und zu einem Ort zielt. Daher werden diese Orte in einer Tabelle erfasst.
+Die Potentiale sind verbindungen zwischen zwei Strecken, aus deren Netto-Potential wir die Veränderung des MIV ableiten und denen wir auch eine Fahrstrecke auf der Straße bezüglich Länge und Zeit zuordnen können.
+
 Die meisten Orte lassen sich klar zuordnen. Bei manchen Angaben aus der \enquote{Schliephake-Studie}, wie zum Beispiel \enquote{Nürnberg, Erlangen} wurden Punkte gewählt, die beiden Orten aus MIV-Sicht einen optimalen Zugang gewähren (in diesem Beispiel das Autobahnkreuz Nürnberg-Erlangen), wo diese gemeinsamen Orte nicht gegeben waren, wurde das Ziel oder die Quelle jeweils auf das mutmaßlich überwiegende Ziel oder Quelle gelegt (zum Beispiel \enquote{Haßfurt, Bamberg} wurde Bamberg zugeordnet).
 
-\subsection{Tabelle places}
-In der Tabelle places speichern wir die Orte, also Quelle und Ziel, und deren Koordinaten.
+\subsection{Tabelle \texttt{places}}
+In der Tabelle \texttt{places} speichern wir die Orte, also Quelle und Ziel, und deren Koordinaten.
 
 In der Auswertung werden wir die Koordinaten brauchen um unsere Karten zu gernerieren. LAT und LONG sind Fließkommazahlen, die Notation in Minten und Sekunden wird in der Datenbank nicht angewendet.
 Um auf der Karte entsprechend einen Ort auch gemessen an seiner Wichtigkeit und Größe darzustellen, Typisieren wir nach den nachfolgenden Kategorien.
@@ -151,70 +156,69 @@ Die Kategorien haben keinerlei Einfluss auf das rechnerische Ergebnis und dienen
 \end{itemize}
 
 Die Tabelle hat also folgenden Aufbau:
-\newline
-\newline
-\begin{tabular}[h]{|l|l|l|l|l|}
-        \hline
-        id & name & LAT & LONG & type\\
-        \hline
-        ID des Ortes & Name des Ortes & Breitengrad & Längengrad & Typisierung des Ortes \\
-        \hline
-\end{tabular}
-\newline
-\newline
-\newline
+
+\begin{table}[htbp]
+    \begin{tabular}{|l|l|l|l|l|}\hline
+        \texttt{id} & \texttt{name} & \texttt{LAT} & \texttt{LONG} & \texttt{type}\\\hline
+        ID des Ortes & Name des Ortes & Breitengrad & Längengrad & Typisierung des Ortes \\ \hline
+    \end{tabular}
+\end{table}
+
 Mit SQL kann diese folgenderweise erstellt werden:
-\begin{minted}{sql}
-CREATE TABLE `places` (
-        `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-        `name` VARCHAR(100) NOT NULL DEFAULT '' COLLATE 'utf8mb4_general_ci',
-        `LAT` VARCHAR(11) NOT NULL DEFAULT '0.0000000' COLLATE 'utf8mb4_general_ci',
-        `LONG` VARCHAR(11) NOT NULL DEFAULT '0.0000000' COLLATE 'utf8mb4_general_ci',
-        `type` ENUM('city','smallcity','town','village','traffic') NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
-        PRIMARY KEY (`id`) USING BTREE,
-        UNIQUE INDEX `name` (`name`) USING BTREE
-)
-COLLATE='utf8mb4_general_ci'
-ENGINE=InnoDB;
-\end{minted}
+\begin{figure}[htbp]
+    \begin{minted}{sql}
+        CREATE TABLE `places` (
+            `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+            `name` VARCHAR(100) NOT NULL DEFAULT '' COLLATE 'utf8mb4_general_ci',
+            `LAT` VARCHAR(11) NOT NULL DEFAULT '0.0000000' COLLATE 'utf8mb4_general_ci',
+            `LONG` VARCHAR(11) NOT NULL DEFAULT '0.0000000' COLLATE 'utf8mb4_general_ci',
+            `type` ENUM('city','smallcity','town','village','traffic') NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci',
+            PRIMARY KEY (`id`) USING BTREE,
+            UNIQUE INDEX `name` (`name`) USING BTREE
+        )
+        COLLATE='utf8mb4_general_ci'
+        ENGINE=InnoDB;
+    \end{minted}
+\end{figure}
 
-\subsection{Tabelle potentials}
+\subsection{Tabelle \texttt{potentials}}
 
-In dieser Tabelle Tragen wir die \enquote{Netto-Potenziale} aus der \enquote{Schliephake-Studie} in der Spalte \enquote{netto} ein und Errechnen daraus die Veränderung der Fahrzeugbewegungen in die Spalte \enquote{miv-change}. Die Quelle wird über die \enquote{from_id} aus der Tabelle \enquote{places} zugeordnet, das Ziel des Potenzials wird mit der \enquote{to_id} aus der Tabelle \enquote{places} zugeordnet. Das \enquote{Netto-Potenzial} wird in die Spalte \enquote{netto} übernommen. Ebenfalls Werden die Wege zu den Bahnhöfen als \enquote{Potentiale} erhoben. Die Veränderung des motorisierten Individualverkehrs wird in der Spalte \enquote{miv-change} hinterlegt. Aus Google Maps wird die Länge der Strecke entnommen und in der Spalte \enquote{length} in Metern gespeichert. Die Fahrdauer wird genau so entnommen und in der Spalte \enquote{miv-duration} in vollen Minuten gespeichert.
+In dieser Tabelle Tragen wir die \enquote{Netto-Potenziale} aus der \enquote{Schliephake-Studie} in der Spalte \texttt{netto} ein und Errechnen daraus die Veränderung der Fahrzeugbewegungen in die Spalte \texttt{miv-change}. Die Quelle wird über die \texttt{from_id} aus der Tabelle \texttt{places} zugeordnet, das Ziel des Potenzials wird mit der \texttt{to_id} aus der Tabelle \texttt{places} zugeordnet. Das \enquote{Netto-Potenzial} wird in die Spalte \texttt{netto} übernommen. Ebenfalls Werden die Wege zu den Bahnhöfen als \enquote{Potentiale} erhoben. Die Veränderung des motorisierten Individualverkehrs wird in der Spalte \texttt{miv-change} hinterlegt. Aus Google Maps wird die Länge der Strecke entnommen und in der Spalte \texttt{length} in Metern gespeichert. Die Fahrdauer wird genau so entnommen und in der Spalte \texttt{miv-duration} in vollen Minuten gespeichert.
 
 Die Tabelle hat also folgenden Aufbau:
-\newline
-\newline
-\begin{tabular}[h]{|l|l|l|l|l|l|l|}
-        \hline
-        id & from_id & to_id & netto & miv-change & length & miv-duration\\
-        \hline
-        ID des Potentials & Quelle (aus \enquote{places}) & Ziel (aus \enquote{places}) & Netto-Potential laut Berechnung Dr.\ Konrad Schliephake & Daraus Errechnete Veränderung der PKW-Fahrten & Länge der Strecke in Metern & Dauer der Fahrzeit in Minuten \\
-        \hline
-\end{tabular}
-\newline
-\newline
-\newline
-Mit SQL kann diese folgenderweise erstellt werden:
-\begin{minted}{sql}
-CREATE TABLE `potentials` (
-        `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-        `from_id` INT(10) UNSIGNED NOT NULL,
-        `to_id` INT(10) UNSIGNED NOT NULL,
-        `netto` INT(10) UNSIGNED NULL DEFAULT NULL COMMENT 'Netto-Potential laut Schliephake',
-        `miv-change` INT(11) NOT NULL COMMENT 'Veränderung des MIV-Verkehrs durch Reaktivierung',
-        `length` INT(11) NULL DEFAULT NULL COMMENT 'Länge des Pfades in metern',
-        `miv-duration` INT(10) UNSIGNED NULL DEFAULT NULL COMMENT 'Fahrdauer ohne besonderen Verkehr im PKW',
-        PRIMARY KEY (`id`) USING BTREE,
-        UNIQUE INDEX `from_id_to_id` (`from_id`, `to_id`) USING BTREE,
-        INDEX `FK_potentials_places` (`to_id`) USING BTREE,
-        CONSTRAINT `FK_potentials_places` FOREIGN KEY (`to_id`) REFERENCES `schliephake-miv-berechnung3`.`places` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT,
-        CONSTRAINT `FK_potentials_places_from` FOREIGN KEY (`from_id`) REFERENCES `schliephake-miv-berechnung3`.`places` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT
-)
-COLLATE='utf8mb4_general_ci'
-ENGINE=InnoDB;        
-\end{minted}
 
+\begin{table}[htbp]
+    \begin{tabu}{|*7{X[l]|}}
+        \hline
+        \texttt{id} & \texttt{from_id} & \texttt{to_id} & \texttt{netto} & \texttt{miv-change} & \texttt{length} & \texttt{miv-duration}\\
+        \hline
+        ID des Potentials & Quelle (aus \texttt{places}) & Ziel (aus \texttt{places}) & Netto-Potential laut Berechnung Dr.\ Konrad Schliephake & Daraus Errechnete Veränderung der PKW-Fahrten & Länge der Strecke in Metern & Dauer der Fahrzeit in Minuten \\
+        \hline
+    \end{tabu}
+\end{table}
+
+Mit SQL kann diese folgenderweise erstellt werden:
+\begingroup
+    \setstretch{1.0}
+    \begin{minted}{sql}
+        CREATE TABLE `potentials` (
+            `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+            `from_id` INT(10) UNSIGNED NOT NULL,
+            `to_id` INT(10) UNSIGNED NOT NULL,
+            `netto` INT(10) UNSIGNED NULL DEFAULT NULL COMMENT 'Netto-Potential laut Schliephake',
+            `miv-change` INT(11) NOT NULL COMMENT 'Veränderung des MIV-Verkehrs durch Reaktivierung',
+            `length` INT(11) NULL DEFAULT NULL COMMENT 'Länge des Pfades in metern',
+            `miv-duration` INT(10) UNSIGNED NULL DEFAULT NULL COMMENT 'Fahrdauer ohne besonderen Verkehr im PKW',
+            PRIMARY KEY (`id`) USING BTREE,
+            UNIQUE INDEX `from_id_to_id` (`from_id`, `to_id`) USING BTREE,
+            INDEX `FK_potentials_places` (`to_id`) USING BTREE,
+            CONSTRAINT `FK_potentials_places` FOREIGN KEY (`to_id`) REFERENCES `schliephake-miv-berechnung3`.`places` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT,
+            CONSTRAINT `FK_potentials_places_from` FOREIGN KEY (`from_id`) REFERENCES `schliephake-miv-berechnung3`.`places` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT
+        )
+        COLLATE='utf8mb4_general_ci'
+        ENGINE=InnoDB;
+    \end{minted}
+\endgroup
 Anmerkung: Der Einsatz von Unique Indexes und Constraints stellt hierbei die Integrität der bei der Eingabe sicher. Die Verwendung dieser Funktionen ist nicht zwingend, aber gilt als Best-Practice in der Informationstechnologie.
 
 \section{Modellierung der Straßeninfrastruktur}
@@ -363,10 +367,12 @@ In diesem Abschnitt werden zur Überprüfbarkeit und Nachvollziehbarkeit die aus
 
             \subsection{Kolitzheim}
             Berücksichtigt wurden nur die Ortsteile der Gemeinde, für die eine Benutzung der Schiene plausibel ist:
-            - Herlheim\newline
-            - Oberspießheim\newline
-            - Unterspießheim\newline
-            - Zeilitzheim
+            \begin{itemize}[nosep]
+                \item Herlheim
+                \item Oberspießheim
+                \item Unterspießheim
+                \item Zeilitzheim
+            \end{itemize}
 
             \subsection{Kolitzheim OT Herlheim}
             \input{Fahrzeugbewegungen/kolitzheimotherlheim.tex}
@@ -513,10 +519,12 @@ In diesem Abschnitt werden zur Überprüfbarkeit und Nachvollziehbarkeit die aus
                 
                 \subsection{Kolitzheim}
                 Berücksichtigt wurden nur die Ortsteile der Gemeinde, für die eine Benutzung der Schiene plausibel ist:\newline
-                - Herlheim\newline
-                - Oberspießheim\newline
-                - Unterspießheim\newline
-                - Zeilitzheim
+                \begin{itemize}[nosep]
+                    \item Herlheim
+                    \item Oberspießheim
+                    \item Unterspießheim
+                    \item Zeilitzheim
+                \end{itemize}
                 
                 \subsection{Kolitzheim OT Herlheim}
                 \input{Routen/kolitzheimotherlheim.tex}
@@ -683,7 +691,7 @@ Das Schweinfurter Becken und das Steigerwaldvorland sind bereits jetzt vom Klima
 Daher haben CO2-Emissionen auch einen direkten Bezug zu der Region und deren Lebensgrundlagen, wie zum Beispiel dem Weinbau.
 \newline
 \newline
-Seit 2020 ist ein Grenzwert von 95gr CO2 / km für alle neu zugelassenen Pkw in Kraft. Das Durchschnittsalter der Fahrzeuge beträgt gemäß Kraftfahr-Bundesamt 9,6 Jahre. Da mit einer Reaktivierung der Strecke nicht in unter 5-10 Jahren zu rechnen ist, dürfte dieser Grenzwert dann \enquote{durchschnittlich} sein. Auch wenn valide Zweifel an der Einhaltung des Grenzwertes in den letzten Jahren durch \enquote{Defeat Devices} in den Neu-Fahrzeugen angebracht erscheinen, verwende ich diesen wert, um die Berechnung fachlich nicht unnötig angreifbar zu machen.
+Seit 2020 ist ein Grenzwert von 95gr CO2 / km für alle neu zugelassenen Pkw in Kraft. Das Durchschnittsalter der Fahrzeuge beträgt gemäß Kraftfahr-Bundesamt 9,6 Jahre. Da mit einer Reaktivierung der Strecke nicht in unter 5--10 Jahren zu rechnen ist, dürfte dieser Grenzwert dann \enquote{durchschnittlich} sein. Auch wenn valide Zweifel an der Einhaltung des Grenzwertes in den letzten Jahren durch \enquote{Defeat Devices} in den Neu-Fahrzeugen angebracht erscheinen, verwende ich diesen wert, um die Berechnung fachlich nicht unnötig angreifbar zu machen.
 Aus diesem Grund wird mit dem heute neuestem Grenzwert für PKW-Co2-Emissionen die vermiedenen Emissionen berechnet. Das gleiche gilt auch für neu entstehenden Verkehr (zum Beispiel auf dem Weg zu Bahnhöfen).
 \newline
 \newline
