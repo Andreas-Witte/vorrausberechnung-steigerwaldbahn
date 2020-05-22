@@ -165,7 +165,8 @@ Die Tabelle hat also folgenden Aufbau:
 \end{table}
 
 Mit SQL kann diese folgenderweise erstellt werden:
-\begin{figure}[htbp]
+\begingroup
+    \setstretch{1.0}
     \begin{minted}{sql}
         CREATE TABLE `places` (
             `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -179,7 +180,7 @@ Mit SQL kann diese folgenderweise erstellt werden:
         COLLATE='utf8mb4_general_ci'
         ENGINE=InnoDB;
     \end{minted}
-\end{figure}
+\endgroup
 
 \subsection{Tabelle \texttt{potentials}}
 
