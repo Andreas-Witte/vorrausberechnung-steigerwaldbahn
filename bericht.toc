@@ -14,167 +14,167 @@
 \contentsline {section}{\numberline {2.3}Modellierung der Stra\IeC {\ss }eninfrastruktur}{13}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Tabelle streets}{14}{subsection.2.3.1}%
 \contentsline {section}{\numberline {2.4}Modellierung der Wege aus den Potenzialen im Stra\IeC {\ss }enverkehr}{14}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Tabelle routes}{15}{subsection.2.4.1}%
-\contentsline {section}{\numberline {2.5}vollst\"andiger Datenbank-Dump}{15}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Verarbeitung}{16}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Ermittlung der Fahrzeugbewegungen}{16}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Schweinfurt}{16}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Sennfeld}{16}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Gochsheim}{17}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Gochsheim OT Weyer}{17}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}Schwebheim}{17}{subsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.1.6}Grettstatt}{18}{subsection.3.1.6}%
-\contentsline {subsection}{\numberline {3.1.7}Grettstatt OT D\"urrfeld}{18}{subsection.3.1.7}%
-\contentsline {subsection}{\numberline {3.1.8}Donnersdorf}{18}{subsection.3.1.8}%
-\contentsline {subsection}{\numberline {3.1.9}Sulzheim}{19}{subsection.3.1.9}%
-\contentsline {subsection}{\numberline {3.1.10}Alitzheim}{19}{subsection.3.1.10}%
-\contentsline {subsection}{\numberline {3.1.11}M\"onchstockheim}{19}{subsection.3.1.11}%
-\contentsline {subsection}{\numberline {3.1.12}V\"ognitz}{20}{subsection.3.1.12}%
-\contentsline {subsection}{\numberline {3.1.13}Kolitzheim}{20}{subsection.3.1.13}%
-\contentsline {subsection}{\numberline {3.1.14}Kolitzheim OT Herlheim}{20}{subsection.3.1.14}%
-\contentsline {subsection}{\numberline {3.1.15}Kolitzheim OT Oberspie\IeC {\ss }heim}{20}{subsection.3.1.15}%
-\contentsline {subsection}{\numberline {3.1.16}Kolitzheim OT Unterspie\IeC {\ss }heim}{21}{subsection.3.1.16}%
-\contentsline {subsection}{\numberline {3.1.17}Kolitzheim OT Zeilitzheim}{21}{subsection.3.1.17}%
-\contentsline {subsection}{\numberline {3.1.18}Gerolzhofen}{21}{subsection.3.1.18}%
-\contentsline {subsection}{\numberline {3.1.19}Dingolshausen}{22}{subsection.3.1.19}%
-\contentsline {subsection}{\numberline {3.1.20}Dingolshausen OT Bischwind}{22}{subsection.3.1.20}%
-\contentsline {subsection}{\numberline {3.1.21}Michelau}{22}{subsection.3.1.21}%
-\contentsline {subsection}{\numberline {3.1.22}Frankenwinheim}{23}{subsection.3.1.22}%
-\contentsline {subsection}{\numberline {3.1.23}Oberschwarzach}{23}{subsection.3.1.23}%
-\contentsline {subsection}{\numberline {3.1.24}Volkach}{23}{subsection.3.1.24}%
-\contentsline {subsection}{\numberline {3.1.25}L\"ulsfeld}{24}{subsection.3.1.25}%
-\contentsline {subsection}{\numberline {3.1.26}Schallfeld}{24}{subsection.3.1.26}%
-\contentsline {subsection}{\numberline {3.1.27}Prichsenstadt}{24}{subsection.3.1.27}%
-\contentsline {subsection}{\numberline {3.1.28}Prichsenstadt OT Altensch\"onbach}{25}{subsection.3.1.28}%
-\contentsline {subsection}{\numberline {3.1.29}Prichsenstadt OT Bimbach}{25}{subsection.3.1.29}%
-\contentsline {subsection}{\numberline {3.1.30}Prichsenstadt OT Br\"unnau}{26}{subsection.3.1.30}%
-\contentsline {subsection}{\numberline {3.1.31}J\"arkendorf}{26}{subsection.3.1.31}%
-\contentsline {subsection}{\numberline {3.1.32}Prichsenstadt OT Kirchsch\"onbach}{27}{subsection.3.1.32}%
-\contentsline {subsection}{\numberline {3.1.33}Prichsenstadt OT Laub}{27}{subsection.3.1.33}%
-\contentsline {subsection}{\numberline {3.1.34}Prichsenstadt OT Neudorf}{28}{subsection.3.1.34}%
-\contentsline {subsection}{\numberline {3.1.35}Prichsenstadt OT Neuses}{28}{subsection.3.1.35}%
-\contentsline {subsection}{\numberline {3.1.36}Prichsenstadt OT Stadelschwarzach}{28}{subsection.3.1.36}%
-\contentsline {subsection}{\numberline {3.1.37}Wiesentheid}{29}{subsection.3.1.37}%
-\contentsline {subsection}{\numberline {3.1.38}Wiesentheid OT Feuerbach}{29}{subsection.3.1.38}%
-\contentsline {subsection}{\numberline {3.1.39}Wiesentheid OT Geesdorf}{29}{subsection.3.1.39}%
-\contentsline {subsection}{\numberline {3.1.40}Wiesentheid OT Reupelsdorf}{30}{subsection.3.1.40}%
-\contentsline {subsection}{\numberline {3.1.41}Wiesentheid OT Untersambach}{30}{subsection.3.1.41}%
-\contentsline {subsection}{\numberline {3.1.42}R\"udenhausen}{30}{subsection.3.1.42}%
-\contentsline {subsection}{\numberline {3.1.43}Abtswind}{31}{subsection.3.1.43}%
-\contentsline {subsection}{\numberline {3.1.44}Kleinlangheim}{31}{subsection.3.1.44}%
-\contentsline {subsection}{\numberline {3.1.45}Wiesenbronn}{31}{subsection.3.1.45}%
-\contentsline {subsection}{\numberline {3.1.46}Gro\IeC {\ss }langheim}{32}{subsection.3.1.46}%
-\contentsline {subsection}{\numberline {3.1.47}Kitzingen}{32}{subsection.3.1.47}%
-\contentsline {subsection}{\numberline {3.1.48}W\"urzburg}{32}{subsection.3.1.48}%
-\contentsline {section}{\numberline {3.2}\"Ubertragung der Potentiale auf Stra\IeC {\ss }en}{33}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Schweinfurt}{33}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Sennfeld}{33}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Gochsheim}{33}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Gochsheim OT Weyer}{33}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Schwebheim}{33}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}Grettstatt}{33}{subsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.2.7}Grettstatt OT D\"urrfeld}{33}{subsection.3.2.7}%
-\contentsline {subsection}{\numberline {3.2.8}Donnersdorf}{33}{subsection.3.2.8}%
-\contentsline {subsection}{\numberline {3.2.9}Sulzheim}{33}{subsection.3.2.9}%
-\contentsline {subsection}{\numberline {3.2.10}Alitzheim}{33}{subsection.3.2.10}%
-\contentsline {subsection}{\numberline {3.2.11}M\"onchstockheim}{33}{subsection.3.2.11}%
-\contentsline {subsection}{\numberline {3.2.12}V\"ognitz}{33}{subsection.3.2.12}%
-\contentsline {subsection}{\numberline {3.2.13}Kolitzheim}{33}{subsection.3.2.13}%
-\contentsline {subsection}{\numberline {3.2.14}Kolitzheim OT Herlheim}{35}{subsection.3.2.14}%
-\contentsline {subsection}{\numberline {3.2.15}Kolitzheim OT Oberspie\IeC {\ss }heim}{35}{subsection.3.2.15}%
-\contentsline {subsection}{\numberline {3.2.16}Kolitzheim OT Unterspie\IeC {\ss }heim}{35}{subsection.3.2.16}%
-\contentsline {subsection}{\numberline {3.2.17}Kolitzheim OT Zeilitzheim}{35}{subsection.3.2.17}%
-\contentsline {subsection}{\numberline {3.2.18}Gerolzhofen}{35}{subsection.3.2.18}%
-\contentsline {subsection}{\numberline {3.2.19}Dingolshausen}{35}{subsection.3.2.19}%
-\contentsline {subsection}{\numberline {3.2.20}Dingolshausen OT Bischwind}{35}{subsection.3.2.20}%
-\contentsline {subsection}{\numberline {3.2.21}Michelau}{35}{subsection.3.2.21}%
-\contentsline {subsection}{\numberline {3.2.22}Frankenwinheim}{35}{subsection.3.2.22}%
-\contentsline {subsection}{\numberline {3.2.23}Oberschwarzach}{35}{subsection.3.2.23}%
-\contentsline {subsection}{\numberline {3.2.24}Volkach}{35}{subsection.3.2.24}%
-\contentsline {subsection}{\numberline {3.2.25}L\"ulsfeld}{35}{subsection.3.2.25}%
-\contentsline {subsection}{\numberline {3.2.26}Schallfeld}{35}{subsection.3.2.26}%
-\contentsline {subsection}{\numberline {3.2.27}Prichsenstadt}{35}{subsection.3.2.27}%
-\contentsline {subsection}{\numberline {3.2.28}Prichsenstadt OT Altensch\"onbach}{35}{subsection.3.2.28}%
-\contentsline {subsection}{\numberline {3.2.29}Prichsenstadt OT Bimbach}{35}{subsection.3.2.29}%
-\contentsline {subsection}{\numberline {3.2.30}Prichsenstadt OT Br\"unnau}{35}{subsection.3.2.30}%
-\contentsline {subsection}{\numberline {3.2.31}J\"arkendorf}{35}{subsection.3.2.31}%
-\contentsline {subsection}{\numberline {3.2.32}Prichsenstadt OT Kirchsch\"onbach}{35}{subsection.3.2.32}%
-\contentsline {subsection}{\numberline {3.2.33}Prichsenstadt OT Laub}{35}{subsection.3.2.33}%
-\contentsline {subsection}{\numberline {3.2.34}Prichsenstadt OT Neudorf}{35}{subsection.3.2.34}%
-\contentsline {subsection}{\numberline {3.2.35}Prichsenstadt OT Neuses}{35}{subsection.3.2.35}%
-\contentsline {subsection}{\numberline {3.2.36}Prichsenstadt OT Stadelschwarzach}{35}{subsection.3.2.36}%
-\contentsline {subsection}{\numberline {3.2.37}Wiesentheid}{35}{subsection.3.2.37}%
-\contentsline {subsection}{\numberline {3.2.38}Wiesentheid OT Feuerbach}{35}{subsection.3.2.38}%
-\contentsline {subsection}{\numberline {3.2.39}Wiesentheid OT Geesdorf}{35}{subsection.3.2.39}%
-\contentsline {subsection}{\numberline {3.2.40}Wiesentheid OT Reupelsdorf}{35}{subsection.3.2.40}%
-\contentsline {subsection}{\numberline {3.2.41}Wiesentheid OT Untersambach}{35}{subsection.3.2.41}%
-\contentsline {subsection}{\numberline {3.2.42}R\"udenhausen}{35}{subsection.3.2.42}%
-\contentsline {subsection}{\numberline {3.2.43}Abtswind}{35}{subsection.3.2.43}%
-\contentsline {subsection}{\numberline {3.2.44}Kleinlangheim}{35}{subsection.3.2.44}%
-\contentsline {subsection}{\numberline {3.2.45}Wiesenbronn}{35}{subsection.3.2.45}%
-\contentsline {subsection}{\numberline {3.2.46}Gro\IeC {\ss }langheim}{35}{subsection.3.2.46}%
-\contentsline {subsection}{\numberline {3.2.47}Kitzingen}{35}{subsection.3.2.47}%
-\contentsline {subsection}{\numberline {3.2.48}W\"urzburg}{35}{subsection.3.2.48}%
-\contentsline {chapter}{\numberline {4}Auswertung}{36}{chapter.4}%
-\contentsline {section}{\numberline {4.1}vermiedener Gesamtverkehr}{36}{section.4.1}%
-\contentsline {paragraph}{\nonumberline Vermeidung}{36}{section*.2}%
-\contentsline {paragraph}{\nonumberline Neuinduktionen}{36}{section*.3}%
-\contentsline {paragraph}{\nonumberline Verkehrssaldo}{36}{section*.4}%
-\contentsline {subsection}{\numberline {4.1.1}vermiedene Verkehrsemissionen}{36}{subsection.4.1.1}%
-\contentsline {subsubsection}{\nonumberline Kohlenstoffdioxid-Emissionen}{36}{section*.5}%
-\contentsline {subsubsection}{\nonumberline Emissionen an Kohlenwasserstoffen (HC)}{37}{section*.6}%
-\contentsline {subsubsection}{\nonumberline Stickstoffoxid-Emissionen (NOx)}{38}{section*.7}%
-\contentsline {subsubsection}{\nonumberline Emissionen von Feinstaub-Partikeln}{39}{section*.8}%
-\contentsline {subsubsection}{\nonumberline Reifenabrieb / Microplastik-Eintrag entlang von Stra\IeC {\ss }en}{39}{section*.9}%
-\contentsline {subsection}{\numberline {4.1.2}vermiedene Verkehrsunf\"alle und Folgesch\"aden}{40}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}vermiedene Betriebskosten f\"ur PKWs}{41}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Ver\"anderung des Stra\IeC {\ss }enverkehrs auf einzelnen Stra\IeC {\ss }en}{44}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Gesamtliste}{44}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}hervorgehobene Neuralgische Punkte im Stra\IeC {\ss }ennetz}{44}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Verlagerung der Einzelorte}{44}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Schweinfurt}{44}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Sennfeld}{44}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Gochsheim}{44}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Gochsheim OT Weyer}{44}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Schwebheim}{44}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.3.6}Grettstatt}{44}{subsection.4.3.6}%
-\contentsline {subsection}{\numberline {4.3.7}Grettstatt OT D\"urrfeld}{44}{subsection.4.3.7}%
-\contentsline {subsection}{\numberline {4.3.8}Donnersdorf}{44}{subsection.4.3.8}%
-\contentsline {subsection}{\numberline {4.3.9}Sulzheim}{44}{subsection.4.3.9}%
-\contentsline {subsection}{\numberline {4.3.10}Alitzheim}{44}{subsection.4.3.10}%
-\contentsline {subsection}{\numberline {4.3.11}M\"onchstockheim}{44}{subsection.4.3.11}%
-\contentsline {subsection}{\numberline {4.3.12}V\"ognitz}{44}{subsection.4.3.12}%
-\contentsline {subsection}{\numberline {4.3.13}Kolitzheim}{44}{subsection.4.3.13}%
-\contentsline {subsection}{\numberline {4.3.14}Gerolzhofen}{44}{subsection.4.3.14}%
-\contentsline {subsection}{\numberline {4.3.15}Dingolshausen}{44}{subsection.4.3.15}%
-\contentsline {subsection}{\numberline {4.3.16}Michelau}{44}{subsection.4.3.16}%
-\contentsline {subsection}{\numberline {4.3.17}Frankenwinheim}{44}{subsection.4.3.17}%
-\contentsline {subsection}{\numberline {4.3.18}Oberschwarzach}{44}{subsection.4.3.18}%
-\contentsline {subsection}{\numberline {4.3.19}Volkach}{44}{subsection.4.3.19}%
-\contentsline {subsection}{\numberline {4.3.20}L\"ulsfeld}{44}{subsection.4.3.20}%
-\contentsline {subsection}{\numberline {4.3.21}Schallfeld}{44}{subsection.4.3.21}%
-\contentsline {subsection}{\numberline {4.3.22}Prichsenstadt}{44}{subsection.4.3.22}%
-\contentsline {subsection}{\numberline {4.3.23}Prichsenstadt OT Altensch\"onbach}{44}{subsection.4.3.23}%
-\contentsline {subsection}{\numberline {4.3.24}Prichsenstadt OT Bimbach}{44}{subsection.4.3.24}%
-\contentsline {subsection}{\numberline {4.3.25}Prichsenstadt OT Br\"unnau}{44}{subsection.4.3.25}%
-\contentsline {subsection}{\numberline {4.3.26}J\"arkendorf}{44}{subsection.4.3.26}%
-\contentsline {subsection}{\numberline {4.3.27}Prichsenstadt OT Kirchsch\"onbach}{44}{subsection.4.3.27}%
-\contentsline {subsection}{\numberline {4.3.28}Prichsenstadt OT Laub}{44}{subsection.4.3.28}%
-\contentsline {subsection}{\numberline {4.3.29}Prichsenstadt OT Neudorf}{44}{subsection.4.3.29}%
-\contentsline {subsection}{\numberline {4.3.30}Prichsenstadt OT Neuses}{44}{subsection.4.3.30}%
-\contentsline {subsection}{\numberline {4.3.31}Prichsenstadt OT Stadelschwarzach}{44}{subsection.4.3.31}%
-\contentsline {subsection}{\numberline {4.3.32}Wiesentheid}{44}{subsection.4.3.32}%
-\contentsline {subsection}{\numberline {4.3.33}Wiesentheid OT Feuerbach}{44}{subsection.4.3.33}%
-\contentsline {subsection}{\numberline {4.3.34}Wiesentheid OT Geesdorf}{44}{subsection.4.3.34}%
-\contentsline {subsection}{\numberline {4.3.35}Wiesentheid OT Reupelsdorf}{44}{subsection.4.3.35}%
-\contentsline {subsection}{\numberline {4.3.36}Wiesentheid OT Untersambach}{44}{subsection.4.3.36}%
-\contentsline {subsection}{\numberline {4.3.37}R\"udenhausen}{44}{subsection.4.3.37}%
-\contentsline {subsection}{\numberline {4.3.38}Abtswind}{44}{subsection.4.3.38}%
-\contentsline {subsection}{\numberline {4.3.39}Kleinlangheim}{44}{subsection.4.3.39}%
-\contentsline {subsection}{\numberline {4.3.40}Wiesenbronn}{44}{subsection.4.3.40}%
-\contentsline {subsection}{\numberline {4.3.41}Gro\IeC {\ss }langheim}{44}{subsection.4.3.41}%
-\contentsline {subsection}{\numberline {4.3.42}Kitzingen}{44}{subsection.4.3.42}%
-\contentsline {subsection}{\numberline {4.3.43}W\"urzburg}{44}{subsection.4.3.43}%
-\contentsline {section}{\numberline {4.4}gewonnene Produktivit\"at}{44}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Zugewinn an Umsteigern}{45}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Listings}{46}{chapter.5}%
+\contentsline {subsection}{\numberline {2.4.1}Tabelle routes}{14}{subsection.2.4.1}%
+\contentsline {section}{\numberline {2.5}vollst\"andiger Datenbank-Dump}{16}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Verarbeitung}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Ermittlung der Fahrzeugbewegungen}{17}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Schweinfurt}{17}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Sennfeld}{17}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Gochsheim}{18}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Gochsheim OT Weyer}{18}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Schwebheim}{18}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}Grettstatt}{19}{subsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.1.7}Grettstatt OT D\"urrfeld}{19}{subsection.3.1.7}%
+\contentsline {subsection}{\numberline {3.1.8}Donnersdorf}{19}{subsection.3.1.8}%
+\contentsline {subsection}{\numberline {3.1.9}Sulzheim}{20}{subsection.3.1.9}%
+\contentsline {subsection}{\numberline {3.1.10}Alitzheim}{20}{subsection.3.1.10}%
+\contentsline {subsection}{\numberline {3.1.11}M\"onchstockheim}{20}{subsection.3.1.11}%
+\contentsline {subsection}{\numberline {3.1.12}V\"ognitz}{21}{subsection.3.1.12}%
+\contentsline {subsection}{\numberline {3.1.13}Kolitzheim}{21}{subsection.3.1.13}%
+\contentsline {subsection}{\numberline {3.1.14}Kolitzheim OT Herlheim}{21}{subsection.3.1.14}%
+\contentsline {subsection}{\numberline {3.1.15}Kolitzheim OT Oberspie\IeC {\ss }heim}{21}{subsection.3.1.15}%
+\contentsline {subsection}{\numberline {3.1.16}Kolitzheim OT Unterspie\IeC {\ss }heim}{22}{subsection.3.1.16}%
+\contentsline {subsection}{\numberline {3.1.17}Kolitzheim OT Zeilitzheim}{22}{subsection.3.1.17}%
+\contentsline {subsection}{\numberline {3.1.18}Gerolzhofen}{22}{subsection.3.1.18}%
+\contentsline {subsection}{\numberline {3.1.19}Dingolshausen}{23}{subsection.3.1.19}%
+\contentsline {subsection}{\numberline {3.1.20}Dingolshausen OT Bischwind}{23}{subsection.3.1.20}%
+\contentsline {subsection}{\numberline {3.1.21}Michelau}{23}{subsection.3.1.21}%
+\contentsline {subsection}{\numberline {3.1.22}Frankenwinheim}{24}{subsection.3.1.22}%
+\contentsline {subsection}{\numberline {3.1.23}Oberschwarzach}{24}{subsection.3.1.23}%
+\contentsline {subsection}{\numberline {3.1.24}Volkach}{24}{subsection.3.1.24}%
+\contentsline {subsection}{\numberline {3.1.25}L\"ulsfeld}{25}{subsection.3.1.25}%
+\contentsline {subsection}{\numberline {3.1.26}Schallfeld}{25}{subsection.3.1.26}%
+\contentsline {subsection}{\numberline {3.1.27}Prichsenstadt}{25}{subsection.3.1.27}%
+\contentsline {subsection}{\numberline {3.1.28}Prichsenstadt OT Altensch\"onbach}{26}{subsection.3.1.28}%
+\contentsline {subsection}{\numberline {3.1.29}Prichsenstadt OT Bimbach}{26}{subsection.3.1.29}%
+\contentsline {subsection}{\numberline {3.1.30}Prichsenstadt OT Br\"unnau}{27}{subsection.3.1.30}%
+\contentsline {subsection}{\numberline {3.1.31}J\"arkendorf}{27}{subsection.3.1.31}%
+\contentsline {subsection}{\numberline {3.1.32}Prichsenstadt OT Kirchsch\"onbach}{28}{subsection.3.1.32}%
+\contentsline {subsection}{\numberline {3.1.33}Prichsenstadt OT Laub}{28}{subsection.3.1.33}%
+\contentsline {subsection}{\numberline {3.1.34}Prichsenstadt OT Neudorf}{29}{subsection.3.1.34}%
+\contentsline {subsection}{\numberline {3.1.35}Prichsenstadt OT Neuses}{29}{subsection.3.1.35}%
+\contentsline {subsection}{\numberline {3.1.36}Prichsenstadt OT Stadelschwarzach}{29}{subsection.3.1.36}%
+\contentsline {subsection}{\numberline {3.1.37}Wiesentheid}{30}{subsection.3.1.37}%
+\contentsline {subsection}{\numberline {3.1.38}Wiesentheid OT Feuerbach}{30}{subsection.3.1.38}%
+\contentsline {subsection}{\numberline {3.1.39}Wiesentheid OT Geesdorf}{30}{subsection.3.1.39}%
+\contentsline {subsection}{\numberline {3.1.40}Wiesentheid OT Reupelsdorf}{31}{subsection.3.1.40}%
+\contentsline {subsection}{\numberline {3.1.41}Wiesentheid OT Untersambach}{31}{subsection.3.1.41}%
+\contentsline {subsection}{\numberline {3.1.42}R\"udenhausen}{31}{subsection.3.1.42}%
+\contentsline {subsection}{\numberline {3.1.43}Abtswind}{32}{subsection.3.1.43}%
+\contentsline {subsection}{\numberline {3.1.44}Kleinlangheim}{32}{subsection.3.1.44}%
+\contentsline {subsection}{\numberline {3.1.45}Wiesenbronn}{32}{subsection.3.1.45}%
+\contentsline {subsection}{\numberline {3.1.46}Gro\IeC {\ss }langheim}{33}{subsection.3.1.46}%
+\contentsline {subsection}{\numberline {3.1.47}Kitzingen}{33}{subsection.3.1.47}%
+\contentsline {subsection}{\numberline {3.1.48}W\"urzburg}{33}{subsection.3.1.48}%
+\contentsline {section}{\numberline {3.2}\"Ubertragung der Potentiale auf Stra\IeC {\ss }en}{34}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Schweinfurt}{34}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Sennfeld}{34}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Gochsheim}{34}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Gochsheim OT Weyer}{34}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Schwebheim}{34}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Grettstatt}{34}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}Grettstatt OT D\"urrfeld}{34}{subsection.3.2.7}%
+\contentsline {subsection}{\numberline {3.2.8}Donnersdorf}{34}{subsection.3.2.8}%
+\contentsline {subsection}{\numberline {3.2.9}Sulzheim}{34}{subsection.3.2.9}%
+\contentsline {subsection}{\numberline {3.2.10}Alitzheim}{34}{subsection.3.2.10}%
+\contentsline {subsection}{\numberline {3.2.11}M\"onchstockheim}{34}{subsection.3.2.11}%
+\contentsline {subsection}{\numberline {3.2.12}V\"ognitz}{34}{subsection.3.2.12}%
+\contentsline {subsection}{\numberline {3.2.13}Kolitzheim}{34}{subsection.3.2.13}%
+\contentsline {subsection}{\numberline {3.2.14}Kolitzheim OT Herlheim}{36}{subsection.3.2.14}%
+\contentsline {subsection}{\numberline {3.2.15}Kolitzheim OT Oberspie\IeC {\ss }heim}{36}{subsection.3.2.15}%
+\contentsline {subsection}{\numberline {3.2.16}Kolitzheim OT Unterspie\IeC {\ss }heim}{36}{subsection.3.2.16}%
+\contentsline {subsection}{\numberline {3.2.17}Kolitzheim OT Zeilitzheim}{36}{subsection.3.2.17}%
+\contentsline {subsection}{\numberline {3.2.18}Gerolzhofen}{36}{subsection.3.2.18}%
+\contentsline {subsection}{\numberline {3.2.19}Dingolshausen}{36}{subsection.3.2.19}%
+\contentsline {subsection}{\numberline {3.2.20}Dingolshausen OT Bischwind}{36}{subsection.3.2.20}%
+\contentsline {subsection}{\numberline {3.2.21}Michelau}{36}{subsection.3.2.21}%
+\contentsline {subsection}{\numberline {3.2.22}Frankenwinheim}{36}{subsection.3.2.22}%
+\contentsline {subsection}{\numberline {3.2.23}Oberschwarzach}{36}{subsection.3.2.23}%
+\contentsline {subsection}{\numberline {3.2.24}Volkach}{36}{subsection.3.2.24}%
+\contentsline {subsection}{\numberline {3.2.25}L\"ulsfeld}{36}{subsection.3.2.25}%
+\contentsline {subsection}{\numberline {3.2.26}Schallfeld}{36}{subsection.3.2.26}%
+\contentsline {subsection}{\numberline {3.2.27}Prichsenstadt}{36}{subsection.3.2.27}%
+\contentsline {subsection}{\numberline {3.2.28}Prichsenstadt OT Altensch\"onbach}{36}{subsection.3.2.28}%
+\contentsline {subsection}{\numberline {3.2.29}Prichsenstadt OT Bimbach}{36}{subsection.3.2.29}%
+\contentsline {subsection}{\numberline {3.2.30}Prichsenstadt OT Br\"unnau}{36}{subsection.3.2.30}%
+\contentsline {subsection}{\numberline {3.2.31}J\"arkendorf}{36}{subsection.3.2.31}%
+\contentsline {subsection}{\numberline {3.2.32}Prichsenstadt OT Kirchsch\"onbach}{36}{subsection.3.2.32}%
+\contentsline {subsection}{\numberline {3.2.33}Prichsenstadt OT Laub}{36}{subsection.3.2.33}%
+\contentsline {subsection}{\numberline {3.2.34}Prichsenstadt OT Neudorf}{36}{subsection.3.2.34}%
+\contentsline {subsection}{\numberline {3.2.35}Prichsenstadt OT Neuses}{36}{subsection.3.2.35}%
+\contentsline {subsection}{\numberline {3.2.36}Prichsenstadt OT Stadelschwarzach}{36}{subsection.3.2.36}%
+\contentsline {subsection}{\numberline {3.2.37}Wiesentheid}{36}{subsection.3.2.37}%
+\contentsline {subsection}{\numberline {3.2.38}Wiesentheid OT Feuerbach}{36}{subsection.3.2.38}%
+\contentsline {subsection}{\numberline {3.2.39}Wiesentheid OT Geesdorf}{36}{subsection.3.2.39}%
+\contentsline {subsection}{\numberline {3.2.40}Wiesentheid OT Reupelsdorf}{36}{subsection.3.2.40}%
+\contentsline {subsection}{\numberline {3.2.41}Wiesentheid OT Untersambach}{36}{subsection.3.2.41}%
+\contentsline {subsection}{\numberline {3.2.42}R\"udenhausen}{36}{subsection.3.2.42}%
+\contentsline {subsection}{\numberline {3.2.43}Abtswind}{36}{subsection.3.2.43}%
+\contentsline {subsection}{\numberline {3.2.44}Kleinlangheim}{36}{subsection.3.2.44}%
+\contentsline {subsection}{\numberline {3.2.45}Wiesenbronn}{36}{subsection.3.2.45}%
+\contentsline {subsection}{\numberline {3.2.46}Gro\IeC {\ss }langheim}{36}{subsection.3.2.46}%
+\contentsline {subsection}{\numberline {3.2.47}Kitzingen}{36}{subsection.3.2.47}%
+\contentsline {subsection}{\numberline {3.2.48}W\"urzburg}{36}{subsection.3.2.48}%
+\contentsline {chapter}{\numberline {4}Auswertung}{37}{chapter.4}%
+\contentsline {section}{\numberline {4.1}vermiedener Gesamtverkehr}{37}{section.4.1}%
+\contentsline {paragraph}{\nonumberline Vermeidung}{37}{section*.2}%
+\contentsline {paragraph}{\nonumberline Neuinduktionen}{37}{section*.3}%
+\contentsline {paragraph}{\nonumberline Verkehrssaldo}{37}{section*.4}%
+\contentsline {subsection}{\numberline {4.1.1}vermiedene Verkehrsemissionen}{37}{subsection.4.1.1}%
+\contentsline {subsubsection}{\nonumberline Kohlenstoffdioxid-Emissionen}{37}{section*.5}%
+\contentsline {subsubsection}{\nonumberline Emissionen an Kohlenwasserstoffen (HC)}{38}{section*.6}%
+\contentsline {subsubsection}{\nonumberline Stickstoffoxid-Emissionen (NOx)}{39}{section*.7}%
+\contentsline {subsubsection}{\nonumberline Emissionen von Feinstaub-Partikeln}{40}{section*.8}%
+\contentsline {subsubsection}{\nonumberline Reifenabrieb / Microplastik-Eintrag entlang von Stra\IeC {\ss }en}{40}{section*.9}%
+\contentsline {subsection}{\numberline {4.1.2}vermiedene Verkehrsunf\"alle und Folgesch\"aden}{41}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}vermiedene Betriebskosten f\"ur PKWs}{42}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Ver\"anderung des Stra\IeC {\ss }enverkehrs auf einzelnen Stra\IeC {\ss }en}{45}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Gesamtliste}{45}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}hervorgehobene Neuralgische Punkte im Stra\IeC {\ss }ennetz}{45}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Verlagerung der Einzelorte}{45}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Schweinfurt}{45}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Sennfeld}{45}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Gochsheim}{45}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Gochsheim OT Weyer}{45}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Schwebheim}{45}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Grettstatt}{45}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.7}Grettstatt OT D\"urrfeld}{45}{subsection.4.3.7}%
+\contentsline {subsection}{\numberline {4.3.8}Donnersdorf}{45}{subsection.4.3.8}%
+\contentsline {subsection}{\numberline {4.3.9}Sulzheim}{45}{subsection.4.3.9}%
+\contentsline {subsection}{\numberline {4.3.10}Alitzheim}{45}{subsection.4.3.10}%
+\contentsline {subsection}{\numberline {4.3.11}M\"onchstockheim}{45}{subsection.4.3.11}%
+\contentsline {subsection}{\numberline {4.3.12}V\"ognitz}{45}{subsection.4.3.12}%
+\contentsline {subsection}{\numberline {4.3.13}Kolitzheim}{45}{subsection.4.3.13}%
+\contentsline {subsection}{\numberline {4.3.14}Gerolzhofen}{45}{subsection.4.3.14}%
+\contentsline {subsection}{\numberline {4.3.15}Dingolshausen}{45}{subsection.4.3.15}%
+\contentsline {subsection}{\numberline {4.3.16}Michelau}{45}{subsection.4.3.16}%
+\contentsline {subsection}{\numberline {4.3.17}Frankenwinheim}{45}{subsection.4.3.17}%
+\contentsline {subsection}{\numberline {4.3.18}Oberschwarzach}{45}{subsection.4.3.18}%
+\contentsline {subsection}{\numberline {4.3.19}Volkach}{45}{subsection.4.3.19}%
+\contentsline {subsection}{\numberline {4.3.20}L\"ulsfeld}{45}{subsection.4.3.20}%
+\contentsline {subsection}{\numberline {4.3.21}Schallfeld}{45}{subsection.4.3.21}%
+\contentsline {subsection}{\numberline {4.3.22}Prichsenstadt}{45}{subsection.4.3.22}%
+\contentsline {subsection}{\numberline {4.3.23}Prichsenstadt OT Altensch\"onbach}{45}{subsection.4.3.23}%
+\contentsline {subsection}{\numberline {4.3.24}Prichsenstadt OT Bimbach}{45}{subsection.4.3.24}%
+\contentsline {subsection}{\numberline {4.3.25}Prichsenstadt OT Br\"unnau}{45}{subsection.4.3.25}%
+\contentsline {subsection}{\numberline {4.3.26}J\"arkendorf}{45}{subsection.4.3.26}%
+\contentsline {subsection}{\numberline {4.3.27}Prichsenstadt OT Kirchsch\"onbach}{45}{subsection.4.3.27}%
+\contentsline {subsection}{\numberline {4.3.28}Prichsenstadt OT Laub}{45}{subsection.4.3.28}%
+\contentsline {subsection}{\numberline {4.3.29}Prichsenstadt OT Neudorf}{45}{subsection.4.3.29}%
+\contentsline {subsection}{\numberline {4.3.30}Prichsenstadt OT Neuses}{45}{subsection.4.3.30}%
+\contentsline {subsection}{\numberline {4.3.31}Prichsenstadt OT Stadelschwarzach}{45}{subsection.4.3.31}%
+\contentsline {subsection}{\numberline {4.3.32}Wiesentheid}{45}{subsection.4.3.32}%
+\contentsline {subsection}{\numberline {4.3.33}Wiesentheid OT Feuerbach}{45}{subsection.4.3.33}%
+\contentsline {subsection}{\numberline {4.3.34}Wiesentheid OT Geesdorf}{45}{subsection.4.3.34}%
+\contentsline {subsection}{\numberline {4.3.35}Wiesentheid OT Reupelsdorf}{45}{subsection.4.3.35}%
+\contentsline {subsection}{\numberline {4.3.36}Wiesentheid OT Untersambach}{45}{subsection.4.3.36}%
+\contentsline {subsection}{\numberline {4.3.37}R\"udenhausen}{45}{subsection.4.3.37}%
+\contentsline {subsection}{\numberline {4.3.38}Abtswind}{45}{subsection.4.3.38}%
+\contentsline {subsection}{\numberline {4.3.39}Kleinlangheim}{45}{subsection.4.3.39}%
+\contentsline {subsection}{\numberline {4.3.40}Wiesenbronn}{45}{subsection.4.3.40}%
+\contentsline {subsection}{\numberline {4.3.41}Gro\IeC {\ss }langheim}{45}{subsection.4.3.41}%
+\contentsline {subsection}{\numberline {4.3.42}Kitzingen}{45}{subsection.4.3.42}%
+\contentsline {subsection}{\numberline {4.3.43}W\"urzburg}{45}{subsection.4.3.43}%
+\contentsline {section}{\numberline {4.4}gewonnene Produktivit\"at}{45}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Zugewinn an Umsteigern}{46}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Listings}{47}{chapter.5}%

@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.12.0 (TeX Live 2020/W32TeX)  (format=lualatex 2020.5.6)  22 MAY 2020 03:59
+This is LuaHBTeX, Version 1.12.0 (TeX Live 2020/W32TeX)  (format=lualatex 2020.5.6)  22 MAY 2020 04:12
  system commands enabled.
  file:line:error style messages enabled.
 **c:/Users/AWI/Documents/latex/bericht.tex
@@ -1116,9 +1116,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 239--244
 
  []
 
-
+[14]
 \openout3 = bericht.pyg
-(c:/Users/AWI/Documents/latex/_minted-bericht/7B9A576AAEE9ABA5D4E67017A9F30A3A8FC3FC6E1332244C7247F554856E2491.pygtex [14]) [15]
+ (c:/Users/AWI/Documents/latex/_minted-bericht/199BC7C9D07DFCF4840E80DBEF6527038FC3FC6E1332244C7247F554856E2491.pygtex
+Underfull \hbox (badness 10000) in paragraph at lines 249--1
+
+ []
+
+
+Overfull \hbox (456.92416pt too wide) in paragraph at lines 249--1
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--1
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--1
+
+ []
+
+)
+\openout3 = bericht.pyg
+ (c:/Users/AWI/Documents/latex/_minted-bericht/7B9A576AAEE9ABA5D4E67017A9F30A3A8FC3FC6E1332244C7247F554856E2491.pygtex [15]) [16]
 chapter 3.
 (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/schweinfurt.tex
 \openout7 = bericht.eflisting
@@ -1157,7 +1179,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--11
 
  []
 
-[16
+[17
 
 ]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/gochsheimotweyer.tex
 Overfull \hbox (64.56146pt too wide) in paragraph at lines 1--14
@@ -1199,7 +1221,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--12
 
  []
 
-[17]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/grettstattotduerrfeld.tex
+[18]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/grettstattotduerrfeld.tex
 Overfull \hbox (68.06355pt too wide) in paragraph at lines 1--13
 [][] 
  []
@@ -1234,7 +1256,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--14
 
  []
 
-[18]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/alitzheim.tex
+[19]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/alitzheim.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--11
 
  []
@@ -1264,7 +1286,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--10
 
  []
 
-[19]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/kolitzheimotherlheim.tex
+[20]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/kolitzheimotherlheim.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--12
 
  []
@@ -1294,7 +1316,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--12
 
  []
 
-[20]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/kolitzheimotzeilitzheim.tex
+[21]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/kolitzheimotzeilitzheim.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--11
 
  []
@@ -1324,7 +1346,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--13
 
  []
 
-[21]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/dingolshausenotbischwind.tex
+[22]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/dingolshausenotbischwind.tex
 Overfull \hbox (54.41226pt too wide) in paragraph at lines 1--12
 [][] 
  []
@@ -1359,7 +1381,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--13
 
  []
 
-[22]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/oberschwarzach.tex
+[23]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/oberschwarzach.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--14
 
  []
@@ -1389,7 +1411,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--10
 
  []
 
-[23]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/schallfeld.tex
+[24]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/schallfeld.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--12
 
  []
@@ -1429,7 +1451,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--16
 
  []
 
-[24]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/prichsenstadtotbimbach.tex
+[25]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/prichsenstadtotbimbach.tex
 Overfull \hbox (88.60379pt too wide) in paragraph at lines 1--17
 [][] 
  []
@@ -1459,7 +1481,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--15
 
  []
 
-[25]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/jaerkendorf.tex
+[26]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/jaerkendorf.tex
 Overfull \hbox (10.47472pt too wide) in paragraph at lines 1--14
 [][] 
  []
@@ -1489,7 +1511,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--16
 
  []
 
-[26]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/prichsenstadtotlaub.tex
+[27]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/prichsenstadtotlaub.tex
 Overfull \hbox (69.61871pt too wide) in paragraph at lines 1--17
 [][] 
  []
@@ -1519,7 +1541,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--15
 
  []
 
-[27]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/prichsenstadtotneuses.tex
+[28]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/prichsenstadtotneuses.tex
 Overfull \hbox (80.32086pt too wide) in paragraph at lines 1--13
 [][] 
  []
@@ -1549,7 +1571,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--14
 
  []
 
-[28]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/wiesentheid.tex
+[29]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/wiesentheid.tex
 Overfull \hbox (18.04341pt too wide) in paragraph at lines 1--13
 [][] 
  []
@@ -1594,7 +1616,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--13
 
  []
 
-[29]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/wiesentheidotreupelsdorf.tex
+[30]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/wiesentheidotreupelsdorf.tex
 Overfull \hbox (99.67458pt too wide) in paragraph at lines 1--16
 [][] 
  []
@@ -1639,7 +1661,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--13
 
  []
 
-[30]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/abstwind.tex
+[31]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/abstwind.tex
 Overfull \hbox (28.25023pt too wide) in paragraph at lines 1--11
 [][] 
  []
@@ -1699,7 +1721,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--10
 
  []
 
-[31]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/kitzingen.tex
+[32]) (c:/Users/AWI/Documents/latex/Fahrzeugbewegungen/kitzingen.tex
 Underfull \hbox (badness 10000) in paragraph at lines 1--13
 
  []
@@ -1719,226 +1741,226 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--11
 
  []
 
-) [32] (c:/Users/AWI/Documents/latex/Routen/schweinfurt.tex) (c:/Users/AWI/Documents/latex/Routen/sennfeld.tex) (c:/Users/AWI/Documents/latex/Routen/gochsheim.tex) (c:/Users/AWI/Documents/latex/Routen/gochsheimotweyer.tex) (c:/Users/AWI/Documents/latex/Routen/schwebheim.tex) (c:/Users/AWI/Documents/latex/Routen/grettstatt.tex) (c:/Users/AWI/Documents/latex/Routen/grettstattotduerrfeld.tex) (c:/Users/AWI/Documents/latex/Routen/donnersdorf.tex) (c:/Users/AWI/Documents/latex/Routen/sulzheim.tex) (c:/Users/AWI/Documents/latex/Routen/alitzheim.tex) (c:/Users/AWI/Documents/latex/Routen/moenchstockheim.tex) (c:/Users/AWI/Documents/latex/Routen/voegnitz.tex) (c:/Users/AWI/Documents/latex/Routen/kolitzheimotherlheim.tex) (c:/Users/AWI/Documents/latex/Routen/kolitzheimotoberspiessheim.tex) (c:/Users/AWI/Documents/latex/Routen/kolitzheimotunterspiessheim.tex) (c:/Users/AWI/Documents/latex/Routen/kolitzheimotzeilitzheim.tex) (c:/Users/AWI/Documents/latex/Routen/gerolzhofen.tex) (c:/Users/AWI/Documents/latex/Routen/dingolshausen.tex) (c:/Users/AWI/Documents/latex/Routen/dingolshausenotbischwind.tex) (c:/Users/AWI/Documents/latex/Routen/michelau.tex) (c:/Users/AWI/Documents/latex/Routen/frankenwinheim.tex) (c:/Users/AWI/Documents/latex/Routen/oberschwarzach.tex) (c:/Users/AWI/Documents/latex/Routen/volkach.tex) (c:/Users/AWI/Documents/latex/Routen/luelsfeld.tex) (c:/Users/AWI/Documents/latex/Routen/schallfeld.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadt.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotaltenschoenbach.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotbimbach.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotbruennau.tex) (c:/Users/AWI/Documents/latex/Routen/jaerkendorf.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotkirchschoenbach.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotlaub.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotneudorf.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotneuses.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotstadelschwarzach.tex) (c:/Users/AWI/Documents/latex/Routen/wiesentheid.tex) (c:/Users/AWI/Documents/latex/Routen/wiesentheidotfeuerbach.tex) (c:/Users/AWI/Documents/latex/Routen/wiesentheidotgeesdorf.tex) (c:/Users/AWI/Documents/latex/Routen/wiesentheidotreupelsdorf.tex) (c:/Users/AWI/Documents/latex/Routen/wiesentheidotuntersambach.tex) (c:/Users/AWI/Documents/latex/Routen/ruedenhausen.tex) (c:/Users/AWI/Documents/latex/Routen/abtswind.tex) (c:/Users/AWI/Documents/latex/Routen/kleinlangheim.tex) (c:/Users/AWI/Documents/latex/Routen/wiesenbronn.tex) (c:/Users/AWI/Documents/latex/Routen/grosslangheim.tex) (c:/Users/AWI/Documents/latex/Routen/kitzingen.tex) (c:/Users/AWI/Documents/latex/Routen/wuerzburg.tex) [33] [34]
+) [33] (c:/Users/AWI/Documents/latex/Routen/schweinfurt.tex) (c:/Users/AWI/Documents/latex/Routen/sennfeld.tex) (c:/Users/AWI/Documents/latex/Routen/gochsheim.tex) (c:/Users/AWI/Documents/latex/Routen/gochsheimotweyer.tex) (c:/Users/AWI/Documents/latex/Routen/schwebheim.tex) (c:/Users/AWI/Documents/latex/Routen/grettstatt.tex) (c:/Users/AWI/Documents/latex/Routen/grettstattotduerrfeld.tex) (c:/Users/AWI/Documents/latex/Routen/donnersdorf.tex) (c:/Users/AWI/Documents/latex/Routen/sulzheim.tex) (c:/Users/AWI/Documents/latex/Routen/alitzheim.tex) (c:/Users/AWI/Documents/latex/Routen/moenchstockheim.tex) (c:/Users/AWI/Documents/latex/Routen/voegnitz.tex) (c:/Users/AWI/Documents/latex/Routen/kolitzheimotherlheim.tex) (c:/Users/AWI/Documents/latex/Routen/kolitzheimotoberspiessheim.tex) (c:/Users/AWI/Documents/latex/Routen/kolitzheimotunterspiessheim.tex) (c:/Users/AWI/Documents/latex/Routen/kolitzheimotzeilitzheim.tex) (c:/Users/AWI/Documents/latex/Routen/gerolzhofen.tex) (c:/Users/AWI/Documents/latex/Routen/dingolshausen.tex) (c:/Users/AWI/Documents/latex/Routen/dingolshausenotbischwind.tex) (c:/Users/AWI/Documents/latex/Routen/michelau.tex) (c:/Users/AWI/Documents/latex/Routen/frankenwinheim.tex) (c:/Users/AWI/Documents/latex/Routen/oberschwarzach.tex) (c:/Users/AWI/Documents/latex/Routen/volkach.tex) (c:/Users/AWI/Documents/latex/Routen/luelsfeld.tex) (c:/Users/AWI/Documents/latex/Routen/schallfeld.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadt.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotaltenschoenbach.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotbimbach.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotbruennau.tex) (c:/Users/AWI/Documents/latex/Routen/jaerkendorf.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotkirchschoenbach.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotlaub.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotneudorf.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotneuses.tex) (c:/Users/AWI/Documents/latex/Routen/prichsenstadtotstadelschwarzach.tex) (c:/Users/AWI/Documents/latex/Routen/wiesentheid.tex) (c:/Users/AWI/Documents/latex/Routen/wiesentheidotfeuerbach.tex) (c:/Users/AWI/Documents/latex/Routen/wiesentheidotgeesdorf.tex) (c:/Users/AWI/Documents/latex/Routen/wiesentheidotreupelsdorf.tex) (c:/Users/AWI/Documents/latex/Routen/wiesentheidotuntersambach.tex) (c:/Users/AWI/Documents/latex/Routen/ruedenhausen.tex) (c:/Users/AWI/Documents/latex/Routen/abtswind.tex) (c:/Users/AWI/Documents/latex/Routen/kleinlangheim.tex) (c:/Users/AWI/Documents/latex/Routen/wiesenbronn.tex) (c:/Users/AWI/Documents/latex/Routen/grosslangheim.tex) (c:/Users/AWI/Documents/latex/Routen/kitzingen.tex) (c:/Users/AWI/Documents/latex/Routen/wuerzburg.tex) [34] [35]
 Overfull \vbox (371.20653pt too high) has occurred while \output is active []
 
- [35]
+ [36]
 chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 609--631
+Underfull \hbox (badness 10000) in paragraph at lines 646--668
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 609--631
+Underfull \hbox (badness 10000) in paragraph at lines 646--668
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 609--631
+Underfull \hbox (badness 10000) in paragraph at lines 646--668
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 609--631
+Underfull \hbox (badness 10000) in paragraph at lines 646--668
 
  []
 
-[36
+[37
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 650--672
+Underfull \hbox (badness 10000) in paragraph at lines 687--709
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--672
+Underfull \hbox (badness 10000) in paragraph at lines 687--709
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--672
+Underfull \hbox (badness 10000) in paragraph at lines 687--709
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--672
+Underfull \hbox (badness 10000) in paragraph at lines 687--709
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--672
-
- []
-
-[37]
-Package textcomp Info: Symbol \textmu not provided by
-(textcomp)             font family mdbch in TS1 encoding.
-(textcomp)             Default family used instead on input line 696.
-Package textcomp Info: Symbol \textthreesuperior not provided by
-(textcomp)             font family mdbch in TS1 encoding.
-(textcomp)             Default family used instead on input line 696.
-
-Underfull \hbox (badness 10000) in paragraph at lines 693--715
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 693--715
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 693--715
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 693--715
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 693--715
+Underfull \hbox (badness 10000) in paragraph at lines 687--709
 
  []
 
 [38]
-Overfull \hbox (24.08788pt too wide) in paragraph at lines 739--761
+Package textcomp Info: Symbol \textmu not provided by
+(textcomp)             font family mdbch in TS1 encoding.
+(textcomp)             Default family used instead on input line 733.
+Package textcomp Info: Symbol \textthreesuperior not provided by
+(textcomp)             font family mdbch in TS1 encoding.
+(textcomp)             Default family used instead on input line 733.
+
+Underfull \hbox (badness 10000) in paragraph at lines 730--752
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 730--752
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 730--752
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 730--752
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 730--752
+
+ []
+
+[39]
+Overfull \hbox (24.08788pt too wide) in paragraph at lines 776--798
 \T1/mdbch/m/n/12 pro-fes-sio-nal.de/fahr-werk/schad-stof-fe/unterschaetzte-umweltgefahr-reifenabrieb-/15490524) 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 739--761
+Underfull \hbox (badness 10000) in paragraph at lines 776--798
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 739--761
+Underfull \hbox (badness 10000) in paragraph at lines 776--798
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 739--761
+Underfull \hbox (badness 10000) in paragraph at lines 776--798
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 739--761
+Underfull \hbox (badness 10000) in paragraph at lines 776--798
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 739--761
+Underfull \hbox (badness 10000) in paragraph at lines 776--798
 
  []
 
 
-Overfull \hbox (86.98254pt too wide) in paragraph at lines 739--761
+Overfull \hbox (86.98254pt too wide) in paragraph at lines 776--798
 [] 
  []
 
-[39]
-Overfull \hbox (30.02396pt too wide) in paragraph at lines 782--803
+[40]
+Overfull \hbox (30.02396pt too wide) in paragraph at lines 819--840
 \T1/mdbch/m/n/12 Down-load: []$\T1/lmtt/m/n/12 https://www.bmvi.de/SharedDocs/DE/Publikationen/G/verkehr-[]in-[]zahlen_
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--803
+Underfull \hbox (badness 10000) in paragraph at lines 819--840
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--803
+Underfull \hbox (badness 10000) in paragraph at lines 819--840
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--803
+Underfull \hbox (badness 10000) in paragraph at lines 819--840
 
  []
 
 
-Overfull \hbox (93.20341pt too wide) in paragraph at lines 782--803
+Overfull \hbox (93.20341pt too wide) in paragraph at lines 819--840
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--803
+Underfull \hbox (badness 10000) in paragraph at lines 819--840
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 782--803
-
- []
-
-[40]
-LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 11.52008pt on input line 820.
-
-Underfull \hbox (badness 10000) in paragraph at lines 818--825
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 818--825
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 827--848
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 827--848
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 827--848
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 827--848
-
- []
-
-
-Overfull \hbox (93.20341pt too wide) in paragraph at lines 827--848
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 827--848
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 827--848
+Underfull \hbox (badness 10000) in paragraph at lines 819--840
 
  []
 
 [41]
-LaTeX Font Info:    Faking \texteuro for font family mdbch
-(Font)              in TS1 encoding on input line 868.
-LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 8.06401pt on input line 868.
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 11.52008pt on input line 857.
 
-Underfull \hbox (badness 10000) in paragraph at lines 863--873
+Underfull \hbox (badness 10000) in paragraph at lines 855--862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 855--862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 864--885
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 864--885
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 864--885
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 864--885
+
+ []
+
+
+Overfull \hbox (93.20341pt too wide) in paragraph at lines 864--885
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 864--885
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 864--885
+
+ []
+
+[42]
+LaTeX Font Info:    Faking \texteuro for font family mdbch
+(Font)              in TS1 encoding on input line 905.
+LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
+(Font)              scaled to size 8.06401pt on input line 905.
+
+Underfull \hbox (badness 10000) in paragraph at lines 900--910
 
  []
 
 LaTeX Font Info:    Faking \texteuro for font family mdbch
-(Font)              in TS1 encoding on input line 890.
-[42] [43]
+(Font)              in TS1 encoding on input line 927.
+[43] [44]
 Overfull \vbox (829.50603pt too high) has occurred while \output is active []
 
- [44] [45]
+ [45] [46]
 chapter 5.
-(c:/Users/AWI/Documents/latex/listings.tex) AED endfloat: Processing end Figures and Tables [46
+(c:/Users/AWI/Documents/latex/listings.tex) AED endfloat: Processing end Figures and Tables [47
 
 ] (c:/Users/AWI/Documents/latex/bericht.lol
 Overfull \hbox (25.06737pt too wide) in paragraph at lines 7--7
@@ -2005,7 +2027,7 @@ Overfull \hbox (0.47203pt too wide) in paragraph at lines 24--24
  [][] [][]\T1/mdbch/m/n/12 SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quel-le Din- 
  []
 
-[47
+[48
 
 
 
@@ -2089,7 +2111,7 @@ Overfull \hbox (8.43239pt too wide) in paragraph at lines 49--49
  [][] [][]\T1/mdbch/m/n/12 SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quel-le Klein- 
  []
 
-[48]
+[49]
 Overfull \hbox (2.07332pt too wide) in paragraph at lines 50--50
  [][] [][]\T1/mdbch/m/n/12 SQL-Abfrage der Netto-Potenziale und MIV-Veränderung mit der Quel-le Wie- 
  []
@@ -2108,7 +2130,7 @@ Overfull \hbox (9.27335pt too wide) in paragraph at lines 53--53
 \tf@lol=\write10
 
 \openout10 = bericht.lol
- [49] (c:/Users/AWI/Documents/latex/bericht.eflisting
+ [50] (c:/Users/AWI/Documents/latex/bericht.eflisting
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/ADDDD230ACC25D22BB1981E7FF0C90748FC3FC6E1332244C7247F554856E2491.pygtex)
 Package hyperref Info: bookmark level for unknown listing defaults to 0 on input line 14.
@@ -2149,9 +2171,9 @@ Underfull \hbox (badness 1735) in paragraph at lines 116--116
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/34505D5E845CBD41A82FBB9CB6754D218FC3FC6E1332244C7247F554856E2491.pygtex)
 \openout3 = bericht.pyg
- (c:/Users/AWI/Documents/latex/_minted-bericht/AD5F2CBD7E2688CBBA535E1445584F468FC3FC6E1332244C7247F554856E2491.pygtex) [50
+ (c:/Users/AWI/Documents/latex/_minted-bericht/AD5F2CBD7E2688CBBA535E1445584F468FC3FC6E1332244C7247F554856E2491.pygtex) [51
 
-] [51] [52] [53] [54]
+] [52] [53] [54] [55]
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/EBBAE17217B1C08ECCC01BAD691434828FC3FC6E1332244C7247F554856E2491.pygtex)
 \openout3 = bericht.pyg
@@ -2167,7 +2189,7 @@ Underfull \hbox (badness 1735) in paragraph at lines 116--116
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/6F80A171A4C44F7D77B28943BEB6BA278FC3FC6E1332244C7247F554856E2491.pygtex)
 \openout3 = bericht.pyg
- (c:/Users/AWI/Documents/latex/_minted-bericht/770B73118E3D47CD89F39618AB37ED668FC3FC6E1332244C7247F554856E2491.pygtex) [55] [56] [57] [58]
+ (c:/Users/AWI/Documents/latex/_minted-bericht/770B73118E3D47CD89F39618AB37ED668FC3FC6E1332244C7247F554856E2491.pygtex) [56] [57] [58] [59]
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/ACB487FDACB7EC06AA030EC56A1EDC3C8FC3FC6E1332244C7247F554856E2491.pygtex)
 \openout3 = bericht.pyg
@@ -2185,7 +2207,7 @@ Underfull \hbox (badness 1735) in paragraph at lines 116--116
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/34142AD96C65E6C9E3CECCC84D6C16978FC3FC6E1332244C7247F554856E2491.pygtex)
 \openout3 = bericht.pyg
- (c:/Users/AWI/Documents/latex/_minted-bericht/BC2539DE766D92F6876CEEED80E9FFC18FC3FC6E1332244C7247F554856E2491.pygtex) [59] [60] [61] [62] [63]
+ (c:/Users/AWI/Documents/latex/_minted-bericht/BC2539DE766D92F6876CEEED80E9FFC18FC3FC6E1332244C7247F554856E2491.pygtex) [60] [61] [62] [63] [64]
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/A5C11C49A994685F79330F6B883C8EE68FC3FC6E1332244C7247F554856E2491.pygtex)
 \openout3 = bericht.pyg
@@ -2203,7 +2225,7 @@ Underfull \hbox (badness 1735) in paragraph at lines 116--116
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/A0871E243EF4A33725195369B22851E88FC3FC6E1332244C7247F554856E2491.pygtex)
 \openout3 = bericht.pyg
- (c:/Users/AWI/Documents/latex/_minted-bericht/57C9021A61FF7C2237DE58FD07E2111E8FC3FC6E1332244C7247F554856E2491.pygtex) [64] [65] [66] [67]
+ (c:/Users/AWI/Documents/latex/_minted-bericht/57C9021A61FF7C2237DE58FD07E2111E8FC3FC6E1332244C7247F554856E2491.pygtex) [65] [66] [67] [68]
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/7F0A9BF4A43D0FD7205D226BC56338A78FC3FC6E1332244C7247F554856E2491.pygtex)
 \openout3 = bericht.pyg
@@ -2219,7 +2241,7 @@ Underfull \hbox (badness 1735) in paragraph at lines 116--116
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/0743C129A25B4038EF7EE6C5A2AF3AA38FC3FC6E1332244C7247F554856E2491.pygtex)
 \openout3 = bericht.pyg
- (c:/Users/AWI/Documents/latex/_minted-bericht/7A69937B02904826AB16E678C058C9F48FC3FC6E1332244C7247F554856E2491.pygtex) [68] [69] [70] [71]
+ (c:/Users/AWI/Documents/latex/_minted-bericht/7A69937B02904826AB16E678C058C9F48FC3FC6E1332244C7247F554856E2491.pygtex) [69] [70] [71] [72]
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/550BE587733471EFB4C9D14E00EE02EE8FC3FC6E1332244C7247F554856E2491.pygtex)
 \openout3 = bericht.pyg
@@ -2237,17 +2259,17 @@ Underfull \hbox (badness 1735) in paragraph at lines 116--116
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/DFC547746A4EE686664E661AD53091028FC3FC6E1332244C7247F554856E2491.pygtex)
 \openout3 = bericht.pyg
- (c:/Users/AWI/Documents/latex/_minted-bericht/FDFFEB4DACB846EB882BA68C7B3E18CC8FC3FC6E1332244C7247F554856E2491.pygtex) [72] [73] [74] [75]
+ (c:/Users/AWI/Documents/latex/_minted-bericht/FDFFEB4DACB846EB882BA68C7B3E18CC8FC3FC6E1332244C7247F554856E2491.pygtex) [73] [74] [75] [76]
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/FDFFEB4DACB846EB882BA68C7B3E18CC8FC3FC6E1332244C7247F554856E2491.pygtex)
 \openout3 = bericht.pyg
  (c:/Users/AWI/Documents/latex/_minted-bericht/0A069680F7D27181E8EB2CD713B4A5508FC3FC6E1332244C7247F554856E2491.pygtex))
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 950.
- [76] [77]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 950.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 987.
+ [77] [78]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 987.
  (c:/Users/AWI/Documents/latex/bericht.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 950.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 950.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 987.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 987.
 Package rerunfilecheck Info: File `bericht.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -2255,16 +2277,16 @@ Package rerunfilecheck Info: File `bericht.out' has not changed.
 LaTeX Warning: There were multiply-defined labels.
 
 runsystem(del bericht.pyg)...executed
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 950.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 987.
 )
 
 Here is how much of LuaTeX's memory you used:
- 22957 strings out of 481089
+ 22978 strings out of 481089
  125007,953878 words of node,token memory allocated
- 5114 words of node memory still in use:
-   4 hlist, 1 vlist, 1 rule, 5 glue, 547 kern, 1 glyph, 541 attribute, 66 glue_spec, 272 attribute_list, 1 write, 43 pdf_action nodes
+ 5136 words of node memory still in use:
+   4 hlist, 1 vlist, 1 rule, 5 glue, 549 kern, 1 glyph, 545 attribute, 66 glue_spec, 274 attribute_list, 1 write, 43 pdf_action nodes
    avail lists: 1:6,2:10834,3:516,4:1214,5:743,6:143,7:7598,8:106,9:1930,10:10,11:483
- 37190 multiletter control sequences out of 65536+600000
+ 37193 multiletter control sequences out of 65536+600000
  146 fonts using 8486047 bytes
  46i,12n,72p,10160b,710s stack positions out of 5000i,500n,10000p,200000b,100000s
 
@@ -2382,10 +2404,10 @@ warning  (pdf backend): unreferenced destination with name 'listing.2'
 
 warning  (pdf backend): unreferenced destination with name 'listing.1'
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/texlive/2020/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chb8t.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr7y.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chr8t.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/mathdesign/mdbch/md-chri7m.pfb>
-Output written on bericht.pdf (77 pages, 298505 bytes).
+Output written on bericht.pdf (78 pages, 302247 bytes).
 
-PDF statistics: 1567 PDF objects out of 1728 (max. 8388607)
- 1463 compressed objects within 15 object streams
- 373 named destinations out of 1000 (max. 131072)
+PDF statistics: 1571 PDF objects out of 1728 (max. 8388607)
+ 1466 compressed objects within 15 object streams
+ 374 named destinations out of 1000 (max. 131072)
  1369 words of extra memory for PDF output out of 10000 (max. 100000000)
 
