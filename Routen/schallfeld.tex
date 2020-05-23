@@ -1,0 +1,98 @@
+Zugeordnete Routen:
+\newline
+\newline
+\begin{longtabu}{|l|l|l|l|*2{X[l]|}}
+    \hline
+    id & Quelle & Ziel & Straße & Straßenbeginn & Straßenende\\ 
+    \hline
+    114 & Schallfeld & Schweinfurt & SW45 & Gerolzhofen & Schallfeld\\ 
+    114 &  &  & St2274 & Gerolzhofen & B286/St2274 (Gerolzhofen bei Geomaris)\\ 
+    114 &  &  & B286 & B286/St2274 (Gerolzhofen bei Geomaris) & B286/St2275 (Gerolzhofen bei Rügshofen)\\ 
+    114 &  &  & B286 & B286/St2275 (Gerolzhofen bei Rügshofen) & B286/St2272 (bei Alitzheim)\\ 
+    114 &  &  & B286 & B286/St2272 (bei Alitzheim) & B286/St2271 (bei Unterspießheim)\\ 
+    114 &  &  & B286 & B286/St2271 (bei Unterspießheim) & B286/St2277 (bei Schwebheim)\\ 
+    114 &  &  & B286 & B286/St2277 (bei Schwebheim) & B286/SW3/St2271 (nördlich Schwebheim)\\ 
+    114 &  &  & B286 & B286/SW3/St2271 (nördlich Schwebheim) & Ausfahrt Schweinfurt-Zentrum\\ 
+    114 &  &  & B286 & Ausfahrt Schweinfurt-Zentrum & B286 Schweinfurt Abfahrt Hans-Böckler-Straße\\ 
+    114 &  &  & B286 & B286 Schweinfurt Abfahrt Hans-Böckler-Straße & B286/B26 (Schweinfurt Nähe Mainbrücke)\\ 
+    114 &  &  & B286 & B286/B26 (Schweinfurt Nähe Mainbrücke) & B286/B303\\ 
+    \hline
+    115 & Schallfeld & Wiesentheid & SW45 & Schallfeld & Prichsenstadt OT Brünnau\\ 
+    115 &  &  & KT40 & Prichsenstadt OT Neuses & Prichsenstadt OT Brünnau\\ 
+    115 &  &  & B286 & B286/St2272 (Wiesentheid bei Blutbank) & Prichsenstadt OT Neuses\\ 
+    115 &  &  & St2272 & B286/St2272 (Wiesentheid bei Blutbank) & Wiesentheid\\ 
+    \hline
+    116 & Schallfeld & Kitzingen & SW45 & Schallfeld & Prichsenstadt OT Brünnau\\ 
+    116 &  &  & KT40 & Prichsenstadt OT Neuses & Prichsenstadt OT Brünnau\\ 
+    116 &  &  & B22 & Stadelschwarzach & Prichsenstadt OT Neuses\\ 
+    116 &  &  & B22 & Prichsenstadt OT Laub & Stadelschwarzach\\ 
+    116 &  &  & B22 & Wiesentheid OT Reupelsdorf & Prichsenstadt OT Laub\\ 
+    116 &  &  & B22 & Düllstadt & Wiesentheid OT Reupelsdorf\\ 
+    116 &  &  & B22 & B22/KT11 & Düllstadt\\ 
+    116 &  &  & B22 & B22/St2271 (bei Stadtschwarzach) & B22/KT11\\ 
+    116 &  &  & St2271 & B22/St2271 (bei Stadtschwarzach) & Hörblach\\ 
+    116 &  &  & St2271 & Hörblach & Ausfahrt Kitzingen-Schwarzach\\ 
+    116 &  &  & St2271 & Ausfahrt Kitzingen-Schwarzach & St2271/St2272 (bei Kitzingen-Etwashausen)\\ 
+    116 &  &  & St2271 & St2271/St2272 (bei Kitzingen-Etwashausen) & B8/St2271 (Kitzingen bei e-center)\\ 
+    116 &  &  & B8 & Kitzingen & B8/St2271 (Kitzingen bei e-center)\\ 
+    \hline
+    117 & Schallfeld & Lülsfeld & SW43 & Lülsfeld & Schallfeld\\ 
+    \hline
+\end{longtabu}
+
+\begin{listing}[htbp]
+\begin{minted}{sql}
+    SELECT 
+	`potentials`.`id` AS `id`,
+	`from_places`.`name` AS `Quelle`, 
+	`to_places`.`name` AS `Ziel`,
+	`streets`.`street` AS `Straße`,
+	`from_street_places`.`name` AS `Straßenbeginn`,
+   `to_street_places`.`name` AS `Straßenende`
+FROM `potentials`
+LEFT JOIN `places` AS `from_places` ON `potentials`.`from_id` = `from_places`.`id`
+LEFT JOIN `places` AS `to_places` ON `potentials`.`to_id` = `to_places`.`id`
+LEFT JOIN `routes` ON `routes`.`potential_id` = `potentials`.`id`
+LEFT JOIN `streets` ON `streets`.`id` = `routes`.`street_id`
+LEFT JOIN `places` AS `from_street_places` ON `streets`.`from_id` = `from_street_places`.`id`
+LEFT JOIN `places` AS `to_street_places` ON `streets`.`to_id` = `to_street_places`.`id`
+WHERE `from_places`.`name` = 'Schallfeld'
+ORDER BY `potentials`.`id`, `routes`.`number_on_route`;
+\end{minted}
+\caption{SQL-Abfrage der zugeordneten Straßen mit der Quelle Schallfeld}\label{lst-rt-schallfeld}
+\end{listing}
+
+
+Länge, Fahrzeiten und Google Maps:
+\newline
+\begin{longtabu}{| l | *5{X[l]|}}
+    \hline
+    id & Quelle & Ziel & Fahrtstrecke [m] & Fahrtdauer [min] & Google-Maps Link\\ 
+    \hline
+    114 & Schallfeld & Schweinfurt & 25000 & 23 & \url{https://www.google.com/maps/dir/49.8734493,10.3574113/50.0439484,10.2257843}\\ 
+    \hline
+    115 & Schallfeld & Wiesentheid & 9300 & 10 & \url{https://www.google.com/maps/dir/49.8734493,10.3574113/49.7942401,10.3426344}\\ 
+    \hline
+    116 & Schallfeld & Kitzingen & 24600 & 25 & \url{https://www.google.com/maps/dir/49.8734493,10.3574113/49.7355709,10.1617438}\\ 
+    \hline
+    117 & Schallfeld & Lülsfeld & 3100 & 4 & \url{https://www.google.com/maps/dir/49.8734493,10.3574113/49.8677403,10.3199678}\\ 
+    \hline
+\end{longtabu}
+
+\begin{listing}[htbp]
+    \begin{minted}{sql}
+        SELECT 
+        `potentials`.`id` AS `id`, 
+        `from_places`.`name` AS `Quelle`,
+        `to_places`.`name` AS `Ziel`, 
+        `potentials`.`length` AS `Fahrtstrecke [m]`, 
+        `potentials`.`miv-duration` AS `Fahrtdauer [min]`,
+        CONCAT('https://www.google.com/maps/dir/', `from_places`.`LAT`, ",", `from_places`.`LONG`, '/', `to_places`.`LAT`, ',', `to_places`.`LONG`) AS `Google-Maps Link`
+    FROM `potentials`
+    LEFT JOIN `places` AS `from_places` ON `potentials`.`from_id` = `from_places`.`id`
+    LEFT JOIN `places` AS `to_places` ON `potentials`.`to_id` = `to_places`.`id`
+    WHERE `from_places`.`name` = 'Schallfeld'
+    ORDER BY `potentials`.`id`;
+    \end{minted}
+    \caption{SQL-Abfrage der Fahrtstrecke, Fahrtdauer und des Google-Maps-Link mit der Quelle Schallfeld}\label{lst-f-schallfeld}
+\end{listing}
