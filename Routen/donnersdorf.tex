@@ -1,0 +1,76 @@
+Zugeordnete Routen:
+\newline
+\newline
+\begin{longtabu}{|l|l|l|l|*2{X[l]|}}
+    \hline
+    id & Quelle & Ziel & Straße & Straßenbeginn & Straßenende\\ 
+    \hline
+    40 & Donnersdorf & Schweinfurt & St2275 & Donnersdorf & Dampfach\\ 
+    40 &  &  & St2275 & Dampfach & St2275/St2426\\ 
+    40 &  &  & St2426 & St2275/St2426 & Ausfahrt Haßfurt\\ 
+    40 &  &  & A70 & Ausfahrt Schonungen & Ausfahrt Haßfurt\\ 
+    40 &  &  & A70 & Ausfahrt Gochsheim & Ausfahrt Schonungen\\ 
+    40 &  &  & A70 & Ausfahrt Schweinfurt-Zentrum & Ausfahrt Gochsheim\\ 
+    40 &  &  & B286 & Ausfahrt Schweinfurt-Zentrum & B286 Schweinfurt Abfahrt Hans-Böckler-Straße\\ 
+    40 &  &  & B286 & B286 Schweinfurt Abfahrt Hans-Böckler-Straße & B286/B26 (Schweinfurt Nähe Mainbrücke)\\ 
+    40 &  &  & B286 & B286/B26 (Schweinfurt Nähe Mainbrücke) & B286/B303\\ 
+    \hline
+    42 & Donnersdorf & Grettstatt & St2277 & St2277/SW28 (Abzweig Ri. Dampfach) & Donnersdorf\\ 
+    42 &  &  & St2277 & Pusselsheim & St2277/SW28 (Abzweig Ri. Dampfach)\\ 
+    42 &  &  & SW28 & Pusselsheim & Grettstatt OT Dürrfeld\\ 
+    42 &  &  & SW28 & Grettstatt OT Dürrfeld & Grettstatt\\ 
+    \hline
+\end{longtabu}
+
+\begin{listing}[htbp]
+\begin{minted}{sql}
+    SELECT 
+	`potentials`.`id` AS `id`,
+	`from_places`.`name` AS `Quelle`, 
+	`to_places`.`name` AS `Ziel`,
+	`streets`.`street` AS `Straße`,
+	`from_street_places`.`name` AS `Straßenbeginn`,
+   `to_street_places`.`name` AS `Straßenende`
+FROM `potentials`
+LEFT JOIN `places` AS `from_places` ON `potentials`.`from_id` = `from_places`.`id`
+LEFT JOIN `places` AS `to_places` ON `potentials`.`to_id` = `to_places`.`id`
+LEFT JOIN `routes` ON `routes`.`potential_id` = `potentials`.`id`
+LEFT JOIN `streets` ON `streets`.`id` = `routes`.`street_id`
+LEFT JOIN `places` AS `from_street_places` ON `streets`.`from_id` = `from_street_places`.`id`
+LEFT JOIN `places` AS `to_street_places` ON `streets`.`to_id` = `to_street_places`.`id`
+WHERE `from_places`.`name` = 'Donnersdorf'
+ORDER BY `potentials`.`id`, `routes`.`number_on_route`;
+\end{minted}
+\caption{SQL-Abfrage der zugeordneten Straßen mit der Quelle Donnersdorf}\label{lst-rt-donnersdorf}
+\end{listing}
+
+
+Länge, Fahrzeiten und Google Maps:
+\newline
+\begin{longtabu}{| l | *5{X[l]|}}
+    \hline
+    id & Quelle & Ziel & Fahrtstrecke [m] & Fahrtdauer [min] & Google-Maps Link\\ 
+    \hline
+    40 & Donnersdorf & Schweinfurt & 23000 & 20 & \url{https://www.google.com/maps/dir/49.9708256,10.4176558/50.0439484,10.2257843}\\ 
+    \hline
+    42 & Donnersdorf & Grettstatt & 9100 & 9 & \url{https://www.google.com/maps/dir/49.9708256,10.4176558/49.9847108,10.3121683}\\ 
+    \hline
+\end{longtabu}
+
+\begin{listing}[htbp]
+    \begin{minted}{sql}
+        SELECT 
+        `potentials`.`id` AS `id`, 
+        `from_places`.`name` AS `Quelle`,
+        `to_places`.`name` AS `Ziel`, 
+        `potentials`.`length` AS `Fahrtstrecke [m]`, 
+        `potentials`.`miv-duration` AS `Fahrtdauer [min]`,
+        CONCAT('https://www.google.com/maps/dir/', `from_places`.`LAT`, ",", `from_places`.`LONG`, '/', `to_places`.`LAT`, ',', `to_places`.`LONG`) AS `Google-Maps Link`
+    FROM `potentials`
+    LEFT JOIN `places` AS `from_places` ON `potentials`.`from_id` = `from_places`.`id`
+    LEFT JOIN `places` AS `to_places` ON `potentials`.`to_id` = `to_places`.`id`
+    WHERE `from_places`.`name` = 'Donnersdorf'
+    ORDER BY `potentials`.`id`;
+    \end{minted}
+    \caption{SQL-Abfrage der Fahrtstrecke, Fahrtdauer und des Google-Maps-Link mit der Quelle Donnersdorf}\label{lst-f-donnersdorf}
+\end{listing}
