@@ -1,0 +1,111 @@
+Zugeordnete Routen:
+\newline
+\newline
+\begin{longtabu}{|l|l|l|l|*2{X[l]|}}
+    \hline
+    id & Quelle & Ziel & Straße & Straßenbeginn & Straßenende\\ 
+    \hline
+    43 & Sulzheim & Schweinfurt & St2272 & Sulzheim & Alitzheim\\ 
+    43 &  &  & St2272 & Alitzheim & B286/St2272 (bei Alitzheim)\\ 
+    43 &  &  & B286 & B286/St2272 (bei Alitzheim) & B286/St2271 (bei Unterspießheim)\\ 
+    43 &  &  & B286 & B286/St2271 (bei Unterspießheim) & B286/St2277 (bei Schwebheim)\\ 
+    43 &  &  & B286 & B286/St2277 (bei Schwebheim) & B286/SW3/St2271 (nördlich Schwebheim)\\ 
+    43 &  &  & B286 & B286/SW3/St2271 (nördlich Schwebheim) & Ausfahrt Schweinfurt-Zentrum\\ 
+    43 &  &  & B286 & Ausfahrt Schweinfurt-Zentrum & B286 Schweinfurt Abfahrt Hans-Böckler-Straße\\ 
+    43 &  &  & B286 & B286 Schweinfurt Abfahrt Hans-Böckler-Straße & B286/B26 (Schweinfurt Nähe Mainbrücke)\\ 
+    43 &  &  & B286 & B286/B26 (Schweinfurt Nähe Mainbrücke) & B286/B303\\ 
+    \hline
+    44 & Sulzheim & Gochsheim & St2272 & Grettstatt & Sulzheim\\ 
+    44 &  &  & St2272 & St2272/St2277 (Kreisel südlich Gochsheim) & Grettstatt\\ 
+    \hline
+    45 & Sulzheim & Sennfeld & St2272 & Grettstatt & Sulzheim\\ 
+    45 &  &  & St2272 & St2272/St2277 (Kreisel südlich Gochsheim) & Grettstatt\\ 
+    45 &  &  & St2272 & St2272/SW3 Gochsheim Kreisel Industriestraße & St2272/St2277 (Kreisel südlich Gochsheim)\\ 
+    45 &  &  & SW3 & St2272/SW3 Gochsheim & St2272/SW3 Gochsheim Kreisel Industriestraße\\ 
+    45 &  &  & St2272 & Ausfahrt Gochsheim & St2272/SW3 Gochsheim\\ 
+    45 &  &  & St2272 & St2271/St2272 (bei Sennfeld) & Ausfahrt Gochsheim\\ 
+    \hline
+    46 & Sulzheim & Gerolzhofen & St2272 & Sulzheim & Alitzheim\\ 
+    46 &  &  & St2272 & Alitzheim & B286/St2272 (bei Alitzheim)\\ 
+    46 &  &  & B286 & B286/St2275 (Gerolzhofen bei Rügshofen) & B286/St2272 (bei Alitzheim)\\ 
+    46 &  &  & St2275 & Gerolzhofen & B286/St2275 (Gerolzhofen bei Rügshofen)\\ 
+    \hline
+    47 & Sulzheim & Kitzingen & St2272 & Sulzheim & Alitzheim\\ 
+    47 &  &  & SW40 & Herlheim & Alitzheim\\ 
+    47 &  &  & SW40 & SW39/SW40 (zw. Herlheim u Zeilitzheim) & Herlheim\\ 
+    47 &  &  & SW39 & SW39/SW40 (zw. Herlheim u Zeilitzheim) & Kolitzheim\\ 
+    47 &  &  & St2271 & Kolitzheim & Gaibach\\ 
+    47 &  &  & St2271 & Gaibach & Volkach\\ 
+    47 &  &  & St2271 & Volkach & St2271/KT57\\ 
+    47 &  &  & St2271 & St2271/KT57 & Gerlachshausen\\ 
+    47 &  &  & St2271 & Gerlachshausen & B22/St2271 (bei Stadtschwarzach)\\ 
+    47 &  &  & St2271 & B22/St2271 (bei Stadtschwarzach) & Hörblach\\ 
+    47 &  &  & St2271 & Hörblach & Ausfahrt Kitzingen-Schwarzach\\ 
+    47 &  &  & St2271 & Ausfahrt Kitzingen-Schwarzach & St2271/St2272 (bei Kitzingen-Etwashausen)\\ 
+    47 &  &  & St2271 & St2271/St2272 (bei Kitzingen-Etwashausen) & B8/St2271 (Kitzingen bei e-center)\\ 
+    47 &  &  & B8 & Kitzingen & B8/St2271 (Kitzingen bei e-center)\\ 
+    \hline
+    48 & Sulzheim & Alitzheim & St2272 & Sulzheim & Alitzheim\\ 
+    \hline
+\end{longtabu}
+
+\begin{listing}[htbp]
+\begin{minted}{sql}
+    SELECT 
+	`potentials`.`id` AS `id`,
+	`from_places`.`name` AS `Quelle`, 
+	`to_places`.`name` AS `Ziel`,
+	`streets`.`street` AS `Straße`,
+	`from_street_places`.`name` AS `Straßenbeginn`,
+   `to_street_places`.`name` AS `Straßenende`
+FROM `potentials`
+LEFT JOIN `places` AS `from_places` ON `potentials`.`from_id` = `from_places`.`id`
+LEFT JOIN `places` AS `to_places` ON `potentials`.`to_id` = `to_places`.`id`
+LEFT JOIN `routes` ON `routes`.`potential_id` = `potentials`.`id`
+LEFT JOIN `streets` ON `streets`.`id` = `routes`.`street_id`
+LEFT JOIN `places` AS `from_street_places` ON `streets`.`from_id` = `from_street_places`.`id`
+LEFT JOIN `places` AS `to_street_places` ON `streets`.`to_id` = `to_street_places`.`id`
+WHERE `from_places`.`name` = 'Sulzheim'
+ORDER BY `potentials`.`id`, `routes`.`number_on_route`;
+\end{minted}
+\caption{SQL-Abfrage der zugeordneten Straßen mit der Quelle Sulzheim}\label{lst-rt-sulzheim}
+\end{listing}
+
+
+Länge, Fahrzeiten und Google Maps:
+\newline
+\begin{longtabu}{| l | *5{X[l]|}}
+    \hline
+    id & Quelle & Ziel & Fahrtstrecke [m] & Fahrtdauer [min] & Google-Maps Link\\ 
+    \hline
+    43 & Sulzheim & Schweinfurt & 19300 & 18 & \url{https://www.google.com/maps/dir/49.9469107,10.339796/50.0439484,10.2257843}\\ 
+    \hline
+    44 & Sulzheim & Gochsheim & 9900 & 11 & \url{https://www.google.com/maps/dir/49.9469107,10.339796/50.019526,10.2822383}\\ 
+    \hline
+    45 & Sulzheim & Sennfeld & 13900 & 16 & \url{https://www.google.com/maps/dir/49.9469107,10.339796/50.0422146,10.2609081}\\ 
+    \hline
+    46 & Sulzheim & Gerolzhofen & 6500 & 9 & \url{https://www.google.com/maps/dir/49.9469107,10.339796/49.9010511,10.3489622}\\ 
+    \hline
+    47 & Sulzheim & Kitzingen & 31900 & 31 & \url{https://www.google.com/maps/dir/49.9469107,10.339796/49.7355709,10.1617438}\\ 
+    \hline
+    48 & Sulzheim & Alitzheim & 1700 & 2 & \url{https://www.google.com/maps/dir/49.9469107,10.339796/49.9354067,10.3266909}\\ 
+    \hline
+\end{longtabu}
+
+\begin{listing}[htbp]
+    \begin{minted}{sql}
+        SELECT 
+        `potentials`.`id` AS `id`, 
+        `from_places`.`name` AS `Quelle`,
+        `to_places`.`name` AS `Ziel`, 
+        `potentials`.`length` AS `Fahrtstrecke [m]`, 
+        `potentials`.`miv-duration` AS `Fahrtdauer [min]`,
+        CONCAT('https://www.google.com/maps/dir/', `from_places`.`LAT`, ",", `from_places`.`LONG`, '/', `to_places`.`LAT`, ',', `to_places`.`LONG`) AS `Google-Maps Link`
+    FROM `potentials`
+    LEFT JOIN `places` AS `from_places` ON `potentials`.`from_id` = `from_places`.`id`
+    LEFT JOIN `places` AS `to_places` ON `potentials`.`to_id` = `to_places`.`id`
+    WHERE `from_places`.`name` = 'Sulzheim'
+    ORDER BY `potentials`.`id`;
+    \end{minted}
+    \caption{SQL-Abfrage der Fahrtstrecke, Fahrtdauer und des Google-Maps-Link mit der Quelle Sulzheim}\label{lst-f-sulzheim}
+\end{listing}
