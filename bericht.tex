@@ -30,6 +30,9 @@
 
 \usepackage[notables,nofigures]{endfloat}
 
+%querkant
+\usepackage{pdflscape}
+
 % Unterstriche
 \usepackage{underscore}
 
@@ -482,6 +485,7 @@ In diesem Abschnitt werden zur Überprüfbarkeit und Nachvollziehbarkeit die aus
 
         \section{Übertragung der Potentiale auf Straßen}
                 In diesem Abschnitt werden zur Überprüfbarkeit und Nachvollziehbarkeit die aus Google Maps entnommenen Routenentscheidungen für jedes Potenzial aufgelistet. Dazu wird ein Link zu Google Maps angegeben, mit dem diese Routenentscheidung seitens des Kartendienstleisters überprüft werden kann. Ebenfalls wird ein SQL-Query angegeben, mit dem diese Routenentscheidung in der Datenbank nachvollzogen werden kann.
+                \begin{landscape}
                 \subsection{Schweinfurt}
                 \input{Routen/schweinfurt.tex}
 
@@ -631,7 +635,7 @@ In diesem Abschnitt werden zur Überprüfbarkeit und Nachvollziehbarkeit die aus
                 
                 \subsection{Würzburg}
                 \input{Routen/wuerzburg.tex}
-
+        \end{landscape}
     \chapter{Auswertung}
         \section{vermiedener Gesamtverkehr und lokale Emissionen}
 
