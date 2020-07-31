@@ -24,7 +24,12 @@
 % Bessere Tabellen
 \usepackage{longtable}
 \usepackage{tabu}
+\usepackage{tabularx}
 \usepackage{enumitem}
+\usepackage{float}
+\usepackage{scrhack}
+\usepackage{geometry}
+\usepackage[]{scrlayer-scrpage}
 \setlist{noitemsep}
 %\setlist{nosep}
 
@@ -35,6 +40,11 @@
 
 % Unterstriche
 \usepackage{underscore}
+
+\pagestyle{scrheadings}
+\clearpairofpagestyles
+
+\cfoot{\pagemark}
 
 \DeclareDelayedFloat{listing}{Listings}
 
@@ -48,6 +58,9 @@
     autogobble=true,
     escapeinside=\#\#,
 }
+
+\DeclareTOCStyleEntry[numwidth=3em]{tocline}{figure} % Für Abbildungsverzeichnis
+\DeclareTOCStyleEntry[numwidth=3em]{tocline}{table} % Für Tabellenverzeichnis
 
 %setzt die Queries ans Ende
 \renewcommand{\floatplace}[1]{% #1 = float type (e.g. figure)
@@ -69,18 +82,17 @@
 % \usepackage{minted}
 
 \begin{document}
+\title{Vorrausberechnung der Straßenverkehrsentlastung
+        durch eine Reaktivierung der Steigerwaldbahn
+        Schweinfurt---Gerolzhofen---Wiesentheid---Kitzingen}
+\date{im Mai, 2020}
+\author{vorgelegt von Andreas Witte,\\ unterstützt durch Stephan Wohlfeil}
+\maketitle
 
-    \title{Vorrausberechnung der Straßenverkehrsentlastung
-    durch eine Reaktivierung der Steigerwaldbahn
-    Schweinfurt-Gerolzhofen-Wiesentheid-Kitzingen}
-    \date{im Mai, 2020}
-    \author{vorgelegt von Andreas Witte, unterstützt durch Stephan Wohlfeil}
-    \maketitle
+\renewcommand{\contentsname}{Inhaltsverzeichnis}
+\tableofcontents
 
-    \renewcommand{\contentsname}{Inhaltsverzeichnis}
-    \tableofcontents
-
-    \chapter{verkehrsfachliche Methodik}
+\chapter{Verkehrsfachliche Methodik}
 
 Diese Berechnung nimmt an, dass für jeden Fahrgast die korrespondierende Autofahrt entfällt und ermittelt somit die Verlagerung von der Straße auf die Schiene.
 
@@ -88,7 +100,8 @@ Die Berechnung schätzt an einzelnen Stellen eine Verkehrsneuinduktion, insbeson
 
 Dadurch kann man eine Veränderung des Straßenverkehrs vorraus berechnet werden.
 
-        \section{Fahrgastaufkommen}
+\section{Fahrgastaufkommen}
+
 Dr.\ Konrad Schliephake legte im Dezember 2016 zusammen mit Dipl.-Geogr. Stefan Albrecht und cand. Geogr. Moritz Gerber die Studie \enquote{Die Nachfrage nach Personenverkehrsleistungen bei einem Regelbetrieb der Bahnstrecke Schweinfurt-Gerolzhofen-Kitzingen} vor. Gemeinhin ist dieses Werk als \enquote{Schliephake-Studie} in der Region bekannt.
 
 Darin berechnet die Arbeitsgruppe auf Basis eines einwohnerbezogenen Verkehrserzeugungsmodells die regelmäßigen Nutzerzahlen an regulären Werktagen vorraus, sofern die Steigerwaldbahn gemäß den Infrastrukturkriterien der BEG mit einem stündlichen Zugpaar für den Personenverkehr reaktiviert würde. Unberücksichtigt blieben dabei Tourismusverkehre und Sonderverkehre wie zum Beispiel anläßlich von Weinfesten und der Schülerverkehr. Diese Verkehre wird auch diese Berechnung daher nicht erfassen.
@@ -98,23 +111,30 @@ Die Ergebnisse dieser Studie beinhalten bereits große Abschläge und werden dah
 Der Studie können für jeden Ort Fahrgäste entnommen werden und die Studie nennt deren Fahrziele einzeln ortsgenau.
 
 \section{Bezugsstraßenverkehr}
+
 Als Bezug des Straßenverkehrs werden die Verkehrszählungen des \enquote{Bayerischen Staatsministeriums für Wohnen, Bau und Verkehr} aus dem Jahr 2015 herran gezogen. Dieses sind einerseits die neuesten Daten, korrespondieren diese Daten sehr gut mit dem Veröffentlichungszeitpunkt der \enquote{Schliephake-Studie}.
 Die Verkehrszählungen und die Lage der Messpunkte können durch die \enquote{BAYSIS Datenabfrage (Straßenverkehrszählungen)} online von jedem abgerufen werden.
 \url{https://www.baysis.bayern.de/web/content/verkehrsdaten/SVZ/strassenverkehrszaehlungen.aspx}
 
 \subsection{Messstellen}
-Viele der Messstellen, insbesondere auf nachrangigeren Straßen wie Staats- und Kreisstraßen werden oft für Abschnitte über mehrere Orte verwendet. Wo dies der Fall ist werden diese Zuordnungen, die durch das bay. Staatsministerium für Wohnen Bau und Verkehr vorgenommen wurden, nicht verändert. 
+
+Viele der Messstellen, insbesondere auf nachrangigeren Straßen wie Staats- und Kreisstraßen werden oft für Abschnitte über mehrere Orte verwendet. Wo dies der Fall ist werden diese Zuordnungen, die durch das bay. Staatsministerium für Wohnen Bau und Verkehr vorgenommen wurden, nicht verändert.
 Vereinzelt lässt sich bestimmt diskutieren und anzweifeln, ob die Messstelle für den gesamten Abschnitt repräsentativ ist, diese Diskussion ist jedoch mit dem Staatsministerium für Wohnen, Bau und Verkehr zu führen. Eine Veränderung oder verkehrsfachliche Interpratation im Zuge dieser Berechnung wäre unnötig angreifbar.
 
 \subsection{Fehlende Messungen}
-Fehlende Messungen, zum Beispiel im Zuge des Umgehungsstraßenbaus von Rüdenhausen werden nicht aufgefüllt. 
+
+Fehlende Messungen, zum Beispiel im Zuge des Umgehungsstraßenbaus von Rüdenhausen werden nichtd aufgefüllt.
 
 Für betreffende Straßenabschnitte wird lediglich eine absolute Veränderung des MIV angegeben, aber kein Bezug zum IST-Verkehr (relative Veränderung, Neue geschätzte Anzahl Leichtskraftfahrzeuge, \ldots) hergestellt.
-        \section{Ermittlung der Wege im Straßenverkehr}
+
+\section{Ermittlung der Wege im Straßenverkehr}
+
 Bevor man die Veränderungen des MIV aufsummieren kann, ist es nötig, die Veränderungen auf die Straßen zu übertragen.
 
 Für jede dieser einzelnen Wege wurde ein Query an die Google Maps API versendet. Aktuell verlangt Google pro 1000 Requests 5,00 USD.\@ Die Kosten für die Nutzung der API sind bei der geringen Anzahl an Einzel-Verbindungen, die im Schritt davor ausfindig gemacht wurden, doch sehr überschaubar, verglichen damit, wie viel Zeit und Aufwand man hätte aufwenden müssen, um das gleiche Ergebnis ohne eine solche API zu erzielen.
-        \section{Berechnung}
+
+\section{Berechnung}
+
 Die Berechnung der Veränderung des Straßenverkehrs erfolgt durch Abzug der Bewegungen (Hin und Rückfahrten) aus der \enquote{Schliephake-Studie} unter der Annahme, dass ¼ der entfallenden Fahrzeuge eine zweite Person transportiert haben.
 
 Die entfallenden Fahrzeuge werden dem Straßenverkehr abgezogen, auf der Route, die Google Maps als Dominantestes Navigationssystem für PKWs bei normaler Verkehrslage empfielt.
@@ -123,13 +143,13 @@ Wo Potenziale angenommen wurden, die nicht direkt im Ort einen Bahnhof haben, wi
 
 Konservativ rechnend werden entfallende Fahrten abgerundet und neue Fahrten aufgerundet. Ebenfalls werden halbe Netto-Potentiale konservativ rechnend abgerundet.
 
+\chapter{datentechnische Methodik}
 
-    \chapter{datentechnische Methodik}
 Die Berechnung wird nur nachvollziehbar, wenn die verwendete Methodik zur Berechnung dazu dokumentiert ist. Aus diesem Grund erlätert dieses Kapitel die dahinter liegende, vorgenommene Datenverarbeitung.
-        \section{reationale Datenbanken}
+\section{reationale Datenbanken}
 Eine relationale Datenbank ist eine digitale Datenbank, die zur elektronischen Datenverwaltung in Computersystemen dient und auf einem tabellenbasierten relationalen Datenbankmodell beruht. Grundlage des Konzeptes relationaler Datenbanken ist die Relation.
 
-Hier wurde das relationale Datenbankmanagementsystem mariadb 10.4 verwendet. Dies verwendet die standartisierte Querysprache SQL um Abfragen aus den Daten oder Manipulationen an den Daten vorzunehmen.
+Hier wurde das relationale Datenbankmanagementsystem (RDBMS) mariadb 10.4 verwendet. Dies verwendet die standardisierte Querysprache SQL um Abfragen aus den Daten oder Manipulationen an den Daten vorzunehmen.
 
 Die Relationalisierung wurde so weit wie sinnvoll vorgenommen. Zur Eingabe wurde ein kleines Webinterface mit dem MVC-Framework Cakephp4 gebaut, das an dieser Stelle keine weitere Betrachtung findet.
 
@@ -151,26 +171,26 @@ Um auf der Karte entsprechend einen Ort auch gemessen an seiner Wichtigkeit und 
 Die Kategorien haben keinerlei Einfluss auf das rechnerische Ergebnis und dienen ausschließlich um später ein passendes Rendering in den Grafiken erzeugen zu können.
 
 \begin{itemize}
-    \item \enquote{city}: Größere Städte
-    \item \enquote{smallcity}: Kleinere Städte
-    \item \enquote{town}: Gemeinden
-    \item \enquote{village}: Dörfer
-    \item \enquote{traffic}: Orte die wir zur Modellierung der Straßen anlegen, zum Beispiel Autobahnausfahrten.
+        \item \enquote{city}: Größere Städte
+        \item \enquote{smallcity}: Kleinere Städte
+        \item \enquote{town}: Gemeinden
+        \item \enquote{village}: Dörfer
+        \item \enquote{traffic}: Orte die wir zur Modellierung der Straßen anlegen, zum Beispiel Autobahnausfahrten.
 \end{itemize}
 
 Die Tabelle hat also folgenden Aufbau:
 
 \begin{table}[htbp]
-    \begin{tabular}{|l|l|l|l|l|}\hline
-        \texttt{id} & \texttt{name} & \texttt{LAT} & \texttt{LONG} & \texttt{type}\\\hline
-        ID des Ortes & Name des Ortes & Breitengrad & Längengrad & Typisierung des Ortes \\ \hline
-    \end{tabular}
+        \begin{tabular}{|l|l|l|l|l|}\hline
+                \texttt{id}  & \texttt{name}  & \texttt{LAT} & \texttt{LONG} & \texttt{type}         \\\hline
+                ID des Ortes & Name des Ortes & Breitengrad  & Längengrad    & Typisierung des Ortes \\ \hline
+        \end{tabular}
 \end{table}
 
 Mit SQL kann diese folgenderweise erstellt werden:
 \begingroup
-    \setstretch{1.0}
-    \begin{minted}{sql}
+\setstretch{1.0}
+\begin{minted}{sql}
         CREATE TABLE `places` (
             `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
             `name` VARCHAR(100) NOT NULL DEFAULT '' COLLATE 'utf8mb4_general_ci',
@@ -192,19 +212,19 @@ In dieser Tabelle Tragen wir die \enquote{Netto-Potenziale} aus der \enquote{Sch
 Die Tabelle hat also folgenden Aufbau:
 
 \begin{table}[htbp]
-    \begin{tabu}{|*7{X[l]|}}
-        \hline
-        \texttt{id} & \texttt{from_id} & \texttt{to_id} & \texttt{netto} & \texttt{miv-change} & \texttt{length} & \texttt{miv-duration}\\
-        \hline
-        ID des Potentials & Quelle (aus \texttt{places}) & Ziel (aus \texttt{places}) & Netto-Potential laut Berechnung Dr.\ Konrad Schliephake & Daraus Errechnete Veränderung der PKW-Fahrten & Länge der Strecke in Metern & Dauer der Fahrzeit in Minuten \\
-        \hline
-    \end{tabu}
+        \begin{tabularx}{\textwidth}{|*7{X|}}
+                \hline
+                \texttt{id}       & \texttt{from_id}             & \texttt{to_id}             & \texttt{netto}                                          & \texttt{miv-change}                           & \texttt{length}             & \texttt{miv-duration}         \\
+                \hline
+                ID des Potentials & Quelle (aus \texttt{places}) & Ziel (aus \texttt{places}) & Netto-Potential laut Berechnung Dr.\ Konrad Schliephake & Daraus errechnete Veränderung der PKW-Fahrten & Länge der Strecke in Metern & Dauer der Fahrzeit in Minuten \\
+                \hline
+        \end{tabularx}
 \end{table}
 
 Mit SQL kann diese folgenderweise erstellt werden:
 \begingroup
-    \setstretch{1.0}
-    \begin{minted}{sql}
+\setstretch{1.0}
+\begin{minted}{sql}
         CREATE TABLE `potentials` (
             `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
             `from_id` INT(10) UNSIGNED NOT NULL,
@@ -227,35 +247,39 @@ Anmerkung: Der Einsatz von Unique Indexes und Constraints stellt hierbei die Int
 
 \section{Modellierung der Straßeninfrastruktur}
 
-Die Straßenverkehrsinfrastruktur wird als einzelne Straßen abgebildet, welche zwei Orte verbinden. Die Richtung der Verbindung ist unerheblich für die Benutzung der Straßen. Orte können auch \enquote{virtuell} erfundene Orte sein, zum Beispiel Autobahnausfahrten. Diese liegen selten am Ort, nach dem Sie benannt sind.\newline
-\newline
-Die Betrachtung erfolgt hier nur für\newline
-- Autobahnen (Kürzel \enquote{A}); die höchste Straßenkategorie in Deutschland;\newline
-- Bundesstraßen (Kürzel \enquote{B}); meist hochwertig ausgebaute Fernstraßen für den deutschlandweiten und internationalen Verkehr, deren Baulast bei der Bundesrepublik liegt;\newline
-- Staatsstraßen (Kürzel \enquote{St}); Straßen, welche für den bayerischen Straßenverkehr vom Freistaat Bayern unterhalten werden;\newline
-- Kreisstraßen (Kürzel \enquote{WÜ} für den Landkreis Würzburg, \enquote{KT} für den Landkreis Kitzingen, \enquote{SW} für den Landkreis Schweinfurt)\newline
-\newline
-Überörtliche Ortstraßen sind ohnehin kaum betroffen und werden hier nicht weiter berücksichtigt.\newline
-\newline
+Die Straßenverkehrsinfrastruktur wird als einzelne Straßen abgebildet, welche zwei Orte verbinden. Die Richtung der Verbindung ist unerheblich für die Benutzung der Straßen. Orte können auch \enquote{virtuell} erfundene Orte sein, zum Beispiel Autobahnausfahrten. Diese liegen selten am Ort, nach dem Sie benannt sind.
+
+\vspace{1em}
+
+Die Betrachtung erfolgt hier nur für
+
+\begin{itemize}
+        \item Autobahnen (Kürzel \enquote{A}); die höchste Straßenkategorie in Deutschland;
+        \item Bundesstraßen (Kürzel \enquote{B}); meist hochwertig ausgebaute Fernstraßen für den bundesweiten und internationalen Verkehr, deren Baulast bei der Bundesrepublik liegt;
+        \item Staatsstraßen (Kürzel \enquote{St}); Straßen, welche für den bayerischen Straßenverkehr vom Freistaat Bayern unterhalten werden;
+        \item Kreisstraßen (Kürzel \enquote{WÜ} für den Landkreis Würzburg, \enquote{KT} für den Landkreis Kitzingen, \enquote{SW} für den Landkreis Schweinfurt)
+\end{itemize}
+
+Überörtliche Ortstraßen sind ohnehin kaum betroffen und werden hier nicht weiter berücksichtigt.
+
 Ebenfalls unberücksichtigt bleibt der innerörtliche Verkehr, wenn keine Durchgangsstraße durch den jeweiligen Ort verläuft, weil die Auflösung des \enquote{Netto-Potenzials} aus der Studie von Dr.\ Konrad Schliephake bereits nicht Straßengenau erfolgt ist und dadurch sich diese Studie eine Präzision anmuten würde, die sie defakto nicht besitzt und nicht besitzen kann. Die Abbildung erfolgt in der Regel bis zum Ortsrand.
 
-\subsection{Tabelle streets}
+\subsection{Tabelle \texttt{streets}}
 
-Eine Straße (zum Beispiel die \enquote{B286}) wind in dieser Tabelle in sinnvollen Stücken (zum Beispiel Wiesentheid-Neuses; Neuses-Gerolzhofen) unterteilt, gespeichert. In dieser Tabelle tragen wir den Straßennamen in die Spalte \enquote{street} ein. Ein Straßenabschnitt ist definiert dur die beiden Punkte \enquote{from_id}, was den Beginn des Abschnitts darstellt und der \enquote{to_id}, welche das Ende des Abschnitts bildet. Beide Spalten referenzieren auf die Tabelle \enquote{places}. Weiterhin wird in der Spalte \enquote{measurement_id} die ID aus der \enquote{BAYSIS Datenabfrage (Straßenverkehrszählungen)} hinterlegt, um die Veränderung später mit dem gezählten IST-Verkehr zu einem relativem Rückgang (\enquote{in Prozent}) zu verrechnen.
+Eine Straße (zum Beispiel die \enquote{B286}) wind in dieser Tabelle in sinnvollen Stücken (zum Beispiel Wiesentheid-Neuses; Neuses-Gerolzhofen) unterteilt, gespeichert. In dieser Tabelle tragen wir den Straßennamen in die Spalte \texttt{street} ein. Ein Straßenabschnitt ist definiert dur die beiden Punkte \texttt{from_id}, was den Beginn des Abschnitts darstellt und der \texttt{to_id}, welche das Ende des Abschnitts bildet. Beide Spalten referenzieren auf die Tabelle \texttt{places}. Weiterhin wird in der Spalte \texttt{measurement_id} die ID aus der \enquote{BAYSIS Datenabfrage (Straßenverkehrszählungen)} hinterlegt, um die Veränderung später mit dem gezählten IST-Verkehr zu einem relativem Rückgang (\enquote{in Prozent}) zu verrechnen.
 
 Die Tabelle hat also folgenden Aufbau:
-\newline
-\newline
-\begin{tabular}[h]{|l|l|l|l|l|}
-        \hline
-        id & from_id & to_id & street & measurement_id\\
-        \hline
-        ID der Straße & Beginn (aus \enquote{places}) & Ende (aus \enquote{places}) & Straßenname/Nummer & Messstellen-ID der \enquote{BAYSIS Datenabfrage (Straßenverkehrszählungen)}\\
-        \hline
-\end{tabular}
-\newline
-\newline
-\newline
+
+\begin{table}[H]
+        \begin{tabularx}{\textwidth}{*5{|X}|}
+                \hline
+                \texttt{id}   & \texttt{from_id}             & \texttt{to_id}             & \texttt{street}    & \texttt{measurement_id}                                                     \\
+                \hline
+                ID der Straße & Beginn (aus \texttt{places}) & Ende (aus \texttt{places}) & Straßenname/Nummer & Messstellen-ID der \enquote{BAYSIS Datenabfrage (Straßenverkehrszählungen)} \\
+                \hline
+        \end{tabularx}
+\end{table}
+
 Mit SQL kann diese folgenderweise erstellt werden:
 \begin{minted}{sql}
 CREATE TABLE `streets` (
@@ -279,10 +303,14 @@ Anmerkung: Der Einsatz von Unique Indexes und Constraints stellt hierbei die Int
 
 \section{Modellierung der Wege aus den Potenzialen im Straßenverkehr}
 
-Ein Potenzial verläuft mindestens entlang einer Straße, wenn Ziel und Quelle mit dem Beginn und Ende der Straße zusammen fallen. Benutzten die Fahrer einer Relation mehrere Straßen nacheinander um von Ihrer Quelle zum Ziel und zurück zu kommen, müssen mehrere Straßen dem Potenzial zugeordnet werden. Gleichzeitig kann aber auch eine Straße von den Fahrzeugen mehrerer Potentiale genutzt werden, um von der Quelle zum Ziel und wieder zurück zu gelangen.\newline
-\newline
-Diese Zuordnung nennt man in relationalen Datenbanken \enquote{n:m-Beziehungen}, wobei \enquote{n:m} die Kardinalität der Beziehung spezifiziert.\@ n:m-Beziehungen benötigen eine eigene Tabelle, welche auf die beiden Tabellen je eine Spalte mit einem Fremdschlüssel beinhaltet.\newline
-\newline
+Ein Potenzial verläuft mindestens entlang einer Straße, wenn Ziel und Quelle mit dem Beginn und Ende der Straße zusammen fallen. Benutzten die Fahrer einer Relation mehrere Straßen nacheinander um von Ihrer Quelle zum Ziel und zurück zu kommen, müssen mehrere Straßen dem Potenzial zugeordnet werden. Gleichzeitig kann aber auch eine Straße von den Fahrzeugen mehrerer Potentiale genutzt werden, um von der Quelle zum Ziel und wieder zurück zu gelangen.
+
+\vspace{1em}
+
+Diese Zuordnung nennt man in relationalen Datenbanken \enquote{n:m-Beziehungen}, wobei \enquote{n:m} die Kardinalität der Beziehung spezifiziert.\@ n:m-Beziehungen benötigen eine eigene Tabelle, welche auf die beiden Tabellen je eine Spalte mit einem Fremdschlüssel beinhaltet.
+
+\vspace{1em}
+
 Durch die Zuordnung von Straßen zu Potenzialen und Potenzialen zu Straßen, kann einerseits der Weg, der für die Fahrzeuge eines Potentials angenommen wurde, nachvollzogen werden; andererseits können die Potenziale und die Veränderungen im Straßenverkehr für jede Straße aus den Potenzialen aufaddiert werden. Dadurch entsteht am Ende die Fähigkeit, vorrauszusagen, wie viel Straßenverkehr auf jeder Straße durch die Reaktivierung der Steigerwaldbahn entfallen könnte.
 
 \subsection{Tabelle routes}
@@ -290,19 +318,19 @@ Durch die Zuordnung von Straßen zu Potenzialen und Potenzialen zu Straßen, kan
 In dieser Tabelle verbinden wir die Potentiale aus der Tabelle \enquote{potentials} in der Spalte \enquote{potential_id} mit den Straßen aus der Tabelle \enquote{streets} in der Spalte \enquote{street_id}. Damit bei einer Auswertung der Route für ein Potenzial die Straßen in der richtigen Reihenfolge von Quelle zu Ziel auftauchen, wird zusätzlich beginnend mit \enquote{0} in der Spalte \enquote{number_on_route} hochgezählt.
 
 Die Tabelle hat also folgenden Aufbau:
-\newline
-\newline
-\begin{tabular}[h]{|l|l|l|l|}
-        \hline
-        id & potential_id & street_id & number_on_route\\
-        \hline
-        ID der Route & Zuordnung eines Potentials (aus \enquote{potentials}) & Zuordnung einer Straße (aus \enquote{streets}) & Nummer der Route auf dem Weg von Quelle zu Ziel (beginnend mit \enquote{0})\\
-        \hline
-\end{tabular}
-\newline
-\newline
-\newline
+
+\begin{table}[H]
+        \begin{tabu}{*4{|X[l]}|}
+                \hline
+                id           & potential_id                                          & street_id                                      & number_on_route                                                             \\
+                \hline
+                ID der Route & Zuordnung eines Potentials (aus \enquote{potentials}) & Zuordnung einer Straße (aus \enquote{streets}) & Nummer der Route auf dem Weg von Quelle zu Ziel (beginnend mit \enquote{0}) \\
+                \hline
+        \end{tabu}
+\end{table}
+
 Mit SQL kann diese folgenderweise erstellt werden:
+
 \begin{minted}{sql}
 CREATE TABLE `routes` (
         `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -326,325 +354,335 @@ Anmerkung: Der Einsatz von Unique Indexes und Constraints stellt hierbei die Int
 
 \section{vollständiger Datenbank-Dump}
 Der vollständige Dump inklusive aller Daten findet sich hier:
-    \begin{minted}{sql}
+\begin{minted}{sql}
     Später einfügen...
     \end{minted}
-    \chapter{Verarbeitung}
-
-        \section{Ermittlung der Fahrzeugbewegungen}
+\chapter{Verarbeitung}
+\newgeometry{margin=1.5cm,bottom=2cm}
+\section{Ermittlung der Fahrzeugbewegungen}
 In diesem Abschnitt werden zur Überprüfbarkeit und Nachvollziehbarkeit die aus der Schliephake-Studie übernommenen Netto-Potentiale und die daraus hervorgehende Veränderung für den MIV aufgelistet. Ebenfalls wird ein SQL-Query angegeben, mit dem dieser Vorgang aus der gegebenen Datenbank wiederholt werden könnte.
-            \subsection{Schweinfurt}
-            \input{Fahrzeugbewegungen/schweinfurt.tex}
-            
-            \subsection{Sennfeld}
-            \input{Fahrzeugbewegungen/sennfeld.tex}
+\subsection{Schweinfurt}
+\input{Fahrzeugbewegungen/schweinfurt.tex}
 
-            \subsection{Gochsheim}
-            \input{Fahrzeugbewegungen/gochsheim.tex}
+\subsection{Sennfeld}
+\input{Fahrzeugbewegungen/sennfeld.tex}
 
-            \subsection{Gochsheim OT Weyer}
-            \input{Fahrzeugbewegungen/gochsheimotweyer.tex}
+\subsection{Gochsheim}
+\input{Fahrzeugbewegungen/gochsheim.tex}
 
-            \subsection{Schwebheim}
-            \input{Fahrzeugbewegungen/schwebheim.tex}
+\subsection{Gochsheim OT Weyer}
+\input{Fahrzeugbewegungen/gochsheimotweyer.tex}
 
-            \subsection{Grettstatt}
-            \input{Fahrzeugbewegungen/grettstatt.tex}
+\subsection{Schwebheim}
+\input{Fahrzeugbewegungen/schwebheim.tex}
 
-            \subsection{Grettstatt OT Dürrfeld}
-            \input{Fahrzeugbewegungen/grettstattotduerrfeld.tex}
+\subsection{Grettstatt}
+\input{Fahrzeugbewegungen/grettstatt.tex}
 
-            \subsection{Donnersdorf}
-            \input{Fahrzeugbewegungen/donnersdorf.tex}
+\subsection{Grettstatt OT Dürrfeld}
+\input{Fahrzeugbewegungen/grettstattotduerrfeld.tex}
 
-            \subsection{Sulzheim}
-            \input{Fahrzeugbewegungen/sulzheim.tex}
+\subsection{Donnersdorf}
+\input{Fahrzeugbewegungen/donnersdorf.tex}
 
-            \subsection{Alitzheim}
-            \input{Fahrzeugbewegungen/alitzheim.tex}
+\subsection{Sulzheim}
+\input{Fahrzeugbewegungen/sulzheim.tex}
 
-            \subsection{Mönchstockheim}
-            \input{Fahrzeugbewegungen/moenchstockheim.tex}
+\subsection{Alitzheim}
+\input{Fahrzeugbewegungen/alitzheim.tex}
 
-            \subsection{Vögnitz}
-            \input{Fahrzeugbewegungen/voegnitz.tex}
+\subsection{Mönchstockheim}
+\input{Fahrzeugbewegungen/moenchstockheim.tex}
 
-            \subsection{Kolitzheim}
-            Berücksichtigt wurden nur die Ortsteile der Gemeinde, für die eine Benutzung der Schiene plausibel ist:
-            \begin{itemize}[nosep]
+\subsection{Vögnitz}
+\input{Fahrzeugbewegungen/voegnitz.tex}
+
+\subsection{Kolitzheim}
+Berücksichtigt wurden nur die Ortsteile der Gemeinde, für die eine Benutzung der Schiene plausibel ist:
+\begin{itemize}[nosep]
+        \item Herlheim
+        \item Oberspießheim
+        \item Unterspießheim
+        \item Zeilitzheim
+\end{itemize}
+
+\subsection{Kolitzheim OT Herlheim}
+\input{Fahrzeugbewegungen/kolitzheimotherlheim.tex}
+
+\subsection{Kolitzheim OT Oberspießheim}
+\input{Fahrzeugbewegungen/kolitzheimotoberspiessheim.tex}
+
+\subsection{Kolitzheim OT Unterspießheim}
+\input{Fahrzeugbewegungen/kolitzheimotunterspiessheim.tex}
+
+\subsection{Kolitzheim OT Zeilitzheim}
+\input{Fahrzeugbewegungen/kolitzheimotzeilitzheim.tex}
+
+\subsection{Gerolzhofen}
+\input{Fahrzeugbewegungen/gerolzhofen.tex}
+
+\subsection{Dingolshausen}
+\input{Fahrzeugbewegungen/dingolshausen.tex}
+
+\subsection{Dingolshausen OT Bischwind}
+\input{Fahrzeugbewegungen/dingolshausenotbischwind.tex}
+
+\subsection{Michelau}
+\input{Fahrzeugbewegungen/michelau.tex}
+
+\subsection{Frankenwinheim}
+\input{Fahrzeugbewegungen/frankenwinheim.tex}
+
+\subsection{Oberschwarzach}
+\input{Fahrzeugbewegungen/oberschwarzach.tex}
+
+\subsection{Volkach}
+\input{Fahrzeugbewegungen/volkach.tex}
+
+\subsection{Lülsfeld}
+\input{Fahrzeugbewegungen/luelsfeld.tex}
+
+\subsection{Schallfeld}
+\input{Fahrzeugbewegungen/schallfeld.tex}
+
+\subsection{Prichsenstadt}
+\input{Fahrzeugbewegungen/prichsenstadt.tex}
+
+\subsection{Prichsenstadt OT Altenschönbach}
+\input{Fahrzeugbewegungen/prichsenstadtotaltenschoenbach.tex}
+
+\subsection{Prichsenstadt OT Bimbach}
+\input{Fahrzeugbewegungen/prichsenstadtotbimbach.tex}
+
+\subsection{Prichsenstadt OT Brünnau}
+\input{Fahrzeugbewegungen/prichsenstadtotbruennau.tex}
+
+\subsection{Järkendorf}
+\input{Fahrzeugbewegungen/jaerkendorf.tex}
+
+\subsection{Prichsenstadt OT Kirchschönbach}
+\input{Fahrzeugbewegungen/prichsenstadtotkirchschoenbach.tex}
+
+\subsection{Prichsenstadt OT Laub}
+\input{Fahrzeugbewegungen/prichsenstadtotlaub.tex}
+
+\subsection{Prichsenstadt OT Neudorf}
+\input{Fahrzeugbewegungen/prichsenstadtotneudorf.tex}
+
+\subsection{Prichsenstadt OT Neuses}
+\input{Fahrzeugbewegungen/prichsenstadtotneuses.tex}
+
+\subsection{Prichsenstadt OT Stadelschwarzach}
+\input{Fahrzeugbewegungen/prichsenstadtotstadelschwarzach.tex}
+
+\subsection{Wiesentheid}
+\input{Fahrzeugbewegungen/wiesentheid.tex}
+
+\subsection{Wiesentheid OT Feuerbach}
+\input{Fahrzeugbewegungen/wiesentheidotfeuerbach.tex}
+
+\subsection{Wiesentheid OT Geesdorf}
+\input{Fahrzeugbewegungen/wiesentheidotgeesdorf.tex}
+
+\subsection{Wiesentheid OT Reupelsdorf}
+\input{Fahrzeugbewegungen/wiesentheidotreupelsdorf.tex}
+
+\subsection{Wiesentheid OT Untersambach}
+\input{Fahrzeugbewegungen/wiesentheidotuntersambach.tex}
+
+\subsection{Rüdenhausen}
+\input{Fahrzeugbewegungen/ruedenhausen.tex}
+
+\subsection{Abtswind}
+\input{Fahrzeugbewegungen/abstwind.tex}
+
+\subsection{Kleinlangheim}
+\input{Fahrzeugbewegungen/kleinlangheim.tex}
+
+\subsection{Wiesenbronn}
+\input{Fahrzeugbewegungen/wiesenbronn.tex}
+
+\subsection{Großlangheim}
+\input{Fahrzeugbewegungen/grosslangheim.tex}
+
+\subsection{Kitzingen}
+\input{Fahrzeugbewegungen/kitzingen.tex}
+
+\subsection{Würzburg}
+\input{Fahrzeugbewegungen/wuerzburg.tex}
+
+\section{Übertragung der Potentiale auf Straßen}
+In diesem Abschnitt werden zur Überprüfbarkeit und Nachvollziehbarkeit die aus Google Maps entnommenen Routenentscheidungen für jedes Potenzial aufgelistet. Dazu wird ein Link zu Google Maps angegeben, mit dem diese Routenentscheidung seitens des Kartendienstleisters überprüft werden kann. Ebenfalls wird ein SQL-Query angegeben, mit dem diese Routenentscheidung in der Datenbank nachvollzogen werden kann.
+
+\storeareas\meinegespeichertenWerte
+\newpage
+\KOMAoptions{pagesize,paper=landscape}
+\areaset{28cm}{17cm}
+        \addtokomafont{subsection}{\clearpage}
+
+        \subsection{Schweinfurt}
+        \input{Routen/schweinfurt.tex}
+
+        \subsection{Sennfeld}
+        \input{Routen/sennfeld.tex}
+
+        \subsection{Gochsheim}
+        \input{Routen/gochsheim.tex}
+
+        \subsection{Gochsheim OT Weyer}
+        \input{Routen/gochsheimotweyer.tex}
+
+        \subsection{Schwebheim}
+        \input{Routen/schwebheim.tex}
+
+        \subsection{Grettstatt}
+        \input{Routen/grettstatt.tex}
+
+        \subsection{Grettstatt OT Dürrfeld}
+        \input{Routen/grettstattotduerrfeld.tex}
+
+        \subsection{Donnersdorf}
+        \input{Routen/donnersdorf.tex}
+
+        \subsection{Sulzheim}
+        \input{Routen/sulzheim.tex}
+
+        \subsection{Alitzheim}
+        \input{Routen/alitzheim.tex}
+
+        \subsection{Mönchstockheim}
+        \input{Routen/moenchstockheim.tex}
+
+        \subsection{Vögnitz}
+        \input{Routen/voegnitz.tex}
+
+        \subsection{Kolitzheim}
+        Berücksichtigt wurden nur die Ortsteile der Gemeinde, für die eine Benutzung der Schiene plausibel ist:
+
+        \vspace{1em}
+
+        \begin{itemize}[nosep]
                 \item Herlheim
                 \item Oberspießheim
                 \item Unterspießheim
                 \item Zeilitzheim
-            \end{itemize}
+        \end{itemize}
 
-            \subsection{Kolitzheim OT Herlheim}
-            \input{Fahrzeugbewegungen/kolitzheimotherlheim.tex}
+        \subsection{Kolitzheim OT Herlheim}
+        \input{Routen/kolitzheimotherlheim.tex}
 
-            \subsection{Kolitzheim OT Oberspießheim}
-            \input{Fahrzeugbewegungen/kolitzheimotoberspiessheim.tex}
+        \subsection{Kolitzheim OT Oberspießheim}
+        \input{Routen/kolitzheimotoberspiessheim.tex}
 
-            \subsection{Kolitzheim OT Unterspießheim}
-            \input{Fahrzeugbewegungen/kolitzheimotunterspiessheim.tex}
+        \subsection{Kolitzheim OT Unterspießheim}
+        \input{Routen/kolitzheimotunterspiessheim.tex}
 
-            \subsection{Kolitzheim OT Zeilitzheim}
-            \input{Fahrzeugbewegungen/kolitzheimotzeilitzheim.tex}
+        \subsection{Kolitzheim OT Zeilitzheim}
+        \input{Routen/kolitzheimotzeilitzheim.tex}
 
-            \subsection{Gerolzhofen}
-            \input{Fahrzeugbewegungen/gerolzhofen.tex}
+        \subsection{Gerolzhofen}
+        \input{Routen/gerolzhofen.tex}
 
-            \subsection{Dingolshausen}
-            \input{Fahrzeugbewegungen/dingolshausen.tex}
+        \subsection{Dingolshausen}
+        \input{Routen/dingolshausen.tex}
 
-            \subsection{Dingolshausen OT Bischwind}
-            \input{Fahrzeugbewegungen/dingolshausenotbischwind.tex}
+        \subsection{Dingolshausen OT Bischwind}
+        \input{Routen/dingolshausenotbischwind.tex}
 
-            \subsection{Michelau}
-            \input{Fahrzeugbewegungen/michelau.tex}
-            
-            \subsection{Frankenwinheim}
-            \input{Fahrzeugbewegungen/frankenwinheim.tex}
+        \subsection{Michelau}
+        \input{Routen/michelau.tex}
 
-            \subsection{Oberschwarzach}
-            \input{Fahrzeugbewegungen/oberschwarzach.tex}
+        \subsection{Frankenwinheim}
+        \input{Routen/frankenwinheim.tex}
 
-            \subsection{Volkach}
-            \input{Fahrzeugbewegungen/volkach.tex}
+        \subsection{Oberschwarzach}
+        \input{Routen/oberschwarzach.tex}
 
-            \subsection{Lülsfeld}
-            \input{Fahrzeugbewegungen/luelsfeld.tex}
+        \subsection{Volkach}
+        \input{Routen/volkach.tex}
 
-            \subsection{Schallfeld}
-            \input{Fahrzeugbewegungen/schallfeld.tex}
+        \subsection{Lülsfeld}
+        \input{Routen/luelsfeld.tex}
 
-            \subsection{Prichsenstadt}
-            \input{Fahrzeugbewegungen/prichsenstadt.tex}
+        \subsection{Schallfeld}
+        \input{Routen/schallfeld.tex}
 
-            \subsection{Prichsenstadt OT Altenschönbach}
-            \input{Fahrzeugbewegungen/prichsenstadtotaltenschoenbach.tex}
+        \subsection{Prichsenstadt}
+        \input{Routen/prichsenstadt.tex}
 
-            \subsection{Prichsenstadt OT Bimbach} 
-            \input{Fahrzeugbewegungen/prichsenstadtotbimbach.tex}
+        \subsection{Prichsenstadt OT Altenschönbach}
+        \input{Routen/prichsenstadtotaltenschoenbach.tex}
 
-            \subsection{Prichsenstadt OT Brünnau}
-            \input{Fahrzeugbewegungen/prichsenstadtotbruennau.tex}
+        \subsection{Prichsenstadt OT Bimbach}
+        \input{Routen/prichsenstadtotbimbach.tex}
 
-            \subsection{Järkendorf}
-            \input{Fahrzeugbewegungen/jaerkendorf.tex}
+        \subsection{Prichsenstadt OT Brünnau}
+        \input{Routen/prichsenstadtotbruennau.tex}
 
-            \subsection{Prichsenstadt OT Kirchschönbach}
-            \input{Fahrzeugbewegungen/prichsenstadtotkirchschoenbach.tex}
+        \subsection{Järkendorf}
+        \input{Routen/jaerkendorf.tex}
 
-            \subsection{Prichsenstadt OT Laub}
-            \input{Fahrzeugbewegungen/prichsenstadtotlaub.tex}
+        \subsection{Prichsenstadt OT Kirchschönbach}
+        \input{Routen/prichsenstadtotkirchschoenbach.tex}
 
-            \subsection{Prichsenstadt OT Neudorf}
-            \input{Fahrzeugbewegungen/prichsenstadtotneudorf.tex}
-            
-            \subsection{Prichsenstadt OT Neuses}
-            \input{Fahrzeugbewegungen/prichsenstadtotneuses.tex}
+        \subsection{Prichsenstadt OT Laub}
+        \input{Routen/prichsenstadtotlaub.tex}
 
-            \subsection{Prichsenstadt OT Stadelschwarzach}
-            \input{Fahrzeugbewegungen/prichsenstadtotstadelschwarzach.tex}
+        \subsection{Prichsenstadt OT Neudorf}
+        \input{Routen/prichsenstadtotneudorf.tex}
 
-            \subsection{Wiesentheid}
-            \input{Fahrzeugbewegungen/wiesentheid.tex}
+        \subsection{Prichsenstadt OT Neuses}
+        \input{Routen/prichsenstadtotneuses.tex}
 
-            \subsection{Wiesentheid OT Feuerbach}
-            \input{Fahrzeugbewegungen/wiesentheidotfeuerbach.tex}
+        \subsection{Prichsenstadt OT Stadelschwarzach}
+        \input{Routen/prichsenstadtotstadelschwarzach.tex}
 
-            \subsection{Wiesentheid OT Geesdorf}
-            \input{Fahrzeugbewegungen/wiesentheidotgeesdorf.tex}
+        \subsection{Wiesentheid}
+        \input{Routen/wiesentheid.tex}
 
-            \subsection{Wiesentheid OT Reupelsdorf}
-            \input{Fahrzeugbewegungen/wiesentheidotreupelsdorf.tex}
+        \subsection{Wiesentheid OT Feuerbach}
+        \input{Routen/wiesentheidotfeuerbach.tex}
 
-            \subsection{Wiesentheid OT Untersambach}
-            \input{Fahrzeugbewegungen/wiesentheidotuntersambach.tex}
+        \subsection{Wiesentheid OT Geesdorf}
+        \input{Routen/wiesentheidotgeesdorf.tex}
 
-            \subsection{Rüdenhausen}
-            \input{Fahrzeugbewegungen/ruedenhausen.tex}
+        \subsection{Wiesentheid OT Reupelsdorf}
+        \input{Routen/wiesentheidotreupelsdorf.tex}
 
-            \subsection{Abtswind}
-            \input{Fahrzeugbewegungen/abstwind.tex}
+        \subsection{Wiesentheid OT Untersambach}
+        \input{Routen/wiesentheidotuntersambach.tex}
 
-            \subsection{Kleinlangheim}
-            \input{Fahrzeugbewegungen/kleinlangheim.tex}
+        \subsection{Rüdenhausen}
+        \input{Routen/ruedenhausen.tex}
 
-            \subsection{Wiesenbronn}
-            \input{Fahrzeugbewegungen/wiesenbronn.tex}
+        \subsection{Abtswind}
+        \input{Routen/abtswind.tex}
 
-            \subsection{Großlangheim}
-            \input{Fahrzeugbewegungen/grosslangheim.tex}
+        \subsection{Kleinlangheim}
+        \input{Routen/kleinlangheim.tex}
 
-            \subsection{Kitzingen}
-            \input{Fahrzeugbewegungen/kitzingen.tex}
+        \subsection{Wiesenbronn}
+        \input{Routen/wiesenbronn.tex}
 
-            \subsection{Würzburg}
-            \input{Fahrzeugbewegungen/wuerzburg.tex}
+        \subsection{Großlangheim}
+        \input{Routen/grosslangheim.tex}
 
-        \section{Übertragung der Potentiale auf Straßen}
-                In diesem Abschnitt werden zur Überprüfbarkeit und Nachvollziehbarkeit die aus Google Maps entnommenen Routenentscheidungen für jedes Potenzial aufgelistet. Dazu wird ein Link zu Google Maps angegeben, mit dem diese Routenentscheidung seitens des Kartendienstleisters überprüft werden kann. Ebenfalls wird ein SQL-Query angegeben, mit dem diese Routenentscheidung in der Datenbank nachvollzogen werden kann.
-                \begin{landscape}
-                \subsection{Schweinfurt}
-                \input{Routen/schweinfurt.tex}
+        \subsection{Kitzingen}
+        \input{Routen/kitzingen.tex}
 
-                \subsection{Sennfeld}
-                \input{Routen/sennfeld.tex}
-                
-                \subsection{Gochsheim}
-                \input{Routen/gochsheim.tex}
-                
-                \subsection{Gochsheim OT Weyer}
-                \input{Routen/gochsheimotweyer.tex}
-                
-                \subsection{Schwebheim}
-                \input{Routen/schwebheim.tex}
-                
-                \subsection{Grettstatt}
-                \input{Routen/grettstatt.tex}
-                
-                \subsection{Grettstatt OT Dürrfeld}
-                \input{Routen/grettstattotduerrfeld.tex}
-                
-                \subsection{Donnersdorf}
-                \input{Routen/donnersdorf.tex}
-                
-                \subsection{Sulzheim}
-                \input{Routen/sulzheim.tex}
-                
-                \subsection{Alitzheim}
-                \input{Routen/alitzheim.tex}
-                
-                \subsection{Mönchstockheim}
-                \input{Routen/moenchstockheim.tex}
-                
-                \subsection{Vögnitz}
-                \input{Routen/voegnitz.tex}
-                
-                \subsection{Kolitzheim}
-                Berücksichtigt wurden nur die Ortsteile der Gemeinde, für die eine Benutzung der Schiene plausibel ist:\newline
-                \begin{itemize}[nosep]
-                    \item Herlheim
-                    \item Oberspießheim
-                    \item Unterspießheim
-                    \item Zeilitzheim
-                \end{itemize}
-                
-                \subsection{Kolitzheim OT Herlheim}
-                \input{Routen/kolitzheimotherlheim.tex}
-                
-                \subsection{Kolitzheim OT Oberspießheim}
-                \input{Routen/kolitzheimotoberspiessheim.tex}
-                
-                \subsection{Kolitzheim OT Unterspießheim}
-                \input{Routen/kolitzheimotunterspiessheim.tex}
-                
-                \subsection{Kolitzheim OT Zeilitzheim}
-                \input{Routen/kolitzheimotzeilitzheim.tex}
-                
-                \subsection{Gerolzhofen}
-                \input{Routen/gerolzhofen.tex}
-                
-                \subsection{Dingolshausen}
-                \input{Routen/dingolshausen.tex}
-                
-                \subsection{Dingolshausen OT Bischwind}
-                \input{Routen/dingolshausenotbischwind.tex}
-                
-                \subsection{Michelau}
-                \input{Routen/michelau.tex}
-                
-                \subsection{Frankenwinheim}
-                \input{Routen/frankenwinheim.tex}
-                
-                \subsection{Oberschwarzach}
-                \input{Routen/oberschwarzach.tex}
-                
-                \subsection{Volkach}
-                \input{Routen/volkach.tex}
-                
-                \subsection{Lülsfeld}
-                \input{Routen/luelsfeld.tex}
-                
-                \subsection{Schallfeld}
-                \input{Routen/schallfeld.tex}
-                
-                \subsection{Prichsenstadt}
-                \input{Routen/prichsenstadt.tex}
-                
-                \subsection{Prichsenstadt OT Altenschönbach}
-                \input{Routen/prichsenstadtotaltenschoenbach.tex}
-                
-                \subsection{Prichsenstadt OT Bimbach}
-                \input{Routen/prichsenstadtotbimbach.tex}
-                
-                \subsection{Prichsenstadt OT Brünnau}
-                \input{Routen/prichsenstadtotbruennau.tex}
-                
-                \subsection{Järkendorf}
-                \input{Routen/jaerkendorf.tex}
-                
-                \subsection{Prichsenstadt OT Kirchschönbach}
-                \input{Routen/prichsenstadtotkirchschoenbach.tex}
-                
-                \subsection{Prichsenstadt OT Laub}
-                \input{Routen/prichsenstadtotlaub.tex}
-                
-                \subsection{Prichsenstadt OT Neudorf}
-                \input{Routen/prichsenstadtotneudorf.tex}
-                
-                \subsection{Prichsenstadt OT Neuses}
-                \input{Routen/prichsenstadtotneuses.tex}
-                
-                \subsection{Prichsenstadt OT Stadelschwarzach}
-                \input{Routen/prichsenstadtotstadelschwarzach.tex}
-                
-                \subsection{Wiesentheid}
-                \input{Routen/wiesentheid.tex}
-                
-                \subsection{Wiesentheid OT Feuerbach}
-                \input{Routen/wiesentheidotfeuerbach.tex}
-                
-                \subsection{Wiesentheid OT Geesdorf}
-                \input{Routen/wiesentheidotgeesdorf.tex}
-                
-                \subsection{Wiesentheid OT Reupelsdorf}
-                \input{Routen/wiesentheidotreupelsdorf.tex}
-                
-                \subsection{Wiesentheid OT Untersambach}
-                \input{Routen/wiesentheidotuntersambach.tex}
-                
-                \subsection{Rüdenhausen}
-                \input{Routen/ruedenhausen.tex}
-                
-                \subsection{Abtswind}
-                \input{Routen/abtswind.tex}
-                
-                \subsection{Kleinlangheim}
-                \input{Routen/kleinlangheim.tex}
-                
-                \subsection{Wiesenbronn}
-                \input{Routen/wiesenbronn.tex}
-                
-                \subsection{Großlangheim}
-                \input{Routen/grosslangheim.tex}
-                
-                \subsection{Kitzingen}
-                \input{Routen/kitzingen.tex}
-                
-                \subsection{Würzburg}
-                \input{Routen/wuerzburg.tex}
-        \end{landscape}
-    \chapter{Auswertung}
-        \section{vermiedener Gesamtverkehr und lokale Emissionen}
+        \subsection{Würzburg}
+        \input{Routen/wuerzburg.tex}
 
+        \clearpage
+        \meinegespeichertenWerte
+\chapter{Auswertung}
+\section{vermiedener Gesamtverkehr und lokale Emissionen}
 
-                \paragraph{Vermeidung}
+\paragraph{Vermeidung}
 Die Reaktivierung würde werktäglich eine Straßenverkersleistung von ca. 136.797 PKW-Kilometer aus dem Straßennetz herraus nehmen.
 
 \begin{listing}[htbp]
-\begin{minted}{sql}
+        \begin{minted}{sql}
 SELECT SUM(t1.gesamtfahrleistung)  
 FROM
 (SELECT (potentials.`miv-change` * potentials.`length` * 0.001) AS gesamtfahrleistung
@@ -652,7 +690,7 @@ FROM potentials
 WHERE potentials.`miv-change` < 0
 ) t1
 \end{minted}
-\caption{SQL-Abfrage der vermiedenen werktäglichen Straßenverkehrsleistung}\label{lst-verm-werktaeglich}
+        \caption{SQL-Abfrage der vermiedenen werktäglichen Straßenverkehrsleistung}\label{lst-verm-werktaeglich}
 \end{listing}
 
 \paragraph{Neuinduktionen}
@@ -661,14 +699,14 @@ Es entsteht eine Neubelastung von ca. 9.831 PKW-Kilometern täglich.
 Diese enststeht vor allem aus den Hol- und Bringverkehr zum nächsten Bahnhof für Ortschaften, welche nicht selbst direkt an der Strecke liegen.
 
 \begin{listing}[htbp]
-\begin{minted}{sql}
+        \begin{minted}{sql}
 SELECT SUM(t1.gesamtfahrleistung)  
 FROM
 (SELECT (potentials.`miv-change` * potentials.`length` * 0.001) AS gesamtfahrleistung
 FROM potentials
 WHERE potentials.`miv-change` > 0) t1
 \end{minted}
-\caption{SQL-Abfrage der neu entstehenden werktäglichen Straßenverkehrsleistung}\label{lst-neu-werktaeglich}
+        \caption{SQL-Abfrage der neu entstehenden werktäglichen Straßenverkehrsleistung}\label{lst-neu-werktaeglich}
 \end{listing}
 
 \paragraph{Verkehrssaldo}
@@ -676,13 +714,13 @@ WHERE potentials.`miv-change` > 0) t1
 Im Saldo bedeutet dies eine werktägliche Verkehrsentlastung von ca. 126.966 PKW-Kilometern auf den Straßen zwischen Bamberg, Nürnberg, Schweinfurt und Würzburg.
 
 \begin{listing}[htbp]
-\begin{minted}{sql}
+        \begin{minted}{sql}
 SELECT SUM(t1.gesamtfahrleistung)  
 FROM
 (SELECT (potentials.`miv-change` * potentials.`length` * 0.001 AS gesamtfahrleistung
 FROM potentials) t1
 \end{minted}
-\caption{SQL-Abfrage des Saldos der werktäglichen Straßenverkehrsleistung}\label{lst-neu-werktaeglich}
+        \caption{SQL-Abfrage des Saldos der werktäglichen Straßenverkehrsleistung}\label{lst-neu-werktaeglich-saldo}
 \end{listing}
 
 \subsection{vermiedene Verkehrsemissionen}
@@ -694,28 +732,32 @@ Aus den vermiedenen Verkehren ergeben sich folgende Emissionensvermeidungen.
 Kohlenstoffdioxid ist das haupsächlich bei der motorischen Verbrennung anfallende Gas. Es ist für sich genommen nicht gefährlich, jedoch akkumuliert sich das CO2 aus der Verbrennung fossiler Brennstoffe in der Athmosphäre und trägt damit zum menschengemachten Klimawandel erheblich bei.
 Das Schweinfurter Becken und das Steigerwaldvorland sind bereits jetzt vom Klimawandel und ausbleibenden Niederschlägen getroffen, wie man an den sich nicht mehr auffüllenden Grundwasserreserven und dem Kitzinger Doppel-Temperaturrekord von 40,3°C am 5 Juli und 7. August 2015 sehen kann.
 Daher haben CO2-Emissionen auch einen direkten Bezug zu der Region und deren Lebensgrundlagen, wie zum Beispiel dem Weinbau.
-\newline
-\newline
+
+\vspace{1em}
+
 Seit 2020 ist ein Grenzwert von 95gr CO2 / km für alle neu zugelassenen Pkw in Kraft. Das Durchschnittsalter der Fahrzeuge beträgt gemäß Kraftfahr-Bundesamt 9,6 Jahre. Da mit einer Reaktivierung der Strecke nicht in unter 5--10 Jahren zu rechnen ist, dürfte dieser Grenzwert dann \enquote{durchschnittlich} sein. Auch wenn valide Zweifel an der Einhaltung des Grenzwertes in den letzten Jahren durch \enquote{Defeat Devices} in den Neu-Fahrzeugen angebracht erscheinen, verwende ich diesen wert, um die Berechnung fachlich nicht unnötig angreifbar zu machen.
 Aus diesem Grund wird mit dem heute neuestem Grenzwert für PKW-Co2-Emissionen die vermiedenen Emissionen berechnet. Das gleiche gilt auch für neu entstehenden Verkehr (zum Beispiel auf dem Weg zu Bahnhöfen).
-\newline
-\newline
+
+\vspace{1em}
+
 Die Schliephake-Studie geht von Verkehren an normalen Werktagen aus. Die Werktage in Bayern sind kommunal unterschiedlich, zum Beispiel öffnen am 15. August in Kitzingen die Geschäfte und in anderen Gemeinden bleiben diese Geschlossen. Es wird folglich mit 249 \enquote{normalen} Werktagen gerechnet. Für die restlichen Tage wird nur die Hälfte des Verkehrs und somit auch die Hälfte der Entlastung angenommen, auch wenn dieser sehr grobe Ansatz den touristischen Angeboten weder hinsichtlich Tagestouristen noch hinsichtlich Ferientourismus fachlich der Schliephake-Studie in ihrer Feingleidrigkeit annähernd gerecht wird.
-\newline
-\newline
+
+\vspace{1em}
+
 Die folgende Tabelle Zeigt die vermiedenen Emissionen an Werktagen für das gesamte Jahr, die vermiedenen Emissionen an Nicht-Werktagen für das gesamte Jahr und deren Summe für das ganze Jahr.
-\newline
-\newline
+
+\vspace{1em}
+
 \begin{tabular}{|l|l|l|}
-\hline
-CO2 Werktags [t] & CO2 Nicht-Werktags [t] & CO2 Ganzjährig [t]\\ 
-\hline
--3.003 & -699 & -3702\\ 
-\hline
-\end{tabular}        
+        \hline
+        CO2 Werktags [t] & CO2 Nicht-Werktags [t] & CO2 Ganzjährig [t] \\
+        \hline
+        -3.003           & -699                   & -3702              \\
+        \hline
+\end{tabular}
 
 \begin{listing}[htbp]
-\begin{minted}{sql}
+        \begin{minted}{sql}
 SELECT 
 ROUND(SUM(t1.gesamtfahrleistung) * 0.000095 * 249) AS `CO2 Werktags [t]`, 
 ROUND(SUM(t1.gesamtfahrleistung) * 0.000095 * 0.5 * 116) AS `CO2 Nicht-Werktags [t]`, 
@@ -728,35 +770,40 @@ FROM (
         FROM potentials
 ) t1
 \end{minted}
-\caption{SQL-Abfrage der Veränderung der CO2-Emissionen}\label{lst-emmissionen-co2}
+        \caption{SQL-Abfrage der Veränderung der CO2-Emissionen}\label{lst-emmissionen-co2}
 \end{listing}
 
 \subsubsection{Emissionen an Kohlenwasserstoffen (HC)}
-Kohlenwasserstoffe sind eine Stoffgruppe, aus Kohlenstoffatomen und Wasserstoffatomen zusammen gesetzt ist. Sie entsteht bei der motorischen Verbrennung, da die reale motorische im unterschied zur idealen motorischen Verbrennung nie vollständig verläuft. Die meisten dieser unvollständig verbrannten Restprodukte verbrennen im Katalysator nach dem Motor, daher sind diese Emissionen heutzutage nicht mehr das größte Problem des Straßenverkehrs. Dies betrifft vor allem PKWs mit Fremdzünder / Ottomotor. Die Kohlenwasserstoffe gelten je nach einzelnem Stoff als Krebs-eregent, unweltschädlich und als starke Klimagase. 
-\newline
-\newline
+Kohlenwasserstoffe sind eine Stoffgruppe, aus Kohlenstoffatomen und Wasserstoffatomen zusammen gesetzt ist. Sie entsteht bei der motorischen Verbrennung, da die reale motorische im unterschied zur idealen motorischen Verbrennung nie vollständig verläuft. Die meisten dieser unvollständig verbrannten Restprodukte verbrennen im Katalysator nach dem Motor, daher sind diese Emissionen heutzutage nicht mehr das größte Problem des Straßenverkehrs. Dies betrifft vor allem PKWs mit Fremdzünder / Ottomotor. Die Kohlenwasserstoffe gelten je nach einzelnem Stoff als Krebserregend, unweltschädlich und als starke Klimagase.
+
+\vspace{1em}
+
 Ebenfalls wie den CO2-Emissionen verwenden wir die aktuellste Schadstoffregulierung für Neuwagen um die eingesparten Emissionen zu errechnen. Die begründung ist hier analog zu den Ausführungen in der Sektion \enquote{Kohlenstoffdioxid-Emissionen}.
-\newline
-\newline
-Für Euro6-PKW sind 100mg pro gefahrenen Kilometer zulässig. 
-\newline
-\newline
+
+\vspace{1em}
+
+Für Euro6-PKW sind 100mg pro gefahrenen Kilometer zulässig.
+
+\vspace{1em}
+
 Jedes Jahr könnte also die Freisetzung von knapp 4 Tonnen Kohlenwasserstoffen im Steigerwaldvorland vermieden werden.
-\newline
-\newline
+
+\vspace{1em}
+
 Die folgende Tabelle Zeigt die vermiedenen Emissionen an Werktagen für das gesamte Jahr, die vermiedenen Emissionen an Nicht-Werktagen für das gesamte Jahr und deren Summe für das ganze Jahr.
-\newline
-\newline
+
+\vspace{1em}
+
 \begin{tabular}{|l|l|l|}
-\hline
-HC Werktags [kg] & HC Nicht-Werktags [kg] & HC Ganzjährig [kg]\\ 
-\hline
--3161 & -736 & -3898\\ 
-\hline
+        \hline
+        HC Werktags [kg] & HC Nicht-Werktags [kg] & HC Ganzjährig [kg] \\
+        \hline
+        -3161            & -736                   & -3898              \\
+        \hline
 \end{tabular}
 
 \begin{listing}[htbp]
-\begin{minted}{sql}
+        \begin{minted}{sql}
 SELECT 
 ROUND(SUM(t1.gesamtfahrleistung) * 0.0001 * 249) AS `HC Werktags [kg]`, 
 ROUND(SUM(t1.gesamtfahrleistung) * 0.0001 * 0.5 * 116) AS `HC Nicht-Werktags [kg]`, 
@@ -770,36 +817,41 @@ FROM
         FROM potentials
 ) t1
 \end{minted}
-\caption{SQL-Abfrage der Veränderung der HC-Emissionen}\label{lst-emmissionen-hc}
+        \caption{SQL-Abfrage der Veränderung der HC-Emissionen}\label{lst-emmissionen-hc}
 \end{listing}
 
 \subsubsection{Stickstoffoxid-Emissionen (NOx)}
 
 Stickstoffoxid ist eine Sammelbezeichnung für verschiedene gasförmige Verbindungen, die aus den Atomen Stickstoff (N) und Sauerstoff (O) aufgebaut sind.
-\newline
-\newline
+
+\vspace{1em}
+
 Stickstoffoxide sind ein anhaltendes Problem, da nach aktuellen Regulierungen die Grenzwerte in der Außenluft mit 40 µg/m³ nur an 18 Tagen je Jahr überschritten werden dürfen. Diese Grenzwertüberschreitungen treten also vor allem dort auf, wo der Straßenverkehr sehr gebündelt verläuft. Die Deutsche Umwelthilfe hat wegen lokaler Grenzwertüberschreitungen etliche Städte auf \enquote{Luftreinhaltung} verklagt und regelmäßig damit vor Gericht Erfolg. Die verringerung des Verkehrs durch die Reaktivierung der Steigerwaldbahn kann auch zur Verringerung der NOx-Emissionen beitragen und somit für Schweinfurt und Würzburg ein effektiver Baustein in einem \enquote{Luftreinhalteplan} sein und das Risiko auf \enquote{Luftreinhaltung} verklagt zu werden, abmildern.
-\newline
-\newline
+
+\vspace{1em}
+
 Stickstoffoxiden wird vor allem eine langsame Schädigung der Lunge als gesundheitliche Folge aus langer, häufiger und grenzwert-überschreitender Exponation zugeschrieben.
-\newline
-\newline
+
+\vspace{1em}
+
 Die Festlegung eines Wertes zur Berechnung vermiedenen Emissionen erfolgt analog zu den Ausführungen bei den CO2-Emissionen. Neu zugelassene Fahrzeuge dürfen nach Euro6-Norm lediglich 80 mg pro Gefahrenen Kilometer bei einem Selbstzünder-Motor und 60 mg pro gefahrenen Kilometer bei einem Fremdzünder-Motor emittieren. Daraus errechnet sich mit dem aktuellen Verhältnis der Neuzulassungen von Fremd- und Selbstzündern ein Schnitt von 73 mg pro gefahrenem Kilometer.
-\newline
-\newline
+
+\vspace{1em}
+
 Die folgende Tabelle Zeigt die vermiedenen Emissionen an Werktagen für das gesamte Jahr, die vermiedenen Emissionen an Nicht-Werktagen für das gesamte Jahr und deren Summe für das ganze Jahr.
-\newline
-\newline
+
+\vspace{1em}
+
 \begin{tabular}{|l | l | l |}
-\hline
-NOx Werktags [kg] & NOx Nicht-Werktags [kg] & NOx Ganzjährig [kg]\\ 
-\hline
--2308 & -538 & -2845\\ 
-\hline
+        \hline
+        NOx Werktags [kg] & NOx Nicht-Werktags [kg] & NOx Ganzjährig [kg] \\
+        \hline
+        -2308             & -538                    & -2845               \\
+        \hline
 \end{tabular}
 
 \begin{listing}[htbp]
-\begin{minted}{sql}
+        \begin{minted}{sql}
 SELECT 
 ROUND(SUM(t1.gesamtfahrleistung) * 0.000073 * 249) AS `NOx Werktags [kg]`, 
 ROUND(SUM(t1.gesamtfahrleistung) * 0.000073 * 0.5 * 116) AS `NOx Nicht-Werktags [kg]`, 
@@ -813,7 +865,7 @@ FROM
         FROM potentials
 ) t1
 \end{minted}
-\caption{SQL-Abfrage der Veränderung der NOx-Emissionen}\label{lst-emmissionen-nox}
+        \caption{SQL-Abfrage der Veränderung der NOx-Emissionen}\label{lst-emmissionen-nox}
 \end{listing}
 
 \subsubsection{Emissionen von Feinstaub-Partikeln}
@@ -822,30 +874,35 @@ Deren Emissionen lassen sich zwar berechnen, werden aber gerade im ländlichen K
 
 \subsubsection{Reifenabrieb / Microplastik-Eintrag entlang von Straßen}
 Beim Fahren von PKWs verschleißen die Reifen wie auch die Bremsen. Das abgefahrene Gummi und der Bremsstaub lagern sich entlang von Straßen an, zum Beispiel in Absetzbecken und Gräben. Gelangt dieser Abrieb in Fließgewässer oder sickert in das Grundwasser ein, ist es möglich, dass aus diesen Stoffen Schwermetalle und Microplastik dauerhaft und irreversibel in die Umwelt gelangen. Eine Verminderung des Straßenverkehrs bedeutet ebenso, dass die Schadstoffbelastung durch abgefahrenen Gummi und Bremsabrieb in die Gräben und die ersten Meter der Ackerflächen neben den Straßen, welche zum Teil zur Lebensmittel- und Futtermittelproduktion genutzt werden, sich ebenfalls verringert. Zwar ist durch Lebensmittelkontrollen sichergestellt, dass die Mengen, die dadurch in die Nahrungskette zu uns als Menschen zurück kommen, sehr gering sind, ist vollkommen ungeklärt, was dieses unterschätzte Problem für die Umwelt bedeutet. (https://www.springerprofessional.de/fahrwerk/schadstoffe/unterschaetzte-umweltgefahr-reifenabrieb-/15490524)
-\newline
-\newline
+
+\vspace{1em}
+
 Hersteller geben an, dass normale PKW-Reifen für eine Fahrleistung je nach Fahrstil von 40.000 bis 50.000 Kilometern ausgelegt sind. Die Gewichtsangaben aus Datenblättern verschiedener Hersteller, die ein Gewicht des Reifens spezifizieren, legen nahe, dass ein PKW innerhalb dieser Fahrstrecke ca. 3 kg Reifenabrieb entlang der Straßen und Wege verteilt. Dies korrespondiert auch grob mit der Berichterstattung zu Microplastik und Reifenabrieb, zum Beispiel in der ARD (12000km / 1,3kg): https://www.daserste.de/information/wissen-kultur/w-wie-wissen/reifenabrieb-100.html
-\newline
-\newline
+
+\vspace{1em}
+
 Es liegt daher Nahe mit eine Schätzwert von 75 gr je 1000 gefahrenen Kilometern den vermiedenen Eintrag dieser Stoffe in die Umwelt zu beziffern. Die Annahmen zu Werk- und Feiertagen sind bereits in der Sektion CO2-Emissionen erläutert.
-\newline
-\newline
+
+\vspace{1em}
+
 Jedes Jahr könnten im Steigerwaldvorland kanpp 3 Tonnen Reifenabrieb weniger in die Umwelt gelangen.
-\newline
-\newline
+
+\vspace{1em}
+
 Die folgende Tabelle Zeigt die vermiedenen Emissionen an Werktagen für das gesamte Jahr, die vermiedenen Emissionen an Nicht-Werktagen für das gesamte Jahr und deren Summe für das ganze Jahr.
-\newline
-\newline
+
+\vspace{1em}
+
 \begin{tabular}{|l | l | l |}
         \hline
-        Reifenabrieb an Werktagen [kg] & Reifenabrieb an Nicht-Werktagen [kg] & Reifenabrieb Ganzjährig [kg]\\ 
+        Reifenabrieb an Werktagen [kg] & Reifenabrieb an Nicht-Werktagen [kg] & Reifenabrieb Ganzjährig [kg] \\
         \hline
-        -2371 & -552 & -2923\\ 
+        -2371                          & -552                                 & -2923                        \\
         \hline
 \end{tabular}
 
 \begin{listing}[htbp]
-\begin{minted}{sql}
+        \begin{minted}{sql}
 SELECT 
 ROUND(SUM(t1.gesamtfahrleistung) * 0.000075 * 249) AS `Reifenabrieb an Werktagen [kg]`, 
 ROUND(SUM(t1.gesamtfahrleistung) * 0.000075 * 0.5 * 116) AS `Reifenabrieb an Nicht-Werktagen [kg]`, 
@@ -859,7 +916,7 @@ FROM
         FROM potentials
 ) t1
 \end{minted}
-\caption{SQL-Abfrage der Veränderung des Eintrags von Reifenabrieb in die Umwelt}\label{lst-emmissionen-reifenabrieb}
+        \caption{SQL-Abfrage der Veränderung des Eintrags von Reifenabrieb in die Umwelt}\label{lst-emmissionen-reifenabrieb}
 \end{listing}
 
 \subsection{vermiedene Verkehrsunfälle und Folgeschäden}
@@ -868,25 +925,27 @@ Gemäß der Veröffentlichung \enquote{Verkehr in Zahlen 2018} des BMVI hatte De
 66500 haben sich im Jahr 2017 schwer und 323800 leicht bei der Teilnahme am Straßenverkehr verletzt. 90100 Unfälle mit schweren Sachschäden gab es 2017.
 Die Veröffentlichung gibt je Milliarde Farzeugkilometer auf Straßen (Autobahnen sind bei den meisten Verkehrsbeziehungen untergeordnet relevant) 4,2 Getötete, 400 Unfälle mit Personenschäden und 516 Verletzte an.
 Download: \url{https://www.bmvi.de/SharedDocs/DE/Publikationen/G/verkehr-in-zahlen_2018-pdf.pdf?__blob=publicationFile}
-\newline
-\newline
+
+\vspace{1em}
+
 Die Reaktivierung der Steigerwaldbahn verlagert werktäglich 126.966 PKW-Kilometer. Die Schliephake-Studie betrachtet ausschließlich den werktäglichen Verkehr. Daher wird für die Nicht-Werktage lediglich die Hälfte dieses Verkehres angenommen, auch wenn dies nicht annähernd an die Präzision der Schliephake-Studie herranreicht. Weiterhin wird mit 249 Werktagen im Jahr gerechnet, auch wenn diese nicht in allen Kommunen an der Strecke gleich sind.
-\newline
-\newline
+
+\vspace{1em}
+
 Im Jahr summiert sich damit vermiedene Leistung im Straßenverkehr auf knapp 40 Mio km.
-\newline
-\newline
-\begin{tabular}{|l | l | l |}
+
+\vspace{1em}
+
+\begin{tabularx}{\textwidth}{*4{|X}|}
         \hline
-        Fahrleistung an Werktagen [km] & Fahrleistung an Nicht-Werktagen [km] & Fahrleistung Ganzjährig [km]\\ 
+        Fahrleistung an Werktagen [km] & Fahrleistung an Nicht-Werktagen [km] & Fahrleistung Ganzjährig [km] \\
         \hline
-        -31614558.900 & -7364033.8000 & -38978592.7000\\ 
+        -31614558.900                  & -7364033.8000                        & -38978592.7000               \\
         \hline
-\end{tabular}
-\newline
-\newline
+\end{tabularx}
+
 \begin{listing}[htbp]
-\begin{minted}{sql}
+        \begin{minted}{sql}
 SELECT
 SUM(t1.gesamtfahrleistung) * 249 AS `Fahrleistung an Werktagen [km]`, 
 SUM(t1.gesamtfahrleistung) * 0.5 * 116 AS `Fahrleistung an Nicht-Werktagen [km]`, 
@@ -897,41 +956,54 @@ FROM
         FROM potentials
 ) t1
 \end{minted}
-\caption{SQL-Abfrage der jährlichen Gesamtfahrleistung}\label{lst-gesamtfahrleistung-jaehrlich}
+        \caption{SQL-Abfrage der jährlichen Gesamtfahrleistung}\label{lst-gesamtfahrleistung-jaehrlich}
 \end{listing}
 
-Daraus ergeben sich folgende statistische Zahlen im Mittel:\newline
-\newline
-- \textbf{vermiedene Getötete: \(\approx\) 0.168 / Jahr} (oder als Kehrbruch ausgelegt: wenn man die Steigerwaldbahn nicht reaktiviert, akzeptiert man, dass \textbf{ca.\ alle 6 Jahre eine Person vermeidbar im Straßenverkehr im Steigerwaldvorland umkommt})\newline
-- \textbf{vermiedene Unfälle mit Personenschäden: \(\approx\) 16 / Jahr}\newline
-- \textbf{vermiedene Verletzte: \(\approx\) 21 / Jahr}\newline
-\newline
+Daraus ergeben sich folgende statistische Zahlen im Mittel:
+
+\begin{itemize}
+        \item \textbf{vermiedene Getötete: \(\approx\) 0.168 / Jahr} (oder als Kehrbruch ausgelegt: wenn man die Steigerwaldbahn nicht reaktiviert, akzeptiert man, dass \textbf{ca.\ alle 6 Jahre eine Person vermeidbar im Straßenverkehr im Steigerwaldvorland umkommt})
+        \item \textbf{vermiedene Unfälle mit Personenschäden: \(\approx\) 16 / Jahr}
+        \item \textbf{vermiedene Verletzte: \(\approx\) 21 / Jahr}
+\end{itemize}
+
 Natürlich könnten diese Zahlen deutlich höher ausfallen, wenn man die Betrachtungsweise dahingehend verändert, dass man die Veränderung des Verkehrsfluss durch einzelne Unfallschwerpunkte und deren charakteristisches Unfallbild und deren charackteristische Unfallschwere einzeln betrachtet. Dies führt jedoch im Rahmen dieser Berechnung zu weit.
 
 \subsection{vermiedene Betriebskosten für PKWs}
 Aus der vermiedenen Fahrleistung lässt sich natürlich errechnen, wie hoch die Einsparungen von Betriebskosten von PKWs gesamtheitlich ausfallen dürften. Dies ist eine wichtige Kennzahl, denn durch das billigere Pendeln mit VGN-Verbundfahrkarten wird für den PKW-Betrieb gebundenes Einkommen frei, welches anderweitig ausgegeben werden kann. Es stellt sich die Vermutung an, dass Aufwendungen für den PKW Betrieb nur zu ganz kleinen Teilen in der Region verbleiben und mehrheitlich aus der Region abfließen. Die Verringerung der Benutzung des Automobils verringert also auch einen Abfluss der Kaufkraft und kann damit die Region wirtschaftlich stärken, da diese Kaufkraft lokal in den Wirtschafts-Kreislauf gelangt.
-\newline
-\newline
-Der ADAC reportiert die \enquote{wahren Kosten} eines PKWs in \enquote{pro Monat} und \enquote{Cent pro Kilometer} für Neuwagen in dem Bericht \enquote{ADAC AutokostenHerbst/Winter 2019/2020}. Dieser Bericht listet diese Kosten für Neufahrzeuge, die, sobald die Reaktivierung abgeschlossen sein wird, im Durchschnittsalter des Flottenmixes zugelassener Fahrzeuge sein werden.\newline
-Besondere Aussagekraft hat dieses Dokument hinsichtlich des Umstandes, dass es keinen Neuwagen gibt, welcher mit den rund 30 Cent/km, welcher gerne aus der Finanzamt-basierten Kostenerstattung herangezogen wird, hinkommt. Jeder Neuwagen, den man aktuell kaufen kann, liegt deutlich darüber. Massenfahrzeuge liegen oft bei 60 bis 70 Cent/km.\newline
-Download: \url{https://www.adac.de/_mmm/pdf/autokostenuebersicht_47085.pdf}\newline
-\newline
-Aus diesem Grund werde ich mit 55 cent / Kilometer rechnen.\newline
-\newline
-Im Jahr summiert sich damit vermiedene Leistung im Straßenverkehr auf knapp 40 Mio km.
-\newline
-\newline
-\begin{tabular}{| l | l | l |}
+
+\vspace{1em}
+
+Der ADAC reportiert die \enquote{wahren Kosten} eines PKWs in \enquote{pro Monat} und \enquote{Cent pro Kilometer} für Neuwagen in dem Bericht \enquote{ADAC AutokostenHerbst/Winter 2019/2020}. Dieser Bericht listet diese Kosten für Neufahrzeuge, die, sobald die Reaktivierung abgeschlossen sein wird, im Durchschnittsalter des Flottenmixes zugelassener Fahrzeuge sein werden.
+
+\vspace{1em}
+
+Besondere Aussagekraft hat dieses Dokument hinsichtlich des Umstandes, dass es keinen Neuwagen gibt, welcher mit den rund 30 Cent/km, welcher gerne aus der Finanzamt-basierten Kostenerstattung herangezogen wird, hinkommt. Jeder Neuwagen, den man aktuell kaufen kann, liegt deutlich darüber. Massenfahrzeuge liegen oft bei 60 bis 70 Cent/km.
+
+\vspace{1em}
+
+Download: \url{https://www.adac.de/_mmm/pdf/autokostenuebersicht_47085.pdf}
+
+\vspace{1em}
+
+Aus diesem Grund werde ich mit 55 Cent pro Kilometer rechnen.
+
+\vspace{1em}
+
+Im Jahr summiert sich damit vermiedene Leistung im Straßenverkehr auf knapp 40 Mio. km.
+
+\vspace{1em}
+
+\begin{tabularx}{\textwidth}{*4{|X}|}
         \hline
-        Fahrleistung an Werktagen [km] & Fahrleistung an Nicht-Werktagen [km] & Fahrleistung Ganzjährig [km]\\ 
+        Fahrleistung an Werktagen [km] & Fahrleistung an Nicht-Werktagen [km] & Fahrleistung Ganzjährig [km] \\
         \hline
-        -31614558.900 & -7364033.8000 & -38978592.7000\\ 
+        -31614558.900                  & -7364033.8000                        & -38978592.7000               \\
         \hline
-\end{tabular}
-\newline
-\newline
+\end{tabularx}
+
 \begin{listing}[htbp]
-\begin{minted}{sql}
+        \begin{minted}{sql}
 SELECT
 SUM(t1.gesamtfahrleistung) * 249 AS `Fahrleistung an Werktagen [km]`, 
 SUM(t1.gesamtfahrleistung) * 0.5 * 116 AS `Fahrleistung an Nicht-Werktagen [km]`, 
@@ -942,22 +1014,22 @@ FROM
         FROM potentials
 ) t1
 \end{minted}
-\caption{SQL-Abfrage der jährlichen Gesamtfahrleistung}\label{lst-gesamtfahrleistung-jaehrlich}
+        \caption{SQL-Abfrage der jährlichen Gesamtfahrleistung}\label{lst-gesamtfahrleistung-jaehrlich2}
 \end{listing}
 
 Somit ergeben sich folgende Vermiedene Betriebskosten:
-\newline
-\newline
+
+
 \begin{tabular}{ | l |}
         \hline
-        vermiedene Betriebskosten  Ganzjährig [T€]\\ 
+        vermiedene Betriebskosten  Ganzjährig [T€] \\
         \hline
-        -21438\\
+        -21438                                     \\
         \hline
 \end{tabular}
 
 \begin{listing}[htbp]
-\begin{minted}{sql}
+        \begin{minted}{sql}
 SELECT 
 ROUND(
         (SUM(t1.gesamtfahrleistung) * 249 * 0.00055) 
@@ -969,68 +1041,68 @@ FROM
         FROM potentials
 ) t1
 \end{minted}
-\caption{SQL-Abfrage der jährlich vermiedenen Betriebskosten}\label{lst-betriebskosten-jaehrlich}
+        \caption{SQL-Abfrage der jährlich vermiedenen Betriebskosten}\label{lst-betriebskosten-jaehrlich}
 \end{listing}
 
 Abzüglich der Kosten für die Fahrkarten, welche hier noch nicht gegengerechnet sind, stehen den Haushalten im Steigerwaldvorland also jedes Jahr ca. 21,4 Mio € zur Verfügung, welche wahrscheinlich vorwiegend lokal ausgegeben werden; zum Beispiel in der Gastronomie, für die Ausbildung der Kinder oder für Bau und/oder Unterhalt einer eigenen Immobilie (-> Handwerk). Dies entspricht einem kleinem Konjunkturprogramm für die Landkreise Kitzingen und Schweinfurt sowie die Kreisfreie Stadt Schweinfurt. Bei den Hauptkosten für einen PKW verbleibt die ausgegebene Kaufkraft hingegen im größeren Anteil nicht in den Landkreisen Schweinfurt und Kitzingen und kann daher als dem lokalen Wirtschaftskreislauf als größtenteils \enquote{entzogen} angesehen werden.
 
 \section{Veränderung des Straßenverkehrs auf einzelnen Straßen}
-                \subsection{Gesamtliste}
-                \subsection{hervorgehobene Neuralgische Punkte im Straßennetz}
-        \section{Verlagerung der Einzelorte}
-                \subsection{Schweinfurt}
-                \subsection{Sennfeld}
-                \subsection{Gochsheim}
-                \subsection{Gochsheim OT Weyer}
-                \subsection{Schwebheim}
-                \subsection{Grettstatt}
-                \subsection{Grettstatt OT Dürrfeld}
-                \subsection{Donnersdorf}
-                \subsection{Sulzheim}
-                \subsection{Alitzheim}
-                \subsection{Mönchstockheim}
-                \subsection{Vögnitz}
-                \subsection{Kolitzheim}
-                \subsection{Gerolzhofen}
-                \subsection{Dingolshausen}
-                \subsection{Michelau}
-                \subsection{Frankenwinheim}
-                \subsection{Oberschwarzach}
-                \subsection{Volkach}
-                \subsection{Lülsfeld}
-                \subsection{Schallfeld}
-                \subsection{Prichsenstadt}
-                \subsection{Prichsenstadt OT Altenschönbach}
-                \subsection{Prichsenstadt OT Bimbach} 
-                \subsection{Prichsenstadt OT Brünnau}
-                \subsection{Järkendorf}
-                \subsection{Prichsenstadt OT Kirchschönbach}
-                \subsection{Prichsenstadt OT Laub}
-                \subsection{Prichsenstadt OT Neudorf}
-                \subsection{Prichsenstadt OT Neuses}
-                \subsection{Prichsenstadt OT Stadelschwarzach}
-                \subsection{Wiesentheid}
-                \subsection{Wiesentheid OT Feuerbach}
-                \subsection{Wiesentheid OT Geesdorf}
-                \subsection{Wiesentheid OT Reupelsdorf}
-                \subsection{Wiesentheid OT Untersambach}
-                \subsection{Rüdenhausen}
-                \subsection{Abtswind}
-                \subsection{Kleinlangheim}
-                \subsection{Wiesenbronn}
-                \subsection{Großlangheim}
-                \subsection{Kitzingen}
-                \subsection{Würzburg}
-        
-        
-        \section{gewonnene Produktivität}
-Aufgrund der durchgeführten Erhebung der PKW-Fahrzeiten lässt sich grob ein Zugewinn an Produktivität 
-
-        \section{Zugewinn an Umsteigern}
+\subsection{Gesamtliste}
+\subsection{hervorgehobene Neuralgische Punkte im Straßennetz}
+\section{Verlagerung der Einzelorte}
+\subsection{Schweinfurt}
+\subsection{Sennfeld}
+\subsection{Gochsheim}
+\subsection{Gochsheim OT Weyer}
+\subsection{Schwebheim}
+\subsection{Grettstatt}
+\subsection{Grettstatt OT Dürrfeld}
+\subsection{Donnersdorf}
+\subsection{Sulzheim}
+\subsection{Alitzheim}
+\subsection{Mönchstockheim}
+\subsection{Vögnitz}
+\subsection{Kolitzheim}
+\subsection{Gerolzhofen}
+\subsection{Dingolshausen}
+\subsection{Michelau}
+\subsection{Frankenwinheim}
+\subsection{Oberschwarzach}
+\subsection{Volkach}
+\subsection{Lülsfeld}
+\subsection{Schallfeld}
+\subsection{Prichsenstadt}
+\subsection{Prichsenstadt OT Altenschönbach}
+\subsection{Prichsenstadt OT Bimbach}
+\subsection{Prichsenstadt OT Brünnau}
+\subsection{Järkendorf}
+\subsection{Prichsenstadt OT Kirchschönbach}
+\subsection{Prichsenstadt OT Laub}
+\subsection{Prichsenstadt OT Neudorf}
+\subsection{Prichsenstadt OT Neuses}
+\subsection{Prichsenstadt OT Stadelschwarzach}
+\subsection{Wiesentheid}
+\subsection{Wiesentheid OT Feuerbach}
+\subsection{Wiesentheid OT Geesdorf}
+\subsection{Wiesentheid OT Reupelsdorf}
+\subsection{Wiesentheid OT Untersambach}
+\subsection{Rüdenhausen}
+\subsection{Abtswind}
+\subsection{Kleinlangheim}
+\subsection{Wiesenbronn}
+\subsection{Großlangheim}
+\subsection{Kitzingen}
+\subsection{Würzburg}
 
 
-        \chapter{Listings}
-        \input{listings.tex}
-    
+\section{gewonnene Produktivität}
+Aufgrund der durchgeführten Erhebung der PKW-Fahrzeiten lässt sich grob ein Zugewinn an Produktivität
+
+\section{Zugewinn an Umsteigern}
+
+
+\chapter{Listings}
+\input{listings.tex}
+
 \end{document}
 
